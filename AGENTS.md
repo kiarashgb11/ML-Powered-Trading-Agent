@@ -4,7 +4,7 @@ Build a careful, reproducible futures ML research platform. The immediate scient
 
 # Current Phase
 
-Phase 1 is complete: repository setup, external-storage safety, final Databento estimation, historical acquisition, and raw-data validation.
+Phase 1 and Phase 2 are complete: repository/storage setup, Databento acquisition and validation, canonical processing, rollover-safe feature/label construction, chronological splitting, and baseline predictive evaluation.
 
 Current handoff (2026-09-23):
 
@@ -18,7 +18,23 @@ Current handoff (2026-09-23):
 - Validation result: PASS. Checksums and DBN readability passed; invalid OHLC rows, negative-volume rows, duplicate one-minute bars, suspicious gaps over four days, and failed/incomplete partitions are all zero. The continuous OHLCV series contains 440 recorded instrument transitions.
 - Known data issues: none found by the current raw-data checks. A missing one-minute bar can legitimately mean no qualifying trade, and definition snapshots can include instrument event timestamps before the requested start.
 - MBP-1 is postponed to a later incremental experiment.
-- Exact next task: build the clean one-minute research dataset, implement rollover-safe feature engineering and future-return labels, then train the first simple baseline models.
+
+Phase 2 handoff (2026-09-23):
+
+- Canonical processed status: PASS. `25,205,190/25,205,190` OHLCV rows are preserved as compressed Parquet under `D:\futures-ml-data\processed\bars_1m`; no resampling, fill, or back-adjustment was used.
+- Rollover status: `456` contiguous contract segments and exactly `440` rollovers, matching Phase 1. Segment metadata is under `D:\futures-ml-data\processed\rollovers`.
+- Feature-set version: `phase2_v1`. Experiment A has 35 own-market numeric inputs. Experiment B adds 19 limited exact-UTC anchor inputs. Definitions aid interpretation; Statistics and Status are not ML inputs.
+- Eligibility: `23,832,724/25,205,190` rows (94.55%) have a valid exact 5-minute target and completed 240-observation segment warm-up. Other legitimate feature nulls remain missing until train-only median imputation.
+- Global split: data starts `2021-09-23T00:00:00Z`; train/validation boundary `2025-03-24T04:47:00Z`; validation/test boundary `2025-12-23T02:23:00Z`; data ends `2026-09-22T23:59:00Z`; a 75-minute purge is applied on both sides of each boundary.
+- Target: `future_return_5m = ln(close[t+5m]/close[t])`, exact timestamp and same contract segment. Exact 1-minute and 15-minute labels are retained but were not used for the full model matrix.
+- Models trained: zero, Ridge, and `HistGradientBoostingRegressor` for pooled Experiment A; Ridge/HGB for pooled Experiment B; matching NQ-only models (plus the Experiment A zero reference).
+- Compute contract: complete features are retained; baseline fitting uses a deterministic evenly spaced cap of 100,000 train observations per root (1.6 million pooled). Validation and test metrics use every eligible observation.
+- Experiment A pooled HGB test: `R²=0.000489`, Pearson `0.02233`, Spearman `0.06743` on `3,525,964` observations.
+- Experiment B pooled HGB test: `R²=0.000576`, Pearson `0.02403`, Spearman `0.06720` on `3,525,964` observations. The aggregate improvement is tiny and not consistent across every root.
+- NQ-only HGB remains approximately zero/negative R²; pooled-vs-NQ and all per-root results are in `reports/baseline_model_report.md`.
+- Model artifacts: `D:\futures-ml-data\artifacts\models\{experiment_a,experiment_b}\{pooled,nq_only}\...`; each saved pipeline has adjacent metadata containing feature order, encoding, target, splits, seed, versions, and configuration.
+- Known issues: none in raw/canonical integrity. Legitimate missing minutes and flat bars create feature nulls. Predictive metrics are extremely weak and cannot be interpreted as profitability. No 1m/15m model diagnostic was run because the primary matrix and audit work were prioritized.
+- Exact next recommended task: review the Phase 2 reports and decide whether a narrowly scoped target-horizon or market-specific sampling study is warranted. Do not begin strategy/backtest/live work without a new explicit phase request.
 
 # Core Architecture Decisions
 

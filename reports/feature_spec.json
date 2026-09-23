@@ -1,0 +1,896 @@
+[
+  {
+    "name": "log_return_1m",
+    "kind": "feature",
+    "formula": "ln(close[t] / close[t-1m])",
+    "source_columns": [
+      "close",
+      "timestamp",
+      "contract_segment_id"
+    ],
+    "lookback": "exact 1 clock minutes",
+    "normalization": "log ratio",
+    "experiment": [
+      "A",
+      "B"
+    ],
+    "code": "features.ohlcv_features.add_exact_log_returns"
+  },
+  {
+    "name": "log_return_5m",
+    "kind": "feature",
+    "formula": "ln(close[t] / close[t-5m])",
+    "source_columns": [
+      "close",
+      "timestamp",
+      "contract_segment_id"
+    ],
+    "lookback": "exact 5 clock minutes",
+    "normalization": "log ratio",
+    "experiment": [
+      "A",
+      "B"
+    ],
+    "code": "features.ohlcv_features.add_exact_log_returns"
+  },
+  {
+    "name": "log_return_15m",
+    "kind": "feature",
+    "formula": "ln(close[t] / close[t-15m])",
+    "source_columns": [
+      "close",
+      "timestamp",
+      "contract_segment_id"
+    ],
+    "lookback": "exact 15 clock minutes",
+    "normalization": "log ratio",
+    "experiment": [
+      "A",
+      "B"
+    ],
+    "code": "features.ohlcv_features.add_exact_log_returns"
+  },
+  {
+    "name": "log_return_30m",
+    "kind": "feature",
+    "formula": "ln(close[t] / close[t-30m])",
+    "source_columns": [
+      "close",
+      "timestamp",
+      "contract_segment_id"
+    ],
+    "lookback": "exact 30 clock minutes",
+    "normalization": "log ratio",
+    "experiment": [
+      "A",
+      "B"
+    ],
+    "code": "features.ohlcv_features.add_exact_log_returns"
+  },
+  {
+    "name": "log_return_60m",
+    "kind": "feature",
+    "formula": "ln(close[t] / close[t-60m])",
+    "source_columns": [
+      "close",
+      "timestamp",
+      "contract_segment_id"
+    ],
+    "lookback": "exact 60 clock minutes",
+    "normalization": "log ratio",
+    "experiment": [
+      "A",
+      "B"
+    ],
+    "code": "features.ohlcv_features.add_exact_log_returns"
+  },
+  {
+    "name": "return_open_to_close",
+    "kind": "feature",
+    "formula": "(close-open)/open",
+    "source_columns": [
+      "open",
+      "close"
+    ],
+    "lookback": "current bar",
+    "normalization": "ratio",
+    "experiment": [
+      "A",
+      "B"
+    ],
+    "code": "features.ohlcv_features.add_candle_features"
+  },
+  {
+    "name": "range_pct",
+    "kind": "feature",
+    "formula": "(high-low)/close",
+    "source_columns": [
+      "high",
+      "low",
+      "close"
+    ],
+    "lookback": "current bar",
+    "normalization": "ratio",
+    "experiment": [
+      "A",
+      "B"
+    ],
+    "code": "features.ohlcv_features.add_candle_features"
+  },
+  {
+    "name": "upper_wick_pct",
+    "kind": "feature",
+    "formula": "(high-max(open,close))/close",
+    "source_columns": [
+      "open",
+      "high",
+      "close"
+    ],
+    "lookback": "current bar",
+    "normalization": "ratio",
+    "experiment": [
+      "A",
+      "B"
+    ],
+    "code": "features.ohlcv_features.add_candle_features"
+  },
+  {
+    "name": "lower_wick_pct",
+    "kind": "feature",
+    "formula": "(min(open,close)-low)/close",
+    "source_columns": [
+      "open",
+      "low",
+      "close"
+    ],
+    "lookback": "current bar",
+    "normalization": "ratio",
+    "experiment": [
+      "A",
+      "B"
+    ],
+    "code": "features.ohlcv_features.add_candle_features"
+  },
+  {
+    "name": "close_location_in_bar",
+    "kind": "feature",
+    "formula": "(close-low)/(high-low)",
+    "source_columns": [
+      "high",
+      "low",
+      "close"
+    ],
+    "lookback": "current bar",
+    "normalization": "unit interval",
+    "experiment": [
+      "A",
+      "B"
+    ],
+    "code": "features.ohlcv_features.add_candle_features"
+  },
+  {
+    "name": "close_to_ema_5",
+    "kind": "feature",
+    "formula": "ln(close/EMA_5)",
+    "source_columns": [
+      "close"
+    ],
+    "lookback": "5 observations",
+    "normalization": "log ratio",
+    "experiment": [
+      "A",
+      "B"
+    ],
+    "code": "features.ohlcv_features.add_trend_features"
+  },
+  {
+    "name": "close_to_ema_20",
+    "kind": "feature",
+    "formula": "ln(close/EMA_20)",
+    "source_columns": [
+      "close"
+    ],
+    "lookback": "20 observations",
+    "normalization": "log ratio",
+    "experiment": [
+      "A",
+      "B"
+    ],
+    "code": "features.ohlcv_features.add_trend_features"
+  },
+  {
+    "name": "close_to_ema_50",
+    "kind": "feature",
+    "formula": "ln(close/EMA_50)",
+    "source_columns": [
+      "close"
+    ],
+    "lookback": "50 observations",
+    "normalization": "log ratio",
+    "experiment": [
+      "A",
+      "B"
+    ],
+    "code": "features.ohlcv_features.add_trend_features"
+  },
+  {
+    "name": "ema5_vs_ema20",
+    "kind": "feature",
+    "formula": "ln(EMA_5/EMA_20)",
+    "source_columns": [
+      "close"
+    ],
+    "lookback": "20 observations",
+    "normalization": "log ratio",
+    "experiment": [
+      "A",
+      "B"
+    ],
+    "code": "features.ohlcv_features.add_trend_features"
+  },
+  {
+    "name": "ema20_vs_ema50",
+    "kind": "feature",
+    "formula": "ln(EMA_20/EMA_50)",
+    "source_columns": [
+      "close"
+    ],
+    "lookback": "50 observations",
+    "normalization": "log ratio",
+    "experiment": [
+      "A",
+      "B"
+    ],
+    "code": "features.ohlcv_features.add_trend_features"
+  },
+  {
+    "name": "rsi_14",
+    "kind": "feature",
+    "formula": "100-100/(1+mean(gain,14)/mean(loss,14))",
+    "source_columns": [
+      "close"
+    ],
+    "lookback": "14 observations",
+    "normalization": "0 to 100",
+    "experiment": [
+      "A",
+      "B"
+    ],
+    "code": "features.ohlcv_features.add_trend_features"
+  },
+  {
+    "name": "atr_14_normalized",
+    "kind": "feature",
+    "formula": "mean(true_range,14)/close",
+    "source_columns": [
+      "high",
+      "low",
+      "close"
+    ],
+    "lookback": "14 observations",
+    "normalization": "price ratio",
+    "experiment": [
+      "A",
+      "B"
+    ],
+    "code": "features.ohlcv_features.add_volatility_features"
+  },
+  {
+    "name": "realized_vol_5m",
+    "kind": "feature",
+    "formula": "std(log_return_1m) over (t-5m,t]",
+    "source_columns": [
+      "close",
+      "timestamp"
+    ],
+    "lookback": "5 clock minutes",
+    "normalization": "standard deviation",
+    "experiment": [
+      "A",
+      "B"
+    ],
+    "code": "features.ohlcv_features.add_volatility_features"
+  },
+  {
+    "name": "realized_vol_15m",
+    "kind": "feature",
+    "formula": "std(log_return_1m) over (t-15m,t]",
+    "source_columns": [
+      "close",
+      "timestamp"
+    ],
+    "lookback": "15 clock minutes",
+    "normalization": "standard deviation",
+    "experiment": [
+      "A",
+      "B"
+    ],
+    "code": "features.ohlcv_features.add_volatility_features"
+  },
+  {
+    "name": "realized_vol_60m",
+    "kind": "feature",
+    "formula": "std(log_return_1m) over (t-60m,t]",
+    "source_columns": [
+      "close",
+      "timestamp"
+    ],
+    "lookback": "60 clock minutes",
+    "normalization": "standard deviation",
+    "experiment": [
+      "A",
+      "B"
+    ],
+    "code": "features.ohlcv_features.add_volatility_features"
+  },
+  {
+    "name": "volume",
+    "kind": "feature",
+    "formula": "current bar volume",
+    "source_columns": [
+      "volume"
+    ],
+    "lookback": "current bar",
+    "normalization": "none",
+    "experiment": [
+      "A",
+      "B"
+    ],
+    "code": "features.ohlcv_features.add_volume_features"
+  },
+  {
+    "name": "rolling_volume_mean_20",
+    "kind": "feature",
+    "formula": "mean(volume,20)",
+    "source_columns": [
+      "volume"
+    ],
+    "lookback": "20 observations",
+    "normalization": "none",
+    "experiment": [
+      "A",
+      "B"
+    ],
+    "code": "features.ohlcv_features.add_volume_features"
+  },
+  {
+    "name": "rolling_volume_mean_60",
+    "kind": "feature",
+    "formula": "mean(volume,60)",
+    "source_columns": [
+      "volume"
+    ],
+    "lookback": "60 observations",
+    "normalization": "none",
+    "experiment": [
+      "A",
+      "B"
+    ],
+    "code": "features.ohlcv_features.add_volume_features"
+  },
+  {
+    "name": "volume_zscore_20",
+    "kind": "feature",
+    "formula": "(volume-mean20)/std20",
+    "source_columns": [
+      "volume"
+    ],
+    "lookback": "20 observations",
+    "normalization": "z-score",
+    "experiment": [
+      "A",
+      "B"
+    ],
+    "code": "features.ohlcv_features.add_volume_features"
+  },
+  {
+    "name": "volume_zscore_60",
+    "kind": "feature",
+    "formula": "(volume-mean60)/std60",
+    "source_columns": [
+      "volume"
+    ],
+    "lookback": "60 observations",
+    "normalization": "z-score",
+    "experiment": [
+      "A",
+      "B"
+    ],
+    "code": "features.ohlcv_features.add_volume_features"
+  },
+  {
+    "name": "relative_volume_20",
+    "kind": "feature",
+    "formula": "volume/mean20",
+    "source_columns": [
+      "volume"
+    ],
+    "lookback": "20 observations",
+    "normalization": "ratio",
+    "experiment": [
+      "A",
+      "B"
+    ],
+    "code": "features.ohlcv_features.add_volume_features"
+  },
+  {
+    "name": "close_minus_vwap_60m_pct",
+    "kind": "feature",
+    "formula": "(close-bar_vwap60)/close",
+    "source_columns": [
+      "high",
+      "low",
+      "close",
+      "volume"
+    ],
+    "lookback": "60 observations",
+    "normalization": "price ratio",
+    "experiment": [
+      "A",
+      "B"
+    ],
+    "code": "features.ohlcv_features.add_vwap_features"
+  },
+  {
+    "name": "close_minus_vwap_240m_pct",
+    "kind": "feature",
+    "formula": "(close-bar_vwap240)/close",
+    "source_columns": [
+      "high",
+      "low",
+      "close",
+      "volume"
+    ],
+    "lookback": "240 observations",
+    "normalization": "price ratio",
+    "experiment": [
+      "A",
+      "B"
+    ],
+    "code": "features.ohlcv_features.add_vwap_features"
+  },
+  {
+    "name": "chicago_hour",
+    "kind": "feature",
+    "formula": "Chicago local hour",
+    "source_columns": [
+      "timestamp"
+    ],
+    "lookback": "current bar",
+    "normalization": "none",
+    "experiment": [
+      "A",
+      "B"
+    ],
+    "code": "features.ohlcv_features.add_time_features"
+  },
+  {
+    "name": "chicago_minute",
+    "kind": "feature",
+    "formula": "Chicago local minute",
+    "source_columns": [
+      "timestamp"
+    ],
+    "lookback": "current bar",
+    "normalization": "none",
+    "experiment": [
+      "A",
+      "B"
+    ],
+    "code": "features.ohlcv_features.add_time_features"
+  },
+  {
+    "name": "chicago_day_of_week",
+    "kind": "feature",
+    "formula": "Chicago weekday 0=Monday",
+    "source_columns": [
+      "timestamp"
+    ],
+    "lookback": "current bar",
+    "normalization": "none",
+    "experiment": [
+      "A",
+      "B"
+    ],
+    "code": "features.ohlcv_features.add_time_features"
+  },
+  {
+    "name": "hour_sin",
+    "kind": "feature",
+    "formula": "sin(2*pi*minute_of_day/1440)",
+    "source_columns": [
+      "timestamp"
+    ],
+    "lookback": "current bar",
+    "normalization": "cyclical",
+    "experiment": [
+      "A",
+      "B"
+    ],
+    "code": "features.ohlcv_features.add_time_features"
+  },
+  {
+    "name": "hour_cos",
+    "kind": "feature",
+    "formula": "cos(2*pi*minute_of_day/1440)",
+    "source_columns": [
+      "timestamp"
+    ],
+    "lookback": "current bar",
+    "normalization": "cyclical",
+    "experiment": [
+      "A",
+      "B"
+    ],
+    "code": "features.ohlcv_features.add_time_features"
+  },
+  {
+    "name": "day_of_week_sin",
+    "kind": "feature",
+    "formula": "sin(2*pi*weekday/7)",
+    "source_columns": [
+      "timestamp"
+    ],
+    "lookback": "current bar",
+    "normalization": "cyclical",
+    "experiment": [
+      "A",
+      "B"
+    ],
+    "code": "features.ohlcv_features.add_time_features"
+  },
+  {
+    "name": "day_of_week_cos",
+    "kind": "feature",
+    "formula": "cos(2*pi*weekday/7)",
+    "source_columns": [
+      "timestamp"
+    ],
+    "lookback": "current bar",
+    "normalization": "cyclical",
+    "experiment": [
+      "A",
+      "B"
+    ],
+    "code": "features.ohlcv_features.add_time_features"
+  },
+  {
+    "name": "NQ_return_1m",
+    "kind": "feature",
+    "formula": "anchor exact-time log return",
+    "source_columns": [
+      "timestamp",
+      "anchor log return"
+    ],
+    "lookback": "encoded in name",
+    "normalization": "log return",
+    "experiment": [
+      "B"
+    ],
+    "code": "features.cross_market.add_cross_market_features"
+  },
+  {
+    "name": "NQ_return_5m",
+    "kind": "feature",
+    "formula": "anchor exact-time log return",
+    "source_columns": [
+      "timestamp",
+      "anchor log return"
+    ],
+    "lookback": "encoded in name",
+    "normalization": "log return",
+    "experiment": [
+      "B"
+    ],
+    "code": "features.cross_market.add_cross_market_features"
+  },
+  {
+    "name": "NQ_return_15m",
+    "kind": "feature",
+    "formula": "anchor exact-time log return",
+    "source_columns": [
+      "timestamp",
+      "anchor log return"
+    ],
+    "lookback": "encoded in name",
+    "normalization": "log return",
+    "experiment": [
+      "B"
+    ],
+    "code": "features.cross_market.add_cross_market_features"
+  },
+  {
+    "name": "ES_return_1m",
+    "kind": "feature",
+    "formula": "anchor exact-time log return",
+    "source_columns": [
+      "timestamp",
+      "anchor log return"
+    ],
+    "lookback": "encoded in name",
+    "normalization": "log return",
+    "experiment": [
+      "B"
+    ],
+    "code": "features.cross_market.add_cross_market_features"
+  },
+  {
+    "name": "ES_return_5m",
+    "kind": "feature",
+    "formula": "anchor exact-time log return",
+    "source_columns": [
+      "timestamp",
+      "anchor log return"
+    ],
+    "lookback": "encoded in name",
+    "normalization": "log return",
+    "experiment": [
+      "B"
+    ],
+    "code": "features.cross_market.add_cross_market_features"
+  },
+  {
+    "name": "ES_return_15m",
+    "kind": "feature",
+    "formula": "anchor exact-time log return",
+    "source_columns": [
+      "timestamp",
+      "anchor log return"
+    ],
+    "lookback": "encoded in name",
+    "normalization": "log return",
+    "experiment": [
+      "B"
+    ],
+    "code": "features.cross_market.add_cross_market_features"
+  },
+  {
+    "name": "ZN_return_1m",
+    "kind": "feature",
+    "formula": "anchor exact-time log return",
+    "source_columns": [
+      "timestamp",
+      "anchor log return"
+    ],
+    "lookback": "encoded in name",
+    "normalization": "log return",
+    "experiment": [
+      "B"
+    ],
+    "code": "features.cross_market.add_cross_market_features"
+  },
+  {
+    "name": "ZN_return_5m",
+    "kind": "feature",
+    "formula": "anchor exact-time log return",
+    "source_columns": [
+      "timestamp",
+      "anchor log return"
+    ],
+    "lookback": "encoded in name",
+    "normalization": "log return",
+    "experiment": [
+      "B"
+    ],
+    "code": "features.cross_market.add_cross_market_features"
+  },
+  {
+    "name": "ZN_return_15m",
+    "kind": "feature",
+    "formula": "anchor exact-time log return",
+    "source_columns": [
+      "timestamp",
+      "anchor log return"
+    ],
+    "lookback": "encoded in name",
+    "normalization": "log return",
+    "experiment": [
+      "B"
+    ],
+    "code": "features.cross_market.add_cross_market_features"
+  },
+  {
+    "name": "CL_return_1m",
+    "kind": "feature",
+    "formula": "anchor exact-time log return",
+    "source_columns": [
+      "timestamp",
+      "anchor log return"
+    ],
+    "lookback": "encoded in name",
+    "normalization": "log return",
+    "experiment": [
+      "B"
+    ],
+    "code": "features.cross_market.add_cross_market_features"
+  },
+  {
+    "name": "CL_return_5m",
+    "kind": "feature",
+    "formula": "anchor exact-time log return",
+    "source_columns": [
+      "timestamp",
+      "anchor log return"
+    ],
+    "lookback": "encoded in name",
+    "normalization": "log return",
+    "experiment": [
+      "B"
+    ],
+    "code": "features.cross_market.add_cross_market_features"
+  },
+  {
+    "name": "CL_return_15m",
+    "kind": "feature",
+    "formula": "anchor exact-time log return",
+    "source_columns": [
+      "timestamp",
+      "anchor log return"
+    ],
+    "lookback": "encoded in name",
+    "normalization": "log return",
+    "experiment": [
+      "B"
+    ],
+    "code": "features.cross_market.add_cross_market_features"
+  },
+  {
+    "name": "GC_return_1m",
+    "kind": "feature",
+    "formula": "anchor exact-time log return",
+    "source_columns": [
+      "timestamp",
+      "anchor log return"
+    ],
+    "lookback": "encoded in name",
+    "normalization": "log return",
+    "experiment": [
+      "B"
+    ],
+    "code": "features.cross_market.add_cross_market_features"
+  },
+  {
+    "name": "GC_return_5m",
+    "kind": "feature",
+    "formula": "anchor exact-time log return",
+    "source_columns": [
+      "timestamp",
+      "anchor log return"
+    ],
+    "lookback": "encoded in name",
+    "normalization": "log return",
+    "experiment": [
+      "B"
+    ],
+    "code": "features.cross_market.add_cross_market_features"
+  },
+  {
+    "name": "GC_return_15m",
+    "kind": "feature",
+    "formula": "anchor exact-time log return",
+    "source_columns": [
+      "timestamp",
+      "anchor log return"
+    ],
+    "lookback": "encoded in name",
+    "normalization": "log return",
+    "experiment": [
+      "B"
+    ],
+    "code": "features.cross_market.add_cross_market_features"
+  },
+  {
+    "name": "6E_return_1m",
+    "kind": "feature",
+    "formula": "anchor exact-time log return",
+    "source_columns": [
+      "timestamp",
+      "anchor log return"
+    ],
+    "lookback": "encoded in name",
+    "normalization": "log return",
+    "experiment": [
+      "B"
+    ],
+    "code": "features.cross_market.add_cross_market_features"
+  },
+  {
+    "name": "6E_return_5m",
+    "kind": "feature",
+    "formula": "anchor exact-time log return",
+    "source_columns": [
+      "timestamp",
+      "anchor log return"
+    ],
+    "lookback": "encoded in name",
+    "normalization": "log return",
+    "experiment": [
+      "B"
+    ],
+    "code": "features.cross_market.add_cross_market_features"
+  },
+  {
+    "name": "6E_return_15m",
+    "kind": "feature",
+    "formula": "anchor exact-time log return",
+    "source_columns": [
+      "timestamp",
+      "anchor log return"
+    ],
+    "lookback": "encoded in name",
+    "normalization": "log return",
+    "experiment": [
+      "B"
+    ],
+    "code": "features.cross_market.add_cross_market_features"
+  },
+  {
+    "name": "NQ_ES_return_spread_5m",
+    "kind": "feature",
+    "formula": "NQ_return_5m - ES_return_5m",
+    "source_columns": [
+      "timestamp",
+      "anchor log return"
+    ],
+    "lookback": "5 clock minutes",
+    "normalization": "log return",
+    "experiment": [
+      "B"
+    ],
+    "code": "features.cross_market.add_cross_market_features"
+  },
+  {
+    "name": "future_return_1m",
+    "kind": "label",
+    "formula": "ln(close[t+1m] / close[t])",
+    "source_columns": [
+      "close",
+      "timestamp",
+      "contract_segment_id"
+    ],
+    "lookback": "none",
+    "horizon": "exact 1 clock minutes",
+    "normalization": "log ratio",
+    "experiment": [
+      "A",
+      "B"
+    ],
+    "code": "labels.future_returns.add_future_return"
+  },
+  {
+    "name": "future_return_5m",
+    "kind": "label",
+    "formula": "ln(close[t+5m] / close[t])",
+    "source_columns": [
+      "close",
+      "timestamp",
+      "contract_segment_id"
+    ],
+    "lookback": "none",
+    "horizon": "exact 5 clock minutes",
+    "normalization": "log ratio",
+    "experiment": [
+      "A",
+      "B"
+    ],
+    "code": "labels.future_returns.add_future_return"
+  },
+  {
+    "name": "future_return_15m",
+    "kind": "label",
+    "formula": "ln(close[t+15m] / close[t])",
+    "source_columns": [
+      "close",
+      "timestamp",
+      "contract_segment_id"
+    ],
+    "lookback": "none",
+    "horizon": "exact 15 clock minutes",
+    "normalization": "log ratio",
+    "experiment": [
+      "A",
+      "B"
+    ],
+    "code": "labels.future_returns.add_future_return"
+  }
+]

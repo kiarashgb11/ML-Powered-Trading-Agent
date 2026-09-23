@@ -1,0 +1,3420 @@
+{
+  "version": "phase2_v1",
+  "target": "future_return_5m",
+  "split_boundaries": {
+    "data_start": "2021-09-23T00:00:00+00:00",
+    "train_validation_boundary": "2025-03-24T04:47:00+00:00",
+    "validation_test_boundary": "2025-12-23T02:23:00+00:00",
+    "data_end": "2026-09-22T23:59:00+00:00",
+    "purge_minutes": 75
+  },
+  "experiments": {
+    "experiment_a": {
+      "pooled": {
+        "eligible_train_counts_by_root": {
+          "NQ": 1229479,
+          "ES": 1228753,
+          "RTY": 1159191,
+          "ZF": 1068572,
+          "ZN": 1123291,
+          "ZB": 997507,
+          "CL": 1196100,
+          "NG": 997515,
+          "GC": 1204831,
+          "HG": 1147059,
+          "6E": 1188176,
+          "6J": 1186792,
+          "6B": 1077849,
+          "ZC": 640400,
+          "ZS": 758822,
+          "ZW": 608549
+        },
+        "model_fit_counts_by_root": {
+          "NQ": 100000,
+          "ES": 100000,
+          "RTY": 100000,
+          "ZF": 100000,
+          "ZN": 100000,
+          "ZB": 100000,
+          "CL": 100000,
+          "NG": 100000,
+          "GC": 100000,
+          "HG": 100000,
+          "6E": 100000,
+          "6J": 100000,
+          "6B": 100000,
+          "ZC": 100000,
+          "ZS": 100000,
+          "ZW": 100000
+        },
+        "eligible_train_rows": 16812886,
+        "model_fit_rows": 1600000,
+        "original_feature_count": 36,
+        "models": {
+          "zero": {
+            "validation": {
+              "overall": {
+                "observations": 3490684,
+                "mae": 0.0004818782089019605,
+                "rmse": 0.0009422980671375486,
+                "r2": -2.9915137211844467e-07,
+                "pearson": null,
+                "spearman": null,
+                "direction_accuracy": 0.13833821680793792
+              },
+              "macro_average": {
+                "mae": 0.0004989976030689066,
+                "rmse": 0.0008102517316099043,
+                "r2": -1.8219197565380596e-05,
+                "pearson": null,
+                "spearman": null,
+                "direction_accuracy": 0.1545492987293381
+              },
+              "per_root": {
+                "NQ": {
+                  "observations": 264612,
+                  "mae": 0.00045195794283853615,
+                  "rmse": 0.0008628421611433176,
+                  "r2": -2.167150565357545e-05,
+                  "pearson": null,
+                  "spearman": null,
+                  "direction_accuracy": 0.01369552401251644
+                },
+                "ES": {
+                  "observations": 264653,
+                  "mae": 0.00036271030705366686,
+                  "rmse": 0.0007310527283073056,
+                  "r2": -1.793213752465661e-05,
+                  "pearson": null,
+                  "spearman": null,
+                  "direction_accuracy": 0.06197549243726691
+                },
+                "RTY": {
+                  "observations": 250279,
+                  "mae": 0.0005380843927761742,
+                  "rmse": 0.001011067476864455,
+                  "r2": -1.3643877965874296e-05,
+                  "pearson": null,
+                  "spearman": null,
+                  "direction_accuracy": 0.041561617235165556
+                },
+                "ZF": {
+                  "observations": 209221,
+                  "mae": 9.66995964613503e-05,
+                  "rmse": 0.00016535857848001966,
+                  "r2": -1.6581888080402507e-06,
+                  "pearson": null,
+                  "spearman": null,
+                  "direction_accuracy": 0.2992481634252776
+                },
+                "ZN": {
+                  "observations": 227444,
+                  "mae": 0.00014728958785921914,
+                  "rmse": 0.0002380599651557427,
+                  "r2": -2.5059336212773786e-06,
+                  "pearson": null,
+                  "spearman": null,
+                  "direction_accuracy": 0.34847259105538064
+                },
+                "ZB": {
+                  "observations": 193343,
+                  "mae": 0.0003075098707250932,
+                  "rmse": 0.0004796704234924519,
+                  "r2": -7.779341388847172e-07,
+                  "pearson": null,
+                  "spearman": null,
+                  "direction_accuracy": 0.32726294719746774
+                },
+                "CL": {
+                  "observations": 253516,
+                  "mae": 0.0007994406602646667,
+                  "rmse": 0.001294125463379511,
+                  "r2": -3.3760893505263567e-06,
+                  "pearson": null,
+                  "spearman": null,
+                  "direction_accuracy": 0.09572571356442985
+                },
+                "NG": {
+                  "observations": 216881,
+                  "mae": 0.0013941096467169017,
+                  "rmse": 0.0020998261649136265,
+                  "r2": -1.840238772987668e-05,
+                  "pearson": null,
+                  "spearman": null,
+                  "direction_accuracy": 0.0997736085687543
+                },
+                "GC": {
+                  "observations": 261727,
+                  "mae": 0.0004980941274945441,
+                  "rmse": 0.0007452106621526539,
+                  "r2": -8.288010655221889e-05,
+                  "pearson": null,
+                  "spearman": null,
+                  "direction_accuracy": 0.024571404555128053
+                },
+                "HG": {
+                  "observations": 224792,
+                  "mae": 0.0007830250267483656,
+                  "rmse": 0.001449220282211296,
+                  "r2": -6.316720946308862e-08,
+                  "pearson": null,
+                  "spearman": null,
+                  "direction_accuracy": 0.057208441581550945
+                },
+                "6E": {
+                  "observations": 256089,
+                  "mae": 0.00020114031861829336,
+                  "rmse": 0.00030989326376253324,
+                  "r2": -2.7204542633496587e-05,
+                  "pearson": null,
+                  "spearman": null,
+                  "direction_accuracy": 0.09097618406101005
+                },
+                "6J": {
+                  "observations": 255357,
+                  "mae": 0.00024194099469742345,
+                  "rmse": 0.0003616571418429627,
+                  "r2": -1.3799862133012653e-05,
+                  "pearson": null,
+                  "spearman": null,
+                  "direction_accuracy": 0.12311391502876365
+                },
+                "6B": {
+                  "observations": 224538,
+                  "mae": 0.00020093362678857735,
+                  "rmse": 0.0002926988749366564,
+                  "r2": -2.3568101323423463e-05,
+                  "pearson": null,
+                  "spearman": null,
+                  "direction_accuracy": 0.14565017947964265
+                },
+                "ZC": {
+                  "observations": 119578,
+                  "mae": 0.0006787930736953108,
+                  "rmse": 0.001030624860722183,
+                  "r2": -1.4335967139400552e-05,
+                  "pearson": null,
+                  "spearman": null,
+                  "direction_accuracy": 0.31927277592868253
+                },
+                "ZS": {
+                  "observations": 149691,
+                  "mae": 0.0004919357886545663,
+                  "rmse": 0.0007508166567359722,
+                  "r2": -1.165092959554137e-05,
+                  "pearson": null,
+                  "spearman": null,
+                  "direction_accuracy": 0.19644467603262722
+                },
+                "ZW": {
+                  "observations": 118963,
+                  "mae": 0.0007902966877098173,
+                  "rmse": 0.001141903001657781,
+                  "r2": -3.803642966682119e-05,
+                  "pearson": null,
+                  "spearman": null,
+                  "direction_accuracy": 0.22783554550574547
+                }
+              },
+              "prediction_deciles": [
+                {
+                  "decile": 1,
+                  "observations": 349069,
+                  "mean_prediction": 0.0,
+                  "mean_actual": 4.260622494877138e-06
+                },
+                {
+                  "decile": 2,
+                  "observations": 349069,
+                  "mean_prediction": 0.0,
+                  "mean_actual": 4.001384017777296e-06
+                },
+                {
+                  "decile": 3,
+                  "observations": 349069,
+                  "mean_prediction": 0.0,
+                  "mean_actual": -3.410889805494229e-07
+                },
+                {
+                  "decile": 4,
+                  "observations": 349069,
+                  "mean_prediction": 0.0,
+                  "mean_actual": 8.597986602096991e-07
+                },
+                {
+                  "decile": 5,
+                  "observations": 349068,
+                  "mean_prediction": 0.0,
+                  "mean_actual": -6.464228767976658e-06
+                },
+                {
+                  "decile": 6,
+                  "observations": 349068,
+                  "mean_prediction": 0.0,
+                  "mean_actual": 2.6769564211863165e-06
+                },
+                {
+                  "decile": 7,
+                  "observations": 349068,
+                  "mean_prediction": 0.0,
+                  "mean_actual": 2.6178668629694553e-06
+                },
+                {
+                  "decile": 8,
+                  "observations": 349068,
+                  "mean_prediction": 0.0,
+                  "mean_actual": -1.7141772269868394e-09
+                },
+                {
+                  "decile": 9,
+                  "observations": 349068,
+                  "mean_prediction": 0.0,
+                  "mean_actual": -1.4804092219211487e-06
+                },
+                {
+                  "decile": 10,
+                  "observations": 349068,
+                  "mean_prediction": 0.0,
+                  "mean_actual": -9.75333294312946e-07
+                }
+              ]
+            },
+            "test": {
+              "overall": {
+                "observations": 3525964,
+                "mae": 0.0005420153950207808,
+                "rmse": 0.001099267660736642,
+                "r2": -1.7971883952139223e-06,
+                "pearson": null,
+                "spearman": null,
+                "direction_accuracy": 0.14093734365977645
+              },
+              "macro_average": {
+                "mae": 0.0005466738417526469,
+                "rmse": 0.0008607178371165232,
+                "r2": -1.2670108493706422e-05,
+                "pearson": null,
+                "spearman": null,
+                "direction_accuracy": 0.15475614643032298
+              },
+              "per_root": {
+                "NQ": {
+                  "observations": 263560,
+                  "mae": 0.0004860347661416269,
+                  "rmse": 0.000757313685583464,
+                  "r2": -1.8858517442987832e-05,
+                  "pearson": null,
+                  "spearman": null,
+                  "direction_accuracy": 0.009144027925330096
+                },
+                "ES": {
+                  "observations": 263685,
+                  "mae": 0.0003227958678031655,
+                  "rmse": 0.0005234657675747862,
+                  "r2": -2.229062491876377e-05,
+                  "pearson": null,
+                  "spearman": null,
+                  "direction_accuracy": 0.05206591197830745
+                },
+                "RTY": {
+                  "observations": 253676,
+                  "mae": 0.0004964730523439853,
+                  "rmse": 0.0008156634512246378,
+                  "r2": -1.873121080264717e-05,
+                  "pearson": null,
+                  "spearman": null,
+                  "direction_accuracy": 0.03541131206736152
+                },
+                "ZF": {
+                  "observations": 207990,
+                  "mae": 8.704185547448943e-05,
+                  "rmse": 0.00014015823283045273,
+                  "r2": -6.658693905792212e-05,
+                  "pearson": null,
+                  "spearman": null,
+                  "direction_accuracy": 0.3134669936054618
+                },
+                "ZN": {
+                  "observations": 223102,
+                  "mae": 0.00013293571972417724,
+                  "rmse": 0.00020659569124361184,
+                  "r2": -2.915566189609642e-05,
+                  "pearson": null,
+                  "spearman": null,
+                  "direction_accuracy": 0.3657743991537503
+                },
+                "ZB": {
+                  "observations": 188770,
+                  "mae": 0.00026329392417293366,
+                  "rmse": 0.00039517882892457545,
+                  "r2": -3.3540996073888607e-06,
+                  "pearson": null,
+                  "spearman": null,
+                  "direction_accuracy": 0.3597340679133337
+                },
+                "CL": {
+                  "observations": 257057,
+                  "mae": 0.0014005407732848147,
+                  "rmse": 0.002359284527648267,
+                  "r2": -3.774039869286483e-06,
+                  "pearson": null,
+                  "spearman": null,
+                  "direction_accuracy": 0.04523510349844587
+                },
+                "NG": {
+                  "observations": 224803,
+                  "mae": 0.0014582895987784149,
+                  "rmse": 0.0022962754303052194,
+                  "r2": -5.160544764404307e-06,
+                  "pearson": null,
+                  "spearman": null,
+                  "direction_accuracy": 0.11221825331512479
+                },
+                "GC": {
+                  "observations": 258798,
+                  "mae": 0.0007092522864143099,
+                  "rmse": 0.0011439413730501703,
+                  "r2": -4.2408331335508365e-06,
+                  "pearson": null,
+                  "spearman": null,
+                  "direction_accuracy": 0.013593613551882162
+                },
+                "HG": {
+                  "observations": 234377,
+                  "mae": 0.0007488029053648305,
+                  "rmse": 0.0011314507672140813,
+                  "r2": -9.149406335673405e-06,
+                  "pearson": null,
+                  "spearman": null,
+                  "direction_accuracy": 0.046190539174065716
+                },
+                "6E": {
+                  "observations": 251535,
+                  "mae": 0.00014878372411716831,
+                  "rmse": 0.00022765481906759108,
+                  "r2": -3.9940259912718545e-06,
+                  "pearson": null,
+                  "spearman": null,
+                  "direction_accuracy": 0.11916433100761326
+                },
+                "6J": {
+                  "observations": 244198,
+                  "mae": 0.0001758530708862195,
+                  "rmse": 0.0003023748819945575,
+                  "r2": -5.735416046537267e-07,
+                  "pearson": null,
+                  "spearman": null,
+                  "direction_accuracy": 0.1965085709137667
+                },
+                "6B": {
+                  "observations": 218782,
+                  "mae": 0.0001798393262341701,
+                  "rmse": 0.0002698162607937568,
+                  "r2": -5.612219464490309e-06,
+                  "pearson": null,
+                  "spearman": null,
+                  "direction_accuracy": 0.16388459745317258
+                },
+                "ZC": {
+                  "observations": 133540,
+                  "mae": 0.0006862950367207514,
+                  "rmse": 0.0010418086627091074,
+                  "r2": -1.0379763306644918e-06,
+                  "pearson": null,
+                  "spearman": null,
+                  "direction_accuracy": 0.29332784184514005
+                },
+                "ZS": {
+                  "observations": 157458,
+                  "mae": 0.0005024300073616389,
+                  "rmse": 0.0007618278504188271,
+                  "r2": -2.8734097348159793e-06,
+                  "pearson": null,
+                  "spearman": null,
+                  "direction_accuracy": 0.17510066176377193
+                },
+                "ZW": {
+                  "observations": 144633,
+                  "mae": 0.0009481195532196541,
+                  "rmse": 0.0013986751632812655,
+                  "r2": -7.328684944685193e-06,
+                  "pearson": null,
+                  "spearman": null,
+                  "direction_accuracy": 0.1752781177186396
+                }
+              },
+              "prediction_deciles": [
+                {
+                  "decile": 1,
+                  "observations": 352597,
+                  "mean_prediction": 0.0,
+                  "mean_actual": 2.2652559143873415e-06
+                },
+                {
+                  "decile": 2,
+                  "observations": 352597,
+                  "mean_prediction": 0.0,
+                  "mean_actual": 5.131104736178348e-06
+                },
+                {
+                  "decile": 3,
+                  "observations": 352597,
+                  "mean_prediction": 0.0,
+                  "mean_actual": -1.2269012641033507e-06
+                },
+                {
+                  "decile": 4,
+                  "observations": 352597,
+                  "mean_prediction": 0.0,
+                  "mean_actual": -1.080048550373601e-06
+                },
+                {
+                  "decile": 5,
+                  "observations": 352596,
+                  "mean_prediction": 0.0,
+                  "mean_actual": 4.927897144354895e-06
+                },
+                {
+                  "decile": 6,
+                  "observations": 352596,
+                  "mean_prediction": 0.0,
+                  "mean_actual": 8.43745951839598e-07
+                },
+                {
+                  "decile": 7,
+                  "observations": 352596,
+                  "mean_prediction": 0.0,
+                  "mean_actual": 1.2365291874607409e-06
+                },
+                {
+                  "decile": 8,
+                  "observations": 352596,
+                  "mean_prediction": 0.0,
+                  "mean_actual": -7.953431017477086e-07
+                },
+                {
+                  "decile": 9,
+                  "observations": 352596,
+                  "mean_prediction": 0.0,
+                  "mean_actual": -1.2830747728954564e-06
+                },
+                {
+                  "decile": 10,
+                  "observations": 352596,
+                  "mean_prediction": 0.0,
+                  "mean_actual": 4.717524202661182e-06
+                }
+              ]
+            }
+          },
+          "ridge": {
+            "validation": {
+              "overall": {
+                "observations": 3490684,
+                "mae": 0.0004832163982295319,
+                "rmse": 0.0009419054978702237,
+                "r2": 0.0008327442870122992,
+                "pearson": 0.03024524951803717,
+                "spearman": 0.05698914569579759,
+                "direction_accuracy": 0.45692735291994346
+              },
+              "macro_average": {
+                "mae": 0.0005005408114030449,
+                "rmse": 0.0008094390411883582,
+                "r2": 0.0032793982835947408,
+                "pearson": 0.049221376366054205,
+                "spearman": 0.06928391722059578,
+                "direction_accuracy": 0.45212876359256327
+              },
+              "per_root": {
+                "NQ": {
+                  "observations": 264612,
+                  "mae": 0.00045227535629440704,
+                  "rmse": 0.0008639396182733597,
+                  "r2": -0.002567163395683414,
+                  "pearson": -0.013449072098944276,
+                  "spearman": 0.008822431961569871,
+                  "direction_accuracy": 0.499988662645685
+                },
+                "ES": {
+                  "observations": 264653,
+                  "mae": 0.00036348389959689345,
+                  "rmse": 0.0007319168640969,
+                  "r2": -0.0023834578620636204,
+                  "pearson": -0.007827116498924574,
+                  "spearman": 0.014828154352091776,
+                  "direction_accuracy": 0.4769717327972855
+                },
+                "RTY": {
+                  "observations": 250279,
+                  "mae": 0.000538689476810913,
+                  "rmse": 0.0010116665634208172,
+                  "r2": -0.0011990686579472776,
+                  "pearson": 0.003259744226670414,
+                  "spearman": 0.010525837827333072,
+                  "direction_accuracy": 0.48470307137234847
+                },
+                "ZF": {
+                  "observations": 209221,
+                  "mae": 9.850470458060591e-05,
+                  "rmse": 0.00016448852453379727,
+                  "r2": 0.010493913878224403,
+                  "pearson": 0.10311635074795802,
+                  "spearman": 0.144828265781689,
+                  "direction_accuracy": 0.40552812576175434
+                },
+                "ZN": {
+                  "observations": 227444,
+                  "mae": 0.00014928556771246203,
+                  "rmse": 0.0002351932549921166,
+                  "r2": 0.023936478415854556,
+                  "pearson": 0.17155463618685943,
+                  "spearman": 0.2204021025930268,
+                  "direction_accuracy": 0.4114903009092348
+                },
+                "ZB": {
+                  "observations": 193343,
+                  "mae": 0.00031014597108229927,
+                  "rmse": 0.0004768934860948919,
+                  "r2": 0.011544238009851604,
+                  "pearson": 0.12814770964182035,
+                  "spearman": 0.16717209834604083,
+                  "direction_accuracy": 0.4006713457430577
+                },
+                "CL": {
+                  "observations": 253516,
+                  "mae": 0.0008008897347554218,
+                  "rmse": 0.0012945880930174953,
+                  "r2": -0.0007184750572182264,
+                  "pearson": 0.008313525453348673,
+                  "spearman": 0.021790731461796067,
+                  "direction_accuracy": 0.4659074772400953
+                },
+                "NG": {
+                  "observations": 216881,
+                  "mae": 0.0013952331287074534,
+                  "rmse": 0.0020993925187741554,
+                  "r2": 0.00039459307708034075,
+                  "pearson": 0.022918666585896724,
+                  "spearman": 0.03952002359300796,
+                  "direction_accuracy": 0.4732733618896999
+                },
+                "GC": {
+                  "observations": 261727,
+                  "mae": 0.0004981192900117495,
+                  "rmse": 0.0007454122661164461,
+                  "r2": -0.0006240638429075851,
+                  "pearson": 0.015096601962628662,
+                  "spearman": 0.02216190424509849,
+                  "direction_accuracy": 0.49742670798198124
+                },
+                "HG": {
+                  "observations": 224792,
+                  "mae": 0.0007834137650012129,
+                  "rmse": 0.0014481700892593028,
+                  "r2": 0.00144873314681504,
+                  "pearson": 0.038256612495558756,
+                  "spearman": 0.024811804058238084,
+                  "direction_accuracy": 0.4849371863767394
+                },
+                "6E": {
+                  "observations": 256089,
+                  "mae": 0.0002021505135557571,
+                  "rmse": 0.00031026336306569645,
+                  "r2": -0.00241725571151008,
+                  "pearson": 0.016525671129931557,
+                  "spearman": 0.0223351475248482,
+                  "direction_accuracy": 0.46562718429920846
+                },
+                "6J": {
+                  "observations": 255357,
+                  "mae": 0.00024330358778039017,
+                  "rmse": 0.00036175228945382686,
+                  "r2": -0.0005400521001921454,
+                  "pearson": 0.02779361130195389,
+                  "spearman": 0.03567311574971384,
+                  "direction_accuracy": 0.4546341004946017
+                },
+                "6B": {
+                  "observations": 224538,
+                  "mae": 0.00020260252239839678,
+                  "rmse": 0.0002930643519960067,
+                  "r2": -0.0025224766058691284,
+                  "pearson": 0.01836651400743755,
+                  "spearman": 0.028274478583587878,
+                  "direction_accuracy": 0.4412838806794396
+                },
+                "ZC": {
+                  "observations": 119578,
+                  "mae": 0.0006822773537600584,
+                  "rmse": 0.0010245334728854875,
+                  "r2": 0.011771666715192364,
+                  "pearson": 0.14399144531043068,
+                  "spearman": 0.18845505273627314,
+                  "direction_accuracy": 0.4166485473916607
+                },
+                "ZS": {
+                  "observations": 149691,
+                  "mae": 0.0004941323236444172,
+                  "rmse": 0.0007500432018932647,
+                  "r2": 0.0020476146841788,
+                  "pearson": 0.045302781516323117,
+                  "spearman": 0.0708626536252319,
+                  "direction_accuracy": 0.43375353227648955
+                },
+                "ZW": {
+                  "observations": 118963,
+                  "mae": 0.0007941457867562805,
+                  "rmse": 0.0011397067011401656,
+                  "r2": 0.0038051478437102215,
+                  "pearson": 0.06617433988791836,
+                  "spearman": 0.08807887308998556,
+                  "direction_accuracy": 0.42121499962173115
+                }
+              },
+              "prediction_deciles": [
+                {
+                  "decile": 1,
+                  "observations": 349069,
+                  "mean_prediction": -6.108348864517517e-05,
+                  "mean_actual": -5.54320026707753e-05
+                },
+                {
+                  "decile": 2,
+                  "observations": 349069,
+                  "mean_prediction": -2.899375110548913e-05,
+                  "mean_actual": -2.1540285460248535e-05
+                },
+                {
+                  "decile": 3,
+                  "observations": 349069,
+                  "mean_prediction": -1.9861390431755734e-05,
+                  "mean_actual": -1.7263688046805617e-05
+                },
+                {
+                  "decile": 4,
+                  "observations": 349069,
+                  "mean_prediction": -1.0924254807806496e-05,
+                  "mean_actual": -1.0774616753239397e-05
+                },
+                {
+                  "decile": 5,
+                  "observations": 349068,
+                  "mean_prediction": -2.765768208076849e-06,
+                  "mean_actual": -1.3003441794029839e-06
+                },
+                {
+                  "decile": 6,
+                  "observations": 349068,
+                  "mean_prediction": 4.317719849411054e-06,
+                  "mean_actual": 4.531387725340884e-06
+                },
+                {
+                  "decile": 7,
+                  "observations": 349068,
+                  "mean_prediction": 1.3008218966641963e-05,
+                  "mean_actual": 1.4355248197924126e-05
+                },
+                {
+                  "decile": 8,
+                  "observations": 349068,
+                  "mean_prediction": 2.1623080058370513e-05,
+                  "mean_actual": 1.964482169997147e-05
+                },
+                {
+                  "decile": 9,
+                  "observations": 349068,
+                  "mean_prediction": 3.080764231385895e-05,
+                  "mean_actual": 2.9305146689868506e-05
+                },
+                {
+                  "decile": 10,
+                  "observations": 349068,
+                  "mean_prediction": 6.151010758909437e-05,
+                  "mean_actual": 4.3628512798480026e-05
+                }
+              ]
+            },
+            "test": {
+              "overall": {
+                "observations": 3525964,
+                "mae": 0.0005432422227065704,
+                "rmse": 0.0010992862512717067,
+                "r2": -3.562102646292864e-05,
+                "pearson": 0.018802192827337517,
+                "spearman": 0.059391611773999105,
+                "direction_accuracy": 0.4571368283964329
+              },
+              "macro_average": {
+                "mae": 0.00054807668561361,
+                "rmse": 0.0008600489663585871,
+                "r2": 0.003908072212542843,
+                "pearson": 0.05229767914344237,
+                "spearman": 0.07572999820527607,
+                "direction_accuracy": 0.4528918488530521
+              },
+              "per_root": {
+                "NQ": {
+                  "observations": 263560,
+                  "mae": 0.00048624305029344007,
+                  "rmse": 0.0007576936875009672,
+                  "r2": -0.00102268145304385,
+                  "pearson": 0.0078598474753748,
+                  "spearman": 0.013789886826943619,
+                  "direction_accuracy": 0.5027394141751403
+                },
+                "ES": {
+                  "observations": 263685,
+                  "mae": 0.00032335564943750046,
+                  "rmse": 0.000523860088378602,
+                  "r2": -0.0015294688967566472,
+                  "pearson": 0.008166796785121104,
+                  "spearman": 0.017736399035678165,
+                  "direction_accuracy": 0.48215105144395776
+                },
+                "RTY": {
+                  "observations": 253676,
+                  "mae": 0.00049680744174191,
+                  "rmse": 0.0008161204124528477,
+                  "r2": -0.0011395311967261623,
+                  "pearson": 0.006408189611219328,
+                  "spearman": 0.01819234623242575,
+                  "direction_accuracy": 0.49054699695674797
+                },
+                "ZF": {
+                  "observations": 207990,
+                  "mae": 8.896443794445052e-05,
+                  "rmse": 0.00013931854032148643,
+                  "r2": 0.011880380779171307,
+                  "pearson": 0.11090417037571114,
+                  "spearman": 0.15284027432076552,
+                  "direction_accuracy": 0.3980047117649887
+                },
+                "ZN": {
+                  "observations": 223102,
+                  "mae": 0.00013511554343872652,
+                  "rmse": 0.00020355561332418003,
+                  "r2": 0.02918537777852903,
+                  "pearson": 0.1884065832783026,
+                  "spearman": 0.23471651889588951,
+                  "direction_accuracy": 0.4029233265501878
+                },
+                "ZB": {
+                  "observations": 188770,
+                  "mae": 0.00026597303084759604,
+                  "rmse": 0.00039172963175079567,
+                  "r2": 0.01737690927078417,
+                  "pearson": 0.16366836814521704,
+                  "spearman": 0.2013093466251168,
+                  "direction_accuracy": 0.39353181119881336
+                },
+                "CL": {
+                  "observations": 257057,
+                  "mae": 0.0014008865710650892,
+                  "rmse": 0.0023614976179317476,
+                  "r2": -0.0018807300333163468,
+                  "pearson": -0.01092999228985101,
+                  "spearman": 0.021872182630842403,
+                  "direction_accuracy": 0.48961514372298753
+                },
+                "NG": {
+                  "observations": 224803,
+                  "mae": 0.0014597851109805161,
+                  "rmse": 0.0022963978514989416,
+                  "r2": -0.0001117898168458975,
+                  "pearson": 0.016386474646686133,
+                  "spearman": 0.047969013526234006,
+                  "direction_accuracy": 0.46835673901149005
+                },
+                "GC": {
+                  "observations": 258798,
+                  "mae": 0.0007089175990158567,
+                  "rmse": 0.0011439787930610675,
+                  "r2": -6.966513284911713e-05,
+                  "pearson": 0.01720851298205057,
+                  "spearman": 0.028482169574252786,
+                  "direction_accuracy": 0.505270519864914
+                },
+                "HG": {
+                  "observations": 234377,
+                  "mae": 0.0007489063286951572,
+                  "rmse": 0.0011308556009027903,
+                  "r2": 0.001042624542077042,
+                  "pearson": 0.03276043795934774,
+                  "spearman": 0.02971199393269349,
+                  "direction_accuracy": 0.4887595625850659
+                },
+                "6E": {
+                  "observations": 251535,
+                  "mae": 0.00015000494373887993,
+                  "rmse": 0.00022798028930946877,
+                  "r2": -0.0028653804079390444,
+                  "pearson": 0.026476533753301727,
+                  "spearman": 0.035313272779791974,
+                  "direction_accuracy": 0.45460870256624325
+                },
+                "6J": {
+                  "observations": 244198,
+                  "mae": 0.00017754366058507986,
+                  "rmse": 0.00030241390920244545,
+                  "r2": -0.0002587282442436667,
+                  "pearson": 0.03319591880046865,
+                  "spearman": 0.06990244009063579,
+                  "direction_accuracy": 0.43231721799523337
+                },
+                "6B": {
+                  "observations": 218782,
+                  "mae": 0.0001814669326466301,
+                  "rmse": 0.00026996364782491114,
+                  "r2": -0.0010984159902243107,
+                  "pearson": 0.029988507734781823,
+                  "spearman": 0.04095948099332484,
+                  "direction_accuracy": 0.4343181797405637
+                },
+                "ZC": {
+                  "observations": 133540,
+                  "mae": 0.0006894917807986388,
+                  "rmse": 0.0010367222701719548,
+                  "r2": 0.009739678167198784,
+                  "pearson": 0.12449051944691994,
+                  "spearman": 0.1756062970647664,
+                  "direction_accuracy": 0.42479406919275126
+                },
+                "ZS": {
+                  "observations": 157458,
+                  "mae": 0.0005044936764410793,
+                  "rmse": 0.0007612359493705879,
+                  "r2": 0.0015504245162865082,
+                  "pearson": 0.03992371941660294,
+                  "spearman": 0.0637347917803147,
+                  "direction_accuracy": 0.43978076693467466
+                },
+                "ZW": {
+                  "observations": 144633,
+                  "mae": 0.0009512712121472106,
+                  "rmse": 0.0013974595587346007,
+                  "r2": 0.001730151518583689,
+                  "pearson": 0.041848278173823424,
+                  "spearman": 0.059543556974741424,
+                  "direction_accuracy": 0.43855136794507477
+                }
+              },
+              "prediction_deciles": [
+                {
+                  "decile": 1,
+                  "observations": 352597,
+                  "mean_prediction": -7.057248657710574e-05,
+                  "mean_actual": -5.015601546498603e-05
+                },
+                {
+                  "decile": 2,
+                  "observations": 352597,
+                  "mean_prediction": -3.016272537688878e-05,
+                  "mean_actual": -2.9391511786942304e-05
+                },
+                {
+                  "decile": 3,
+                  "observations": 352597,
+                  "mean_prediction": -2.0309152464053645e-05,
+                  "mean_actual": -1.9345648574633505e-05
+                },
+                {
+                  "decile": 4,
+                  "observations": 352597,
+                  "mean_prediction": -1.1173768675979414e-05,
+                  "mean_actual": -1.1721123926770057e-05
+                },
+                {
+                  "decile": 5,
+                  "observations": 352596,
+                  "mean_prediction": -2.922137999810767e-06,
+                  "mean_actual": -2.719204145287482e-06
+                },
+                {
+                  "decile": 6,
+                  "observations": 352596,
+                  "mean_prediction": 3.913587387887353e-06,
+                  "mean_actual": 6.205095034276227e-06
+                },
+                {
+                  "decile": 7,
+                  "observations": 352596,
+                  "mean_prediction": 1.2701742131719928e-05,
+                  "mean_actual": 1.5381490262049477e-05
+                },
+                {
+                  "decile": 8,
+                  "observations": 352596,
+                  "mean_prediction": 2.171854838392213e-05,
+                  "mean_actual": 1.865928768043466e-05
+                },
+                {
+                  "decile": 9,
+                  "observations": 352596,
+                  "mean_prediction": 3.1295053076338495e-05,
+                  "mean_actual": 2.8724960541510143e-05
+                },
+                {
+                  "decile": 10,
+                  "observations": 352596,
+                  "mean_prediction": 6.546549661519479e-05,
+                  "mean_actual": 5.909968797621971e-05
+                }
+              ]
+            },
+            "artifact": "D:\\futures-ml-data\\artifacts\\models\\experiment_a\\pooled\\ridge",
+            "encoded_feature_count": 51
+          },
+          "hist_gradient_boosting": {
+            "validation": {
+              "overall": {
+                "observations": 3490684,
+                "mae": 0.00048245719450989614,
+                "rmse": 0.0009418450655073588,
+                "r2": 0.0009609526927389922,
+                "pearson": 0.03238253278085606,
+                "spearman": 0.06357703382050818,
+                "direction_accuracy": 0.4581377174215712
+              },
+              "macro_average": {
+                "mae": 0.0004997202858961217,
+                "rmse": 0.0008095041479663366,
+                "r2": 0.0026619887976282314,
+                "pearson": 0.05126448433695065,
+                "spearman": 0.07370209935253957,
+                "direction_accuracy": 0.4534118870904235
+              },
+              "per_root": {
+                "NQ": {
+                  "observations": 264612,
+                  "mae": 0.0004519886925663201,
+                  "rmse": 0.0008637201397359068,
+                  "r2": -0.0020578360771696946,
+                  "pearson": -0.02990590135161828,
+                  "spearman": 0.009960916698701364,
+                  "direction_accuracy": 0.499950871464635
+                },
+                "ES": {
+                  "observations": 264653,
+                  "mae": 0.0003629787566560935,
+                  "rmse": 0.0007311412597431034,
+                  "r2": -0.0002601537466082604,
+                  "pearson": 0.007071288219226924,
+                  "spearman": 0.014993447402513302,
+                  "direction_accuracy": 0.4783131118861301
+                },
+                "RTY": {
+                  "observations": 250279,
+                  "mae": 0.0005382761710508807,
+                  "rmse": 0.001011021310059865,
+                  "r2": 7.767817818749023e-05,
+                  "pearson": 0.013723629301328597,
+                  "spearman": 0.012607035197569935,
+                  "direction_accuracy": 0.48589773812425335
+                },
+                "ZF": {
+                  "observations": 209221,
+                  "mae": 9.73051834628078e-05,
+                  "rmse": 0.0001646695299742737,
+                  "r2": 0.008314983392608943,
+                  "pearson": 0.10906039100830692,
+                  "spearman": 0.15305934269459978,
+                  "direction_accuracy": 0.40873048116584854
+                },
+                "ZN": {
+                  "observations": 227444,
+                  "mae": 0.00014797473604803122,
+                  "rmse": 0.00023654039220593562,
+                  "r2": 0.012723085385626276,
+                  "pearson": 0.17748595094421962,
+                  "spearman": 0.23190160606172003,
+                  "direction_accuracy": 0.41364907405779006
+                },
+                "ZB": {
+                  "observations": 193343,
+                  "mae": 0.0003085357718638978,
+                  "rmse": 0.0004781479757558833,
+                  "r2": 0.006337043876873949,
+                  "pearson": 0.1263671053954553,
+                  "spearman": 0.17283599377212994,
+                  "direction_accuracy": 0.40358326911240644
+                },
+                "CL": {
+                  "observations": 253516,
+                  "mae": 0.0007998827750892704,
+                  "rmse": 0.0012939895087364032,
+                  "r2": 0.00020672403548693818,
+                  "pearson": 0.015893842745273452,
+                  "spearman": 0.02795234521622191,
+                  "direction_accuracy": 0.46820319033118224
+                },
+                "NG": {
+                  "observations": 216881,
+                  "mae": 0.0013947436849246263,
+                  "rmse": 0.0020992898687938796,
+                  "r2": 0.000492342274371449,
+                  "pearson": 0.022642412695327064,
+                  "spearman": 0.043225351044902084,
+                  "direction_accuracy": 0.47542200561598297
+                },
+                "GC": {
+                  "observations": 261727,
+                  "mae": 0.0004979861346589876,
+                  "rmse": 0.000744984053574434,
+                  "r2": 0.0005252510270967736,
+                  "pearson": 0.026992347616931863,
+                  "spearman": 0.024648610601983915,
+                  "direction_accuracy": 0.499268321571714
+                },
+                "HG": {
+                  "observations": 224792,
+                  "mae": 0.0007831676249119359,
+                  "rmse": 0.0014487490360023372,
+                  "r2": 0.000650175621760285,
+                  "pearson": 0.02645504052455291,
+                  "spearman": 0.026551919499855605,
+                  "direction_accuracy": 0.48490604647852237
+                },
+                "6E": {
+                  "observations": 256089,
+                  "mae": 0.00020156552285962385,
+                  "rmse": 0.000309894963891692,
+                  "r2": -3.817722434407145e-05,
+                  "pearson": 0.014716615292985881,
+                  "spearman": 0.023567978160122967,
+                  "direction_accuracy": 0.4657443310724006
+                },
+                "6J": {
+                  "observations": 255357,
+                  "mae": 0.00024254735145739066,
+                  "rmse": 0.0003615549623947493,
+                  "r2": 0.00055119063196718,
+                  "pearson": 0.02437776316759475,
+                  "spearman": 0.03545272237965622,
+                  "direction_accuracy": 0.45372556851780055
+                },
+                "6B": {
+                  "observations": 224538,
+                  "mae": 0.00020165015300805007,
+                  "rmse": 0.00029266589099505725,
+                  "r2": 0.00020180249818957385,
+                  "pearson": 0.020417255973717435,
+                  "spearman": 0.03153257699146136,
+                  "direction_accuracy": 0.4417515075399264
+                },
+                "ZC": {
+                  "observations": 119578,
+                  "mae": 0.0006817585180128767,
+                  "rmse": 0.0010247773352606577,
+                  "r2": 0.011301168882353552,
+                  "pearson": 0.1546908578615201,
+                  "spearman": 0.20321036224755987,
+                  "direction_accuracy": 0.41912391911555635
+                },
+                "ZS": {
+                  "observations": 149691,
+                  "mae": 0.0004929676024018524,
+                  "rmse": 0.0007503057784310777,
+                  "r2": 0.001348762273785109,
+                  "pearson": 0.04163682920366025,
+                  "spearman": 0.07228289459435919,
+                  "direction_accuracy": 0.43291179830450727
+                },
+                "ZW": {
+                  "observations": 118963,
+                  "mae": 0.0007921958953653021,
+                  "rmse": 0.0011406143619061288,
+                  "r2": 0.0022177797318662096,
+                  "pearson": 0.06860632079272755,
+                  "spearman": 0.09545048707727564,
+                  "direction_accuracy": 0.4234089590881198
+                }
+              },
+              "prediction_deciles": [
+                {
+                  "decile": 1,
+                  "observations": 349069,
+                  "mean_prediction": -3.149325953668532e-05,
+                  "mean_actual": -6.717691576721523e-05
+                },
+                {
+                  "decile": 2,
+                  "observations": 349069,
+                  "mean_prediction": -1.1694434569697383e-05,
+                  "mean_actual": -2.2569455301406298e-05
+                },
+                {
+                  "decile": 3,
+                  "observations": 349069,
+                  "mean_prediction": -7.71890811328489e-06,
+                  "mean_actual": -1.2728836323306661e-05
+                },
+                {
+                  "decile": 4,
+                  "observations": 349069,
+                  "mean_prediction": -4.035318430896026e-06,
+                  "mean_actual": -6.6969640404527175e-06
+                },
+                {
+                  "decile": 5,
+                  "observations": 349068,
+                  "mean_prediction": -6.110106933699915e-07,
+                  "mean_actual": 3.982297632074192e-06
+                },
+                {
+                  "decile": 6,
+                  "observations": 349068,
+                  "mean_prediction": 1.1575951200088265e-06,
+                  "mean_actual": 4.553467558177747e-06
+                },
+                {
+                  "decile": 7,
+                  "observations": 349068,
+                  "mean_prediction": 6.190037834748236e-06,
+                  "mean_actual": 7.46810228695625e-06
+                },
+                {
+                  "decile": 8,
+                  "observations": 349068,
+                  "mean_prediction": 8.786485786870291e-06,
+                  "mean_actual": 1.6449533774425733e-05
+                },
+                {
+                  "decile": 9,
+                  "observations": 349068,
+                  "mean_prediction": 1.1201025057756099e-05,
+                  "mean_actual": 2.2550661027821682e-05
+                },
+                {
+                  "decile": 10,
+                  "observations": 349068,
+                  "mean_prediction": 3.083645457948324e-05,
+                  "mean_actual": 5.9322301076009276e-05
+                }
+              ]
+            },
+            "test": {
+              "overall": {
+                "observations": 3525964,
+                "mae": 0.0005425420036988272,
+                "rmse": 0.0010989976493295257,
+                "r2": 0.0004894002528103014,
+                "pearson": 0.022328724897676684,
+                "spearman": 0.06742906557487777,
+                "direction_accuracy": 0.4585784199725238
+              },
+              "macro_average": {
+                "mae": 0.0005473124885056776,
+                "rmse": 0.000859968805810063,
+                "r2": 0.003346648925963494,
+                "pearson": 0.05812167231783882,
+                "spearman": 0.08190325473827174,
+                "direction_accuracy": 0.4544257824502251
+              },
+              "per_root": {
+                "NQ": {
+                  "observations": 263560,
+                  "mae": 0.0004859629271853546,
+                  "rmse": 0.0007572504128594346,
+                  "r2": 0.00014823544964237545,
+                  "pearson": 0.012562602984149164,
+                  "spearman": 0.016256223635109028,
+                  "direction_accuracy": 0.5034375474275308
+                },
+                "ES": {
+                  "observations": 263685,
+                  "mae": 0.000322973825551352,
+                  "rmse": 0.0005233720469155344,
+                  "r2": 0.0003357628110337574,
+                  "pearson": 0.018613914862192486,
+                  "spearman": 0.019345481516718645,
+                  "direction_accuracy": 0.484073800178243
+                },
+                "RTY": {
+                  "observations": 253676,
+                  "mae": 0.0004965621274345712,
+                  "rmse": 0.0008157190445592482,
+                  "r2": -0.00015505280382210884,
+                  "pearson": 0.004061971054392696,
+                  "spearman": 0.01847836402561022,
+                  "direction_accuracy": 0.49064160582790645
+                },
+                "ZF": {
+                  "observations": 207990,
+                  "mae": 8.766519657125704e-05,
+                  "rmse": 0.00013943436989859975,
+                  "r2": 0.010236650436651562,
+                  "pearson": 0.11969085340570078,
+                  "spearman": 0.16631523600459727,
+                  "direction_accuracy": 0.4017693158324919
+                },
+                "ZN": {
+                  "observations": 223102,
+                  "mae": 0.00013361947767765865,
+                  "rmse": 0.00020493152472038037,
+                  "r2": 0.01601679624604513,
+                  "pearson": 0.20228710904069905,
+                  "spearman": 0.2532287292983863,
+                  "direction_accuracy": 0.4066301512312754
+                },
+                "ZB": {
+                  "observations": 188770,
+                  "mae": 0.0002642421759101523,
+                  "rmse": 0.0003932140592573795,
+                  "r2": 0.009915658903322022,
+                  "pearson": 0.17265260101815103,
+                  "spearman": 0.21284921400475929,
+                  "direction_accuracy": 0.39561900725750915
+                },
+                "CL": {
+                  "observations": 257057,
+                  "mae": 0.0014006511488073982,
+                  "rmse": 0.002360031234135625,
+                  "r2": -0.0006368706098973664,
+                  "pearson": 0.0010003832405548968,
+                  "spearman": 0.027177783879337215,
+                  "direction_accuracy": 0.491661382494933
+                },
+                "NG": {
+                  "observations": 224803,
+                  "mae": 0.0014592260602411986,
+                  "rmse": 0.002296272693127279,
+                  "r2": -2.7765185293127104e-06,
+                  "pearson": 0.013273913135649032,
+                  "spearman": 0.05104205639472245,
+                  "direction_accuracy": 0.4712570561780759
+                },
+                "GC": {
+                  "observations": 258798,
+                  "mae": 0.0007090676956049155,
+                  "rmse": 0.0011440008690258264,
+                  "r2": -0.0001082632534412653,
+                  "pearson": 0.00804383789996369,
+                  "spearman": 0.031286937167373303,
+                  "direction_accuracy": 0.5066036059011275
+                },
+                "HG": {
+                  "observations": 234377,
+                  "mae": 0.0007488154774732214,
+                  "rmse": 0.001130900892734541,
+                  "r2": 0.0009626045724473453,
+                  "pearson": 0.034745658109671465,
+                  "spearman": 0.030610897882741295,
+                  "direction_accuracy": 0.48891316127435713
+                },
+                "6E": {
+                  "observations": 251535,
+                  "mae": 0.0001492823658122967,
+                  "rmse": 0.00022758096141553043,
+                  "r2": 0.0006447597895495871,
+                  "pearson": 0.027772942971460924,
+                  "spearman": 0.03866332474600811,
+                  "direction_accuracy": 0.45565825829407436
+                },
+                "6J": {
+                  "observations": 244198,
+                  "mae": 0.00017654398327186877,
+                  "rmse": 0.00030214860222612766,
+                  "r2": 0.0014955509338389072,
+                  "pearson": 0.039599337688330606,
+                  "spearman": 0.07530374216037035,
+                  "direction_accuracy": 0.43034750489357
+                },
+                "6B": {
+                  "observations": 218782,
+                  "mae": 0.00018052872869932915,
+                  "rmse": 0.0002697270665784251,
+                  "r2": 0.0006554300240535493,
+                  "pearson": 0.026993253575837966,
+                  "spearman": 0.04187132821131881,
+                  "direction_accuracy": 0.4347341188946074
+                },
+                "ZC": {
+                  "observations": 133540,
+                  "mae": 0.0006890826905756158,
+                  "rmse": 0.001036160310743301,
+                  "r2": 0.01081293629606106,
+                  "pearson": 0.14960863461681634,
+                  "spearman": 0.1910016532725251,
+                  "direction_accuracy": 0.42646398082971393
+                },
+                "ZS": {
+                  "observations": 157458,
+                  "mae": 0.0005033427922691687,
+                  "rmse": 0.0007612091911630727,
+                  "r2": 0.001620616291639565,
+                  "pearson": 0.04812088217094215,
+                  "spearman": 0.06860264310494064,
+                  "direction_accuracy": 0.44232112690368225
+                },
+                "ZW": {
+                  "observations": 144633,
+                  "mae": 0.0009494331430054832,
+                  "rmse": 0.0013975476136007042,
+                  "r2": 0.0016043442468210989,
+                  "pearson": 0.05091886131090879,
+                  "spearman": 0.06841846050782979,
+                  "direction_accuracy": 0.44068089578450287
+                }
+              },
+              "prediction_deciles": [
+                {
+                  "decile": 1,
+                  "observations": 352597,
+                  "mean_prediction": -3.692017104911686e-05,
+                  "mean_actual": -6.895001113291628e-05
+                },
+                {
+                  "decile": 2,
+                  "observations": 352597,
+                  "mean_prediction": -1.162023864638442e-05,
+                  "mean_actual": -2.5891046278319593e-05
+                },
+                {
+                  "decile": 3,
+                  "observations": 352597,
+                  "mean_prediction": -7.645753809327826e-06,
+                  "mean_actual": -1.409652859930535e-05
+                },
+                {
+                  "decile": 4,
+                  "observations": 352597,
+                  "mean_prediction": -3.917889000750886e-06,
+                  "mean_actual": -1.1596733694529458e-05
+                },
+                {
+                  "decile": 5,
+                  "observations": 352596,
+                  "mean_prediction": -5.125810579952855e-07,
+                  "mean_actual": 3.991152441876994e-07
+                },
+                {
+                  "decile": 6,
+                  "observations": 352596,
+                  "mean_prediction": 1.0978524746262338e-06,
+                  "mean_actual": 6.584180949960602e-06
+                },
+                {
+                  "decile": 7,
+                  "observations": 352596,
+                  "mean_prediction": 6.156303469450285e-06,
+                  "mean_actual": 8.017159918706773e-06
+                },
+                {
+                  "decile": 8,
+                  "observations": 352596,
+                  "mean_prediction": 8.787723730701939e-06,
+                  "mean_actual": 1.570426762743455e-05
+                },
+                {
+                  "decile": 9,
+                  "observations": 352596,
+                  "mean_prediction": 1.1337093001025199e-05,
+                  "mean_actual": 3.2086397512257923e-05
+                },
+                {
+                  "decile": 10,
+                  "observations": 352596,
+                  "mean_prediction": 3.453413711129945e-05,
+                  "mean_actual": 7.248024418263246e-05
+                }
+              ]
+            },
+            "artifact": "D:\\futures-ml-data\\artifacts\\models\\experiment_a\\pooled\\hist_gradient_boosting",
+            "encoded_feature_count": 51
+          }
+        }
+      },
+      "nq_only": {
+        "eligible_train_counts_by_root": {
+          "NQ": 1229479
+        },
+        "model_fit_counts_by_root": {
+          "NQ": 100000
+        },
+        "eligible_train_rows": 1229479,
+        "model_fit_rows": 100000,
+        "original_feature_count": 35,
+        "models": {
+          "zero": {
+            "validation": {
+              "overall": {
+                "observations": 264612,
+                "mae": 0.00045195794283853615,
+                "rmse": 0.0008628421611433176,
+                "r2": -2.167150565357545e-05,
+                "pearson": null,
+                "spearman": null,
+                "direction_accuracy": 0.01369552401251644
+              },
+              "macro_average": {
+                "mae": 0.00045195794283853615,
+                "rmse": 0.0008628421611433176,
+                "r2": -2.167150565357545e-05,
+                "pearson": null,
+                "spearman": null,
+                "direction_accuracy": 0.01369552401251644
+              },
+              "per_root": {
+                "NQ": {
+                  "observations": 264612,
+                  "mae": 0.00045195794283853615,
+                  "rmse": 0.0008628421611433176,
+                  "r2": -2.167150565357545e-05,
+                  "pearson": null,
+                  "spearman": null,
+                  "direction_accuracy": 0.01369552401251644
+                }
+              },
+              "prediction_deciles": [
+                {
+                  "decile": 1,
+                  "observations": 26462,
+                  "mean_prediction": 0.0,
+                  "mean_actual": -5.659536747782041e-06
+                },
+                {
+                  "decile": 2,
+                  "observations": 26462,
+                  "mean_prediction": 0.0,
+                  "mean_actual": 2.7097511642226167e-05
+                },
+                {
+                  "decile": 3,
+                  "observations": 26461,
+                  "mean_prediction": 0.0,
+                  "mean_actual": 2.8908998955516953e-06
+                },
+                {
+                  "decile": 4,
+                  "observations": 26461,
+                  "mean_prediction": 0.0,
+                  "mean_actual": 9.666089635559375e-06
+                },
+                {
+                  "decile": 5,
+                  "observations": 26461,
+                  "mean_prediction": 0.0,
+                  "mean_actual": 5.1340030693525126e-06
+                },
+                {
+                  "decile": 6,
+                  "observations": 26461,
+                  "mean_prediction": 0.0,
+                  "mean_actual": -2.014604248326144e-06
+                },
+                {
+                  "decile": 7,
+                  "observations": 26461,
+                  "mean_prediction": 0.0,
+                  "mean_actual": 8.360154280942945e-06
+                },
+                {
+                  "decile": 8,
+                  "observations": 26461,
+                  "mean_prediction": 0.0,
+                  "mean_actual": 2.084413887051746e-06
+                },
+                {
+                  "decile": 9,
+                  "observations": 26461,
+                  "mean_prediction": 0.0,
+                  "mean_actual": -9.968757716296077e-06
+                },
+                {
+                  "decile": 10,
+                  "observations": 26461,
+                  "mean_prediction": 0.0,
+                  "mean_actual": 2.576486067562057e-06
+                }
+              ]
+            },
+            "test": {
+              "overall": {
+                "observations": 263560,
+                "mae": 0.0004860347661416269,
+                "rmse": 0.000757313685583464,
+                "r2": -1.8858517442987832e-05,
+                "pearson": null,
+                "spearman": null,
+                "direction_accuracy": 0.009144027925330096
+              },
+              "macro_average": {
+                "mae": 0.0004860347661416269,
+                "rmse": 0.000757313685583464,
+                "r2": -1.8858517442987832e-05,
+                "pearson": null,
+                "spearman": null,
+                "direction_accuracy": 0.009144027925330096
+              },
+              "per_root": {
+                "NQ": {
+                  "observations": 263560,
+                  "mae": 0.0004860347661416269,
+                  "rmse": 0.000757313685583464,
+                  "r2": -1.8858517442987832e-05,
+                  "pearson": null,
+                  "spearman": null,
+                  "direction_accuracy": 0.009144027925330096
+                }
+              },
+              "prediction_deciles": [
+                {
+                  "decile": 1,
+                  "observations": 26356,
+                  "mean_prediction": 0.0,
+                  "mean_actual": -1.4487349673118164e-06
+                },
+                {
+                  "decile": 2,
+                  "observations": 26356,
+                  "mean_prediction": 0.0,
+                  "mean_actual": -3.03532832518345e-06
+                },
+                {
+                  "decile": 3,
+                  "observations": 26356,
+                  "mean_prediction": 0.0,
+                  "mean_actual": 5.055083522340163e-06
+                },
+                {
+                  "decile": 4,
+                  "observations": 26356,
+                  "mean_prediction": 0.0,
+                  "mean_actual": 8.516316334553247e-06
+                },
+                {
+                  "decile": 5,
+                  "observations": 26356,
+                  "mean_prediction": 0.0,
+                  "mean_actual": 2.6017744200398973e-05
+                },
+                {
+                  "decile": 6,
+                  "observations": 26356,
+                  "mean_prediction": 0.0,
+                  "mean_actual": 3.3400626133184736e-06
+                },
+                {
+                  "decile": 7,
+                  "observations": 26356,
+                  "mean_prediction": 0.0,
+                  "mean_actual": -9.639203754329927e-06
+                },
+                {
+                  "decile": 8,
+                  "observations": 26356,
+                  "mean_prediction": 0.0,
+                  "mean_actual": -1.5409009948029238e-05
+                },
+                {
+                  "decile": 9,
+                  "observations": 26356,
+                  "mean_prediction": 0.0,
+                  "mean_actual": 8.584738031243215e-06
+                },
+                {
+                  "decile": 10,
+                  "observations": 26356,
+                  "mean_prediction": 0.0,
+                  "mean_actual": 1.0905425107933947e-05
+                }
+              ]
+            }
+          },
+          "ridge": {
+            "validation": {
+              "overall": {
+                "observations": 264612,
+                "mae": 0.00045251196704741426,
+                "rmse": 0.0008641528473975921,
+                "r2": -0.0030621121046607858,
+                "pearson": -0.009148480602138853,
+                "spearman": 0.0055694404060085525,
+                "direction_accuracy": 0.49286880413586687
+              },
+              "macro_average": {
+                "mae": 0.00045251196704741426,
+                "rmse": 0.0008641528473975921,
+                "r2": -0.0030621121046607858,
+                "pearson": -0.009148480602138853,
+                "spearman": 0.0055694404060085525,
+                "direction_accuracy": 0.49286880413586687
+              },
+              "per_root": {
+                "NQ": {
+                  "observations": 264612,
+                  "mae": 0.00045251196704741426,
+                  "rmse": 0.0008641528473975921,
+                  "r2": -0.0030621121046607858,
+                  "pearson": -0.009148480602138853,
+                  "spearman": 0.0055694404060085525,
+                  "direction_accuracy": 0.49286880413586687
+                }
+              },
+              "prediction_deciles": [
+                {
+                  "decile": 1,
+                  "observations": 26462,
+                  "mean_prediction": -4.286446962215792e-05,
+                  "mean_actual": 7.796341447972784e-06
+                },
+                {
+                  "decile": 2,
+                  "observations": 26462,
+                  "mean_prediction": -1.8241362832622525e-05,
+                  "mean_actual": -3.0529637667415044e-06
+                },
+                {
+                  "decile": 3,
+                  "observations": 26461,
+                  "mean_prediction": -1.0993576057983634e-05,
+                  "mean_actual": 1.3036011798756322e-06
+                },
+                {
+                  "decile": 4,
+                  "observations": 26461,
+                  "mean_prediction": -5.536310187652252e-06,
+                  "mean_actual": 5.4442383016578975e-06
+                },
+                {
+                  "decile": 5,
+                  "observations": 26461,
+                  "mean_prediction": -6.710926090163451e-07,
+                  "mean_actual": 8.739693812078523e-06
+                },
+                {
+                  "decile": 6,
+                  "observations": 26461,
+                  "mean_prediction": 4.132512385224953e-06,
+                  "mean_actual": -5.987021756531331e-07
+                },
+                {
+                  "decile": 7,
+                  "observations": 26461,
+                  "mean_prediction": 9.230620661267823e-06,
+                  "mean_actual": 1.7470339363903275e-07
+                },
+                {
+                  "decile": 8,
+                  "observations": 26461,
+                  "mean_prediction": 1.543321591979058e-05,
+                  "mean_actual": -5.11665528594711e-07
+                },
+                {
+                  "decile": 9,
+                  "observations": 26461,
+                  "mean_prediction": 2.5009346250446162e-05,
+                  "mean_actual": 5.407162089922063e-06
+                },
+                {
+                  "decile": 10,
+                  "observations": 26461,
+                  "mean_prediction": 7.47140413532686e-05,
+                  "mean_actual": 1.5464881925000083e-05
+                }
+              ]
+            },
+            "test": {
+              "overall": {
+                "observations": 263560,
+                "mae": 0.00048655532275295214,
+                "rmse": 0.0007580483025200373,
+                "r2": -0.0019598959271078797,
+                "pearson": -0.0009276515135253418,
+                "spearman": 0.002734600751455179,
+                "direction_accuracy": 0.49479814842920017
+              },
+              "macro_average": {
+                "mae": 0.00048655532275295214,
+                "rmse": 0.0007580483025200373,
+                "r2": -0.0019598959271078797,
+                "pearson": -0.0009276515135253418,
+                "spearman": 0.002734600751455179,
+                "direction_accuracy": 0.49479814842920017
+              },
+              "per_root": {
+                "NQ": {
+                  "observations": 263560,
+                  "mae": 0.00048655532275295214,
+                  "rmse": 0.0007580483025200373,
+                  "r2": -0.0019598959271078797,
+                  "pearson": -0.0009276515135253418,
+                  "spearman": 0.002734600751455179,
+                  "direction_accuracy": 0.49479814842920017
+                }
+              },
+              "prediction_deciles": [
+                {
+                  "decile": 1,
+                  "observations": 26356,
+                  "mean_prediction": -4.119295367920396e-05,
+                  "mean_actual": 7.76142552403174e-06
+                },
+                {
+                  "decile": 2,
+                  "observations": 26356,
+                  "mean_prediction": -1.7521638033689742e-05,
+                  "mean_actual": -8.707193520080886e-07
+                },
+                {
+                  "decile": 3,
+                  "observations": 26356,
+                  "mean_prediction": -9.60009656556807e-06,
+                  "mean_actual": -3.50896860545881e-06
+                },
+                {
+                  "decile": 4,
+                  "observations": 26356,
+                  "mean_prediction": -3.655985574508257e-06,
+                  "mean_actual": 2.308425892833858e-06
+                },
+                {
+                  "decile": 5,
+                  "observations": 26356,
+                  "mean_prediction": 1.5827022762226508e-06,
+                  "mean_actual": -1.296187401909095e-06
+                },
+                {
+                  "decile": 6,
+                  "observations": 26356,
+                  "mean_prediction": 6.7387252945563855e-06,
+                  "mean_actual": 4.022616287405032e-07
+                },
+                {
+                  "decile": 7,
+                  "observations": 26356,
+                  "mean_prediction": 1.2242180340882094e-05,
+                  "mean_actual": -3.883604212041599e-06
+                },
+                {
+                  "decile": 8,
+                  "observations": 26356,
+                  "mean_prediction": 1.894370323019293e-05,
+                  "mean_actual": 1.2296599078414255e-05
+                },
+                {
+                  "decile": 9,
+                  "observations": 26356,
+                  "mean_prediction": 2.8711736316096992e-05,
+                  "mean_actual": -5.783723824344659e-07
+                },
+                {
+                  "decile": 10,
+                  "observations": 26356,
+                  "mean_prediction": 6.537903667113909e-05,
+                  "mean_actual": 2.0256232644765286e-05
+                }
+              ]
+            },
+            "artifact": "D:\\futures-ml-data\\artifacts\\models\\experiment_a\\nq_only\\ridge",
+            "encoded_feature_count": 35
+          },
+          "hist_gradient_boosting": {
+            "validation": {
+              "overall": {
+                "observations": 264612,
+                "mae": 0.000452228485024928,
+                "rmse": 0.0008634919910619777,
+                "r2": -0.001528525802608094,
+                "pearson": 0.01036434982001069,
+                "spearman": 0.005231693806866914,
+                "direction_accuracy": 0.5040323190180339
+              },
+              "macro_average": {
+                "mae": 0.000452228485024928,
+                "rmse": 0.0008634919910619777,
+                "r2": -0.001528525802608094,
+                "pearson": 0.01036434982001069,
+                "spearman": 0.005231693806866914,
+                "direction_accuracy": 0.5040323190180339
+              },
+              "per_root": {
+                "NQ": {
+                  "observations": 264612,
+                  "mae": 0.000452228485024928,
+                  "rmse": 0.0008634919910619777,
+                  "r2": -0.001528525802608094,
+                  "pearson": 0.01036434982001069,
+                  "spearman": 0.005231693806866914,
+                  "direction_accuracy": 0.5040323190180339
+                }
+              },
+              "prediction_deciles": [
+                {
+                  "decile": 1,
+                  "observations": 26462,
+                  "mean_prediction": -1.8550537943328717e-05,
+                  "mean_actual": -5.009638048331174e-06
+                },
+                {
+                  "decile": 2,
+                  "observations": 26462,
+                  "mean_prediction": 4.587170892936257e-06,
+                  "mean_actual": 1.1598206519849085e-05
+                },
+                {
+                  "decile": 3,
+                  "observations": 26461,
+                  "mean_prediction": 4.587170892936257e-06,
+                  "mean_actual": -1.7699603671740423e-06
+                },
+                {
+                  "decile": 4,
+                  "observations": 26461,
+                  "mean_prediction": 4.587170892936257e-06,
+                  "mean_actual": 9.620831767924091e-06
+                },
+                {
+                  "decile": 5,
+                  "observations": 26461,
+                  "mean_prediction": 4.587170892936257e-06,
+                  "mean_actual": 2.834125282704733e-06
+                },
+                {
+                  "decile": 6,
+                  "observations": 26461,
+                  "mean_prediction": 4.587170892936257e-06,
+                  "mean_actual": 2.9422304851094694e-07
+                },
+                {
+                  "decile": 7,
+                  "observations": 26461,
+                  "mean_prediction": 4.587170892936257e-06,
+                  "mean_actual": -1.1980546121304254e-06
+                },
+                {
+                  "decile": 8,
+                  "observations": 26461,
+                  "mean_prediction": 4.587170892936257e-06,
+                  "mean_actual": -4.414210270978806e-06
+                },
+                {
+                  "decile": 9,
+                  "observations": 26461,
+                  "mean_prediction": 4.587170892936257e-06,
+                  "mean_actual": -8.068339210024079e-07
+                },
+                {
+                  "decile": 10,
+                  "observations": 26461,
+                  "mean_prediction": 6.068550067678705e-05,
+                  "mean_actual": 2.9018531547318384e-05
+                }
+              ]
+            },
+            "test": {
+              "overall": {
+                "observations": 263560,
+                "mae": 0.0004861975555855565,
+                "rmse": 0.0007576864756167733,
+                "r2": -0.0010036256646268615,
+                "pearson": 0.00530463775420474,
+                "spearman": 0.00844929782408661,
+                "direction_accuracy": 0.49751859159204737
+              },
+              "macro_average": {
+                "mae": 0.0004861975555855565,
+                "rmse": 0.0007576864756167733,
+                "r2": -0.0010036256646268615,
+                "pearson": 0.00530463775420474,
+                "spearman": 0.00844929782408661,
+                "direction_accuracy": 0.49751859159204737
+              },
+              "per_root": {
+                "NQ": {
+                  "observations": 263560,
+                  "mae": 0.0004861975555855565,
+                  "rmse": 0.0007576864756167733,
+                  "r2": -0.0010036256646268615,
+                  "pearson": 0.00530463775420474,
+                  "spearman": 0.00844929782408661,
+                  "direction_accuracy": 0.49751859159204737
+                }
+              },
+              "prediction_deciles": [
+                {
+                  "decile": 1,
+                  "observations": 26356,
+                  "mean_prediction": -1.9223659204584672e-05,
+                  "mean_actual": 1.2194721583601773e-05
+                },
+                {
+                  "decile": 2,
+                  "observations": 26356,
+                  "mean_prediction": 4.587170892936257e-06,
+                  "mean_actual": -3.4679179740583996e-06
+                },
+                {
+                  "decile": 3,
+                  "observations": 26356,
+                  "mean_prediction": 4.587170892936257e-06,
+                  "mean_actual": -1.3711277411758795e-05
+                },
+                {
+                  "decile": 4,
+                  "observations": 26356,
+                  "mean_prediction": 4.587170892936257e-06,
+                  "mean_actual": -1.7711418880132448e-06
+                },
+                {
+                  "decile": 5,
+                  "observations": 26356,
+                  "mean_prediction": 4.587170892936257e-06,
+                  "mean_actual": 1.5211885442889496e-05
+                },
+                {
+                  "decile": 6,
+                  "observations": 26356,
+                  "mean_prediction": 4.587170892936257e-06,
+                  "mean_actual": -1.0272073873283065e-06
+                },
+                {
+                  "decile": 7,
+                  "observations": 26356,
+                  "mean_prediction": 4.587170892936257e-06,
+                  "mean_actual": -1.6968865301162792e-05
+                },
+                {
+                  "decile": 8,
+                  "observations": 26356,
+                  "mean_prediction": 4.587170892936257e-06,
+                  "mean_actual": 1.666682495071658e-06
+                },
+                {
+                  "decile": 9,
+                  "observations": 26356,
+                  "mean_prediction": 4.587170892936257e-06,
+                  "mean_actual": 2.4575809888234834e-06
+                },
+                {
+                  "decile": 10,
+                  "observations": 26356,
+                  "mean_prediction": 3.382270718620871e-05,
+                  "mean_actual": 3.83026322668687e-05
+                }
+              ]
+            },
+            "artifact": "D:\\futures-ml-data\\artifacts\\models\\experiment_a\\nq_only\\hist_gradient_boosting",
+            "encoded_feature_count": 35
+          }
+        }
+      }
+    },
+    "experiment_b": {
+      "pooled": {
+        "eligible_train_counts_by_root": {
+          "NQ": 1229479,
+          "ES": 1228753,
+          "RTY": 1159191,
+          "ZF": 1068572,
+          "ZN": 1123291,
+          "ZB": 997507,
+          "CL": 1196100,
+          "NG": 997515,
+          "GC": 1204831,
+          "HG": 1147059,
+          "6E": 1188176,
+          "6J": 1186792,
+          "6B": 1077849,
+          "ZC": 640400,
+          "ZS": 758822,
+          "ZW": 608549
+        },
+        "model_fit_counts_by_root": {
+          "NQ": 100000,
+          "ES": 100000,
+          "RTY": 100000,
+          "ZF": 100000,
+          "ZN": 100000,
+          "ZB": 100000,
+          "CL": 100000,
+          "NG": 100000,
+          "GC": 100000,
+          "HG": 100000,
+          "6E": 100000,
+          "6J": 100000,
+          "6B": 100000,
+          "ZC": 100000,
+          "ZS": 100000,
+          "ZW": 100000
+        },
+        "eligible_train_rows": 16812886,
+        "model_fit_rows": 1600000,
+        "original_feature_count": 55,
+        "models": {
+          "ridge": {
+            "validation": {
+              "overall": {
+                "observations": 3490684,
+                "mae": 0.000483529592122935,
+                "rmse": 0.0009418425270524228,
+                "r2": 0.0009663378930787614,
+                "pearson": 0.03287001031583444,
+                "spearman": 0.056535038524889336,
+                "direction_accuracy": 0.45613667693781507
+              },
+              "macro_average": {
+                "mae": 0.000500881532914936,
+                "rmse": 0.000809497619486611,
+                "r2": 0.002090087346875401,
+                "pearson": 0.046344777285344224,
+                "spearman": 0.06646888837952464,
+                "direction_accuracy": 0.451327706854964
+              },
+              "per_root": {
+                "NQ": {
+                  "observations": 264612,
+                  "mae": 0.0004524580512625426,
+                  "rmse": 0.0008639787802509981,
+                  "r2": -0.0026580572541869962,
+                  "pearson": -0.012327523983044337,
+                  "spearman": 0.0070106249134131125,
+                  "direction_accuracy": 0.5
+                },
+                "ES": {
+                  "observations": 264653,
+                  "mae": 0.00036369819354386916,
+                  "rmse": 0.0007320137458389728,
+                  "r2": -0.002648840688034282,
+                  "pearson": -0.007949852366279228,
+                  "spearman": 0.012579876770898212,
+                  "direction_accuracy": 0.4758192803406725
+                },
+                "RTY": {
+                  "observations": 250279,
+                  "mae": 0.0005387858019281493,
+                  "rmse": 0.001011679734571645,
+                  "r2": -0.0012251385712189755,
+                  "pearson": 0.004741104016291648,
+                  "spearman": 0.011547716148529128,
+                  "direction_accuracy": 0.48515057196169076
+                },
+                "ZF": {
+                  "observations": 209221,
+                  "mae": 9.958094971022266e-05,
+                  "rmse": 0.00016535877546840582,
+                  "r2": -4.040754405298941e-06,
+                  "pearson": 0.08566546221372903,
+                  "spearman": 0.12620377184354342,
+                  "direction_accuracy": 0.4017474345309505
+                },
+                "ZN": {
+                  "observations": 227444,
+                  "mae": 0.00015027295609046278,
+                  "rmse": 0.0002356020926582883,
+                  "r2": 0.02054013638302954,
+                  "pearson": 0.14400995409103917,
+                  "spearman": 0.19570438483177371,
+                  "direction_accuracy": 0.40235398603612316
+                },
+                "ZB": {
+                  "observations": 193343,
+                  "mae": 0.00031117220199407687,
+                  "rmse": 0.0004767970534761976,
+                  "r2": 0.011943948817849104,
+                  "pearson": 0.11692162455789652,
+                  "spearman": 0.1516578579610617,
+                  "direction_accuracy": 0.39491990917695496
+                },
+                "CL": {
+                  "observations": 253516,
+                  "mae": 0.0008008429225358321,
+                  "rmse": 0.0012943362211682977,
+                  "r2": -0.000329118326976241,
+                  "pearson": 0.013154763028082508,
+                  "spearman": 0.023635693105695417,
+                  "direction_accuracy": 0.46662538064658643
+                },
+                "NG": {
+                  "observations": 216881,
+                  "mae": 0.0013953140740015433,
+                  "rmse": 0.002099352162345241,
+                  "r2": 0.0004330233529389327,
+                  "pearson": 0.024499598839223386,
+                  "spearman": 0.04097115323207529,
+                  "direction_accuracy": 0.47469810633481035
+                },
+                "GC": {
+                  "observations": 261727,
+                  "mae": 0.0004981971364876316,
+                  "rmse": 0.0007455183765778799,
+                  "r2": -0.0009089645432611704,
+                  "pearson": 0.012245671888769148,
+                  "spearman": 0.02095353577222305,
+                  "direction_accuracy": 0.49736175480557987
+                },
+                "HG": {
+                  "observations": 224792,
+                  "mae": 0.0007832064438958154,
+                  "rmse": 0.0014475711175064633,
+                  "r2": 0.002274575797975409,
+                  "pearson": 0.0492558346596611,
+                  "spearman": 0.030784545210586694,
+                  "direction_accuracy": 0.48661874088045837
+                },
+                "6E": {
+                  "observations": 256089,
+                  "mae": 0.000202402833629266,
+                  "rmse": 0.00031087290977966476,
+                  "r2": -0.00635984401164702,
+                  "pearson": 0.0041193508334738576,
+                  "spearman": 0.021127427846666342,
+                  "direction_accuracy": 0.4650609748954465
+                },
+                "6J": {
+                  "observations": 255357,
+                  "mae": 0.0002436273458428532,
+                  "rmse": 0.00036212951555970825,
+                  "r2": -0.002627815609994144,
+                  "pearson": 0.02548150427307166,
+                  "spearman": 0.03404360200934787,
+                  "direction_accuracy": 0.4544539605336842
+                },
+                "6B": {
+                  "observations": 224538,
+                  "mae": 0.00020273051656599682,
+                  "rmse": 0.00029333168973399087,
+                  "r2": -0.004352343197906672,
+                  "pearson": 0.021023865657324437,
+                  "spearman": 0.03599187648335542,
+                  "direction_accuracy": 0.44417426003616317
+                },
+                "ZC": {
+                  "observations": 119578,
+                  "mae": 0.0006828085622061517,
+                  "rmse": 0.0010240108613756257,
+                  "r2": 0.012779594309116904,
+                  "pearson": 0.14364022056149023,
+                  "spearman": 0.18653690333605819,
+                  "direction_accuracy": 0.4149927244141899
+                },
+                "ZS": {
+                  "observations": 149691,
+                  "mae": 0.0004944664813486386,
+                  "rmse": 0.0007498948646041888,
+                  "r2": 0.0024423090502375677,
+                  "pearson": 0.04959182135352797,
+                  "spearman": 0.07372179830374787,
+                  "direction_accuracy": 0.4345885858201228
+                },
+                "ZW": {
+                  "observations": 118963,
+                  "mae": 0.0007945400555959243,
+                  "rmse": 0.0011395140108702087,
+                  "r2": 0.004141972796489757,
+                  "pearson": 0.06744303694125045,
+                  "spearman": 0.09103144630341882,
+                  "direction_accuracy": 0.4226776392659903
+                }
+              },
+              "prediction_deciles": [
+                {
+                  "decile": 1,
+                  "observations": 349069,
+                  "mean_prediction": -6.803295231208715e-05,
+                  "mean_actual": -5.720737183649085e-05
+                },
+                {
+                  "decile": 2,
+                  "observations": 349069,
+                  "mean_prediction": -3.253257733010742e-05,
+                  "mean_actual": -2.4938845261137505e-05
+                },
+                {
+                  "decile": 3,
+                  "observations": 349069,
+                  "mean_prediction": -2.112722225595102e-05,
+                  "mean_actual": -1.6420993177435146e-05
+                },
+                {
+                  "decile": 4,
+                  "observations": 349069,
+                  "mean_prediction": -1.1791645404517757e-05,
+                  "mean_actual": -8.6231590633023e-06
+                },
+                {
+                  "decile": 5,
+                  "observations": 349068,
+                  "mean_prediction": -3.1727208631159386e-06,
+                  "mean_actual": -1.3683923476271243e-06
+                },
+                {
+                  "decile": 6,
+                  "observations": 349068,
+                  "mean_prediction": 5.032388510388759e-06,
+                  "mean_actual": 6.96186028344524e-06
+                },
+                {
+                  "decile": 7,
+                  "observations": 349068,
+                  "mean_prediction": 1.3744975232832772e-05,
+                  "mean_actual": 1.3836865558881069e-05
+                },
+                {
+                  "decile": 8,
+                  "observations": 349068,
+                  "mean_prediction": 2.3200542117982905e-05,
+                  "mean_actual": 1.8482172266199034e-05
+                },
+                {
+                  "decile": 9,
+                  "observations": 349068,
+                  "mean_prediction": 3.4654966680044264e-05,
+                  "mean_actual": 2.8858100001692095e-05
+                },
+                {
+                  "decile": 10,
+                  "observations": 349068,
+                  "mean_prediction": 6.830883537649804e-05,
+                  "mean_actual": 4.557394982144963e-05
+                }
+              ]
+            },
+            "test": {
+              "overall": {
+                "observations": 3525964,
+                "mae": 0.0005438476841646961,
+                "rmse": 0.0010993931831600595,
+                "r2": -0.0002301852689978734,
+                "pearson": 0.018727042131737513,
+                "spearman": 0.05588629012279008,
+                "direction_accuracy": 0.4545236423287362
+              },
+              "macro_average": {
+                "mae": 0.000548702613761427,
+                "rmse": 0.0008604471903206499,
+                "r2": 9.324154212555363e-05,
+                "pearson": 0.042222205162992806,
+                "spearman": 0.06773445387515323,
+                "direction_accuracy": 0.45018347024707384
+              },
+              "per_root": {
+                "NQ": {
+                  "observations": 263560,
+                  "mae": 0.00048639886363358633,
+                  "rmse": 0.0007578745231628381,
+                  "r2": -0.0015005584734248956,
+                  "pearson": 0.008991478052330613,
+                  "spearman": 0.014659146462456899,
+                  "direction_accuracy": 0.5028532402488997
+                },
+                "ES": {
+                  "observations": 263685,
+                  "mae": 0.0003236575987819188,
+                  "rmse": 0.0005242139627354588,
+                  "r2": -0.0028830184827426386,
+                  "pearson": 0.006900673386290289,
+                  "spearman": 0.01768568552692748,
+                  "direction_accuracy": 0.4816921705823236
+                },
+                "RTY": {
+                  "observations": 253676,
+                  "mae": 0.0004970391649279543,
+                  "rmse": 0.000816523350780954,
+                  "r2": -0.0021283486954153386,
+                  "pearson": 0.002636128339740288,
+                  "spearman": 0.019016486012201995,
+                  "direction_accuracy": 0.4911107081474006
+                },
+                "ZF": {
+                  "observations": 207990,
+                  "mae": 9.099761574655902e-05,
+                  "rmse": 0.00014126200546621918,
+                  "r2": -0.01588003733628529,
+                  "pearson": 0.06699449991509857,
+                  "spearman": 0.11576730450652203,
+                  "direction_accuracy": 0.3877542189528343
+                },
+                "ZN": {
+                  "observations": 223102,
+                  "mae": 0.00013702129618608795,
+                  "rmse": 0.0002048017229694532,
+                  "r2": 0.017262893386996603,
+                  "pearson": 0.1334407628922028,
+                  "spearman": 0.18827165342214994,
+                  "direction_accuracy": 0.3868544432591371
+                },
+                "ZB": {
+                  "observations": 188770,
+                  "mae": 0.0002678404202308593,
+                  "rmse": 0.00039219922142927236,
+                  "r2": 0.015019639381311345,
+                  "pearson": 0.12776223884473492,
+                  "spearman": 0.16900637564491275,
+                  "direction_accuracy": 0.3804100227790433
+                },
+                "CL": {
+                  "observations": 257057,
+                  "mae": 0.0014008756255696672,
+                  "rmse": 0.0023616553173286692,
+                  "r2": -0.002014544491694581,
+                  "pearson": -0.013998974986571816,
+                  "spearman": 0.02211283053654621,
+                  "direction_accuracy": 0.4899185783697779
+                },
+                "NG": {
+                  "observations": 224803,
+                  "mae": 0.0014597588739969237,
+                  "rmse": 0.002296136296667737,
+                  "r2": 0.00011601842053410305,
+                  "pearson": 0.020775825125299786,
+                  "spearman": 0.05015174142772169,
+                  "direction_accuracy": 0.4693353736382522
+                },
+                "GC": {
+                  "observations": 258798,
+                  "mae": 0.0007092563418367805,
+                  "rmse": 0.0011442730020353742,
+                  "r2": -0.000584128000923112,
+                  "pearson": 0.010396206876041708,
+                  "spearman": 0.020442734709118553,
+                  "direction_accuracy": 0.5028130047372854
+                },
+                "HG": {
+                  "observations": 234377,
+                  "mae": 0.0007488761551711474,
+                  "rmse": 0.0011308878555480989,
+                  "r2": 0.0009856385302335902,
+                  "pearson": 0.032651627572239404,
+                  "spearman": 0.03288370932697126,
+                  "direction_accuracy": 0.4911190091177889
+                },
+                "6E": {
+                  "observations": 251535,
+                  "mae": 0.00015064799168281487,
+                  "rmse": 0.00022881063391045126,
+                  "r2": -0.010183910624378845,
+                  "pearson": 0.017984430090456225,
+                  "spearman": 0.02902200871396421,
+                  "direction_accuracy": 0.4531854413898662
+                },
+                "6J": {
+                  "observations": 244198,
+                  "mae": 0.00017857686038617027,
+                  "rmse": 0.0003032551310226413,
+                  "r2": -0.0058312879339834645,
+                  "pearson": 0.020635271377266548,
+                  "spearman": 0.05633824764313945,
+                  "direction_accuracy": 0.4269158633567843
+                },
+                "6B": {
+                  "observations": 218782,
+                  "mae": 0.00018207711399855606,
+                  "rmse": 0.0002705107917884131,
+                  "r2": -0.0051604445315627245,
+                  "pearson": 0.028611737850038666,
+                  "spearman": 0.042540740795594605,
+                  "direction_accuracy": 0.4357533983600113
+                },
+                "ZC": {
+                  "observations": 133540,
+                  "mae": 0.0006900454832524798,
+                  "rmse": 0.0010362923087466232,
+                  "r2": 0.010560892219935059,
+                  "pearson": 0.12396403713585373,
+                  "spearman": 0.1732821436497998,
+                  "direction_accuracy": 0.42123708252209074
+                },
+                "ZS": {
+                  "observations": 157458,
+                  "mae": 0.0005046874822270414,
+                  "rmse": 0.0007611568400216968,
+                  "r2": 0.0017579359761566993,
+                  "pearson": 0.04339838114081678,
+                  "spearman": 0.06870098104326346,
+                  "direction_accuracy": 0.441571720712825
+                },
+                "ZW": {
+                  "observations": 144633,
+                  "mae": 0.0009514849325542855,
+                  "rmse": 0.001397302081516499,
+                  "r2": 0.0019551253292523496,
+                  "pearson": 0.044410958996046405,
+                  "spearman": 0.06386947258116123,
+                  "direction_accuracy": 0.440411247778861
+                }
+              },
+              "prediction_deciles": [
+                {
+                  "decile": 1,
+                  "observations": 352597,
+                  "mean_prediction": -8.041185079726849e-05,
+                  "mean_actual": -4.9222490067389526e-05
+                },
+                {
+                  "decile": 2,
+                  "observations": 352597,
+                  "mean_prediction": -3.6334388583915074e-05,
+                  "mean_actual": -2.7117627998876227e-05
+                },
+                {
+                  "decile": 3,
+                  "observations": 352597,
+                  "mean_prediction": -2.2969861887383132e-05,
+                  "mean_actual": -1.7960190143476733e-05
+                },
+                {
+                  "decile": 4,
+                  "observations": 352597,
+                  "mean_prediction": -1.2802278912675333e-05,
+                  "mean_actual": -1.22771428468329e-05
+                },
+                {
+                  "decile": 5,
+                  "observations": 352596,
+                  "mean_prediction": -3.7142644395879455e-06,
+                  "mean_actual": -3.195186110704609e-06
+                },
+                {
+                  "decile": 6,
+                  "observations": 352596,
+                  "mean_prediction": 4.992735767045567e-06,
+                  "mean_actual": 5.2080229899638365e-06
+                },
+                {
+                  "decile": 7,
+                  "observations": 352596,
+                  "mean_prediction": 1.413826756501364e-05,
+                  "mean_actual": 1.2346134195185622e-05
+                },
+                {
+                  "decile": 8,
+                  "observations": 352596,
+                  "mean_prediction": 2.43756404097714e-05,
+                  "mean_actual": 2.064003655747642e-05
+                },
+                {
+                  "decile": 9,
+                  "observations": 352596,
+                  "mean_prediction": 3.726523528970329e-05,
+                  "mean_actual": 2.9215855599225218e-05
+                },
+                {
+                  "decile": 10,
+                  "observations": 352596,
+                  "mean_prediction": 7.503906175974577e-05,
+                  "mean_actual": 5.7099593972364705e-05
+                }
+              ]
+            },
+            "artifact": "D:\\futures-ml-data\\artifacts\\models\\experiment_b\\pooled\\ridge",
+            "encoded_feature_count": 70
+          },
+          "hist_gradient_boosting": {
+            "validation": {
+              "overall": {
+                "observations": 3490684,
+                "mae": 0.0004824285178514919,
+                "rmse": 0.0009417850983266473,
+                "r2": 0.0010881660743536914,
+                "pearson": 0.035989353681718066,
+                "spearman": 0.06377145458584303,
+                "direction_accuracy": 0.4582225145558865
+              },
+              "macro_average": {
+                "mae": 0.0004996769551530436,
+                "rmse": 0.0008094353295385172,
+                "r2": 0.002864181283405258,
+                "pearson": 0.05572453437830835,
+                "spearman": 0.07387347810946682,
+                "direction_accuracy": 0.4534915916672294
+              },
+              "per_root": {
+                "NQ": {
+                  "observations": 264612,
+                  "mae": 0.00045197001114406,
+                  "rmse": 0.0008629729287952648,
+                  "r2": -0.00032481013563567807,
+                  "pearson": 0.0033160681867804697,
+                  "spearman": 0.010928002311171449,
+                  "direction_accuracy": 0.500011337354315
+                },
+                "ES": {
+                  "observations": 264653,
+                  "mae": 0.000362968508941303,
+                  "rmse": 0.0007307960095810238,
+                  "r2": 0.0006842832950454403,
+                  "pearson": 0.026818046096891212,
+                  "spearman": 0.015846095085665514,
+                  "direction_accuracy": 0.47846425319191543
+                },
+                "RTY": {
+                  "observations": 250279,
+                  "mae": 0.0005382985450545429,
+                  "rmse": 0.0010107611309096598,
+                  "r2": 0.000592257766860671,
+                  "pearson": 0.024910597914874415,
+                  "spearman": 0.012812802276757955,
+                  "direction_accuracy": 0.4858058406817991
+                },
+                "ZF": {
+                  "observations": 209221,
+                  "mae": 9.730932397046332e-05,
+                  "rmse": 0.00016467682600922951,
+                  "r2": 0.008227104003669106,
+                  "pearson": 0.1089829885722691,
+                  "spearman": 0.15176881175554516,
+                  "direction_accuracy": 0.4087161422610541
+                },
+                "ZN": {
+                  "observations": 227444,
+                  "mae": 0.00014796514240431318,
+                  "rmse": 0.00023649895876468375,
+                  "r2": 0.013068926508140843,
+                  "pearson": 0.1817976668676278,
+                  "spearman": 0.23226264000117294,
+                  "direction_accuracy": 0.4136314873111623
+                },
+                "ZB": {
+                  "observations": 193343,
+                  "mae": 0.00030851286836946096,
+                  "rmse": 0.0004781612955004073,
+                  "r2": 0.006281682266085609,
+                  "pearson": 0.13099911701128475,
+                  "spearman": 0.17350181131364342,
+                  "direction_accuracy": 0.4036091298883332
+                },
+                "CL": {
+                  "observations": 253516,
+                  "mae": 0.0007998178633501029,
+                  "rmse": 0.001293741127811858,
+                  "r2": 0.0005905072781873244,
+                  "pearson": 0.025200362880820046,
+                  "spearman": 0.02872108610591331,
+                  "direction_accuracy": 0.46832547058173846
+                },
+                "NG": {
+                  "observations": 216881,
+                  "mae": 0.0013947569227647256,
+                  "rmse": 0.0020995911494352346,
+                  "r2": 0.00020543199941347456,
+                  "pearson": 0.015930162308440354,
+                  "spearman": 0.04409572728582004,
+                  "direction_accuracy": 0.47581853643242145
+                },
+                "GC": {
+                  "observations": 261727,
+                  "mae": 0.0004979891529415413,
+                  "rmse": 0.0007450491470218095,
+                  "r2": 0.000350583934667803,
+                  "pearson": 0.021634655456774694,
+                  "spearman": 0.02469728294348225,
+                  "direction_accuracy": 0.49944025645042356
+                },
+                "HG": {
+                  "observations": 224792,
+                  "mae": 0.0007831541426143292,
+                  "rmse": 0.0014488320091803266,
+                  "r2": 0.0005357022336465178,
+                  "pearson": 0.02459687029103194,
+                  "spearman": 0.026407757135790574,
+                  "direction_accuracy": 0.48495053204740385
+                },
+                "6E": {
+                  "observations": 256089,
+                  "mae": 0.00020155424612545804,
+                  "rmse": 0.0003098830422470727,
+                  "r2": 3.876413852033078e-05,
+                  "pearson": 0.015742926005309257,
+                  "spearman": 0.024071164117616842,
+                  "direction_accuracy": 0.46595519526414647
+                },
+                "6J": {
+                  "observations": 255357,
+                  "mae": 0.00024253910800179298,
+                  "rmse": 0.00036152590095944075,
+                  "r2": 0.000711853616118252,
+                  "pearson": 0.027130381513731372,
+                  "spearman": 0.0360962753921505,
+                  "direction_accuracy": 0.45372556851780055
+                },
+                "6B": {
+                  "observations": 224538,
+                  "mae": 0.00020164165968570164,
+                  "rmse": 0.00029265865318589275,
+                  "r2": 0.00025125314686080813,
+                  "pearson": 0.020818747086374798,
+                  "spearman": 0.03195723428238681,
+                  "direction_accuracy": 0.4418895688034987
+                },
+                "ZC": {
+                  "observations": 119578,
+                  "mae": 0.0006815124973773188,
+                  "rmse": 0.0010247164334250606,
+                  "r2": 0.011418680818594984,
+                  "pearson": 0.15796231893871054,
+                  "spearman": 0.2016339769118828,
+                  "direction_accuracy": 0.4191490073424877
+                },
+                "ZS": {
+                  "observations": 149691,
+                  "mae": 0.0004929081712867678,
+                  "rmse": 0.000750367170985002,
+                  "r2": 0.0011853295507228134,
+                  "pearson": 0.03883774538779694,
+                  "spearman": 0.07278601575109807,
+                  "direction_accuracy": 0.4328717157344129
+                },
+                "ZW": {
+                  "observations": 118963,
+                  "mae": 0.0007919331184168166,
+                  "rmse": 0.0011407334888043083,
+                  "r2": 0.0020093501135858283,
+                  "pearson": 0.06691389553421585,
+                  "spearman": 0.09438896708137137,
+                  "direction_accuracy": 0.42350142481275693
+                }
+              },
+              "prediction_deciles": [
+                {
+                  "decile": 1,
+                  "observations": 349069,
+                  "mean_prediction": -3.023762943034932e-05,
+                  "mean_actual": -6.599888360099649e-05
+                },
+                {
+                  "decile": 2,
+                  "observations": 349069,
+                  "mean_prediction": -1.2192574616152411e-05,
+                  "mean_actual": -2.278983572808762e-05
+                },
+                {
+                  "decile": 3,
+                  "observations": 349069,
+                  "mean_prediction": -7.291825720596122e-06,
+                  "mean_actual": -1.274635728559556e-05
+                },
+                {
+                  "decile": 4,
+                  "observations": 349069,
+                  "mean_prediction": -3.936346839408771e-06,
+                  "mean_actual": -8.94492475374927e-06
+                },
+                {
+                  "decile": 5,
+                  "observations": 349068,
+                  "mean_prediction": 5.887515637233303e-09,
+                  "mean_actual": 3.3997549232310715e-06
+                },
+                {
+                  "decile": 6,
+                  "observations": 349068,
+                  "mean_prediction": 1.793587060285973e-06,
+                  "mean_actual": 4.535571598117573e-06
+                },
+                {
+                  "decile": 7,
+                  "observations": 349068,
+                  "mean_prediction": 5.549151952477042e-06,
+                  "mean_actual": 6.201064688817649e-06
+                },
+                {
+                  "decile": 8,
+                  "observations": 349068,
+                  "mean_prediction": 8.762074689698301e-06,
+                  "mean_actual": 1.7559246427416442e-05
+                },
+                {
+                  "decile": 9,
+                  "observations": 349068,
+                  "mean_prediction": 1.135229131202052e-05,
+                  "mean_actual": 2.5301161027037703e-05
+                },
+                {
+                  "decile": 10,
+                  "observations": 349068,
+                  "mean_prediction": 3.011232508331591e-05,
+                  "mean_actual": 5.8637398373526185e-05
+                }
+              ]
+            },
+            "test": {
+              "overall": {
+                "observations": 3525964,
+                "mae": 0.0005425280554786335,
+                "rmse": 0.00109895022963941,
+                "r2": 0.0005756524124969076,
+                "pearson": 0.024032698200353274,
+                "spearman": 0.06720459505295685,
+                "direction_accuracy": 0.4585441031161974
+              },
+              "macro_average": {
+                "mae": 0.000547292763227559,
+                "rmse": 0.0008599636209029574,
+                "r2": 0.0033625849874103983,
+                "pearson": 0.059348240515771776,
+                "spearman": 0.08180251240344595,
+                "direction_accuracy": 0.4543912409115949
+              },
+              "per_root": {
+                "NQ": {
+                  "observations": 263560,
+                  "mae": 0.00048597724895652815,
+                  "rmse": 0.0007572953509788346,
+                  "r2": 2.9561915983356002e-05,
+                  "pearson": 0.007947312834336159,
+                  "spearman": 0.016064522125603848,
+                  "direction_accuracy": 0.5034830778570345
+                },
+                "ES": {
+                  "observations": 263685,
+                  "mae": 0.0003229599735078319,
+                  "rmse": 0.0005233885642627708,
+                  "r2": 0.0002726640575763106,
+                  "pearson": 0.016847656335156752,
+                  "spearman": 0.01918257931793757,
+                  "direction_accuracy": 0.4838272939302577
+                },
+                "RTY": {
+                  "observations": 253676,
+                  "mae": 0.0004965498926104922,
+                  "rmse": 0.0008155681313745544,
+                  "r2": 0.0002149829900000011,
+                  "pearson": 0.015088818296527905,
+                  "spearman": 0.01926884532441557,
+                  "direction_accuracy": 0.4910988820385058
+                },
+                "ZF": {
+                  "observations": 207990,
+                  "mae": 8.766548863534297e-05,
+                  "rmse": 0.00013943901863973355,
+                  "r2": 0.010170651927096208,
+                  "pearson": 0.12024196147443271,
+                  "spearman": 0.1662449565973774,
+                  "direction_accuracy": 0.40179335544978123
+                },
+                "ZN": {
+                  "observations": 223102,
+                  "mae": 0.00013360943521755395,
+                  "rmse": 0.00020490501576709362,
+                  "r2": 0.016271346420744237,
+                  "pearson": 0.20521196221090177,
+                  "spearman": 0.2544411230145736,
+                  "direction_accuracy": 0.4066749737788097
+                },
+                "ZB": {
+                  "observations": 188770,
+                  "mae": 0.00026423113610727446,
+                  "rmse": 0.0003932635469580855,
+                  "r2": 0.009666430374305812,
+                  "pearson": 0.1757318450903553,
+                  "spearman": 0.21376420771827803,
+                  "direction_accuracy": 0.395634899613286
+                },
+                "CL": {
+                  "observations": 257057,
+                  "mae": 0.0014006547834222178,
+                  "rmse": 0.002359897438194625,
+                  "r2": -0.0005234167244223542,
+                  "pearson": -0.00031016751987346576,
+                  "spearman": 0.024833192794886508,
+                  "direction_accuracy": 0.49107396414024906
+                },
+                "NG": {
+                  "observations": 224803,
+                  "mae": 0.0014592580881108805,
+                  "rmse": 0.0022960545535377986,
+                  "r2": 0.0001872094830833726,
+                  "pearson": 0.016399247061437548,
+                  "spearman": 0.05005327602177053,
+                  "direction_accuracy": 0.47109246762721135
+                },
+                "GC": {
+                  "observations": 258798,
+                  "mae": 0.0007090492919778299,
+                  "rmse": 0.0011437363474535937,
+                  "r2": 0.0003541832919294885,
+                  "pearson": 0.01905088876688705,
+                  "spearman": 0.033046488943249436,
+                  "direction_accuracy": 0.5068740871258665
+                },
+                "HG": {
+                  "observations": 234377,
+                  "mae": 0.0007488065024371984,
+                  "rmse": 0.0011308475492320031,
+                  "r2": 0.0010568496071995392,
+                  "pearson": 0.039242313302405574,
+                  "spearman": 0.031125363516831876,
+                  "direction_accuracy": 0.4886358303075814
+                },
+                "6E": {
+                  "observations": 251535,
+                  "mae": 0.00014927281266328228,
+                  "rmse": 0.00022757668999950708,
+                  "r2": 0.0006822727862494382,
+                  "pearson": 0.02816987816027253,
+                  "spearman": 0.03907120636773724,
+                  "direction_accuracy": 0.4556503071143181
+                },
+                "6J": {
+                  "observations": 244198,
+                  "mae": 0.00017654063210405344,
+                  "rmse": 0.00030211736972121905,
+                  "r2": 0.0017019671348070808,
+                  "pearson": 0.04311943527101488,
+                  "spearman": 0.07518939381530682,
+                  "direction_accuracy": 0.4304048354204375
+                },
+                "6B": {
+                  "observations": 218782,
+                  "mae": 0.00018052292964723174,
+                  "rmse": 0.0002696985679691082,
+                  "r2": 0.0008665947861147272,
+                  "pearson": 0.029855011194917017,
+                  "spearman": 0.04211372773345855,
+                  "direction_accuracy": 0.4346609867356547
+                },
+                "ZC": {
+                  "observations": 133540,
+                  "mae": 0.0006889296924950666,
+                  "rmse": 0.0010364318679944506,
+                  "r2": 0.01029437537988187,
+                  "pearson": 0.14671145805643607,
+                  "spearman": 0.1889439708932076,
+                  "direction_accuracy": 0.4264115620787779
+                },
+                "ZS": {
+                  "observations": 157458,
+                  "mae": 0.0005032664240021586,
+                  "rmse": 0.0007612417827250308,
+                  "r2": 0.0015351222106403384,
+                  "pearson": 0.04821862795126653,
+                  "spearman": 0.06944328422133697,
+                  "direction_accuracy": 0.4423592323032174
+                },
+                "ZW": {
+                  "observations": 144633,
+                  "mae": 0.0009493898797459996,
+                  "rmse": 0.0013979561396389095,
+                  "r2": 0.0010205641573769464,
+                  "pearson": 0.038045599765874114,
+                  "spearman": 0.06605406004916359,
+                  "direction_accuracy": 0.44058409906452883
+                }
+              },
+              "prediction_deciles": [
+                {
+                  "decile": 1,
+                  "observations": 352597,
+                  "mean_prediction": -3.4518140177842536e-05,
+                  "mean_actual": -6.71980202468244e-05
+                },
+                {
+                  "decile": 2,
+                  "observations": 352597,
+                  "mean_prediction": -1.2106810935211221e-05,
+                  "mean_actual": -2.584408323884346e-05
+                },
+                {
+                  "decile": 3,
+                  "observations": 352597,
+                  "mean_prediction": -7.148702951485643e-06,
+                  "mean_actual": -1.1367301555011547e-05
+                },
+                {
+                  "decile": 4,
+                  "observations": 352597,
+                  "mean_prediction": -3.846986365558307e-06,
+                  "mean_actual": -1.3755612961617755e-05
+                },
+                {
+                  "decile": 5,
+                  "observations": 352596,
+                  "mean_prediction": 7.288168198630279e-08,
+                  "mean_actual": 8.864770179045742e-07
+                },
+                {
+                  "decile": 6,
+                  "observations": 352596,
+                  "mean_prediction": 1.7078910939721117e-06,
+                  "mean_actual": 8.62298559323283e-06
+                },
+                {
+                  "decile": 7,
+                  "observations": 352596,
+                  "mean_prediction": 5.497103536080088e-06,
+                  "mean_actual": 5.961432559454628e-06
+                },
+                {
+                  "decile": 8,
+                  "observations": 352596,
+                  "mean_prediction": 8.77510520186862e-06,
+                  "mean_actual": 1.6671871633296437e-05
+                },
+                {
+                  "decile": 9,
+                  "observations": 352596,
+                  "mean_prediction": 1.1565993522367062e-05,
+                  "mean_actual": 3.145239277538196e-05
+                },
+                {
+                  "decile": 10,
+                  "observations": 352596,
+                  "mean_prediction": 3.4294553253368324e-05,
+                  "mean_actual": 6.93068974335428e-05
+                }
+              ]
+            },
+            "artifact": "D:\\futures-ml-data\\artifacts\\models\\experiment_b\\pooled\\hist_gradient_boosting",
+            "encoded_feature_count": 70
+          }
+        }
+      },
+      "nq_only": {
+        "eligible_train_counts_by_root": {
+          "NQ": 1229479
+        },
+        "model_fit_counts_by_root": {
+          "NQ": 100000
+        },
+        "eligible_train_rows": 1229479,
+        "model_fit_rows": 100000,
+        "original_feature_count": 54,
+        "models": {
+          "ridge": {
+            "validation": {
+              "overall": {
+                "observations": 264612,
+                "mae": 0.00045276252682604356,
+                "rmse": 0.0008643570983432687,
+                "r2": -0.003536335149465497,
+                "pearson": -0.006164431782959143,
+                "spearman": 0.005051160135521922,
+                "direction_accuracy": 0.49362840687497167
+              },
+              "macro_average": {
+                "mae": 0.00045276252682604356,
+                "rmse": 0.0008643570983432687,
+                "r2": -0.003536335149465497,
+                "pearson": -0.006164431782959143,
+                "spearman": 0.005051160135521922,
+                "direction_accuracy": 0.49362840687497167
+              },
+              "per_root": {
+                "NQ": {
+                  "observations": 264612,
+                  "mae": 0.00045276252682604356,
+                  "rmse": 0.0008643570983432687,
+                  "r2": -0.003536335149465497,
+                  "pearson": -0.006164431782959143,
+                  "spearman": 0.005051160135521922,
+                  "direction_accuracy": 0.49362840687497167
+                }
+              },
+              "prediction_deciles": [
+                {
+                  "decile": 1,
+                  "observations": 26462,
+                  "mean_prediction": -5.371112552222758e-05,
+                  "mean_actual": 9.690068158579631e-06
+                },
+                {
+                  "decile": 2,
+                  "observations": 26462,
+                  "mean_prediction": -2.3199683429361273e-05,
+                  "mean_actual": -2.1648973997993835e-07
+                },
+                {
+                  "decile": 3,
+                  "observations": 26461,
+                  "mean_prediction": -1.3955972605626407e-05,
+                  "mean_actual": 1.3240244257809846e-06
+                },
+                {
+                  "decile": 4,
+                  "observations": 26461,
+                  "mean_prediction": -7.126662467432996e-06,
+                  "mean_actual": 3.679539866989286e-06
+                },
+                {
+                  "decile": 5,
+                  "observations": 26461,
+                  "mean_prediction": -1.0992932751428789e-06,
+                  "mean_actual": 2.833452818156163e-06
+                },
+                {
+                  "decile": 6,
+                  "observations": 26461,
+                  "mean_prediction": 4.7540044509487264e-06,
+                  "mean_actual": 2.803752706189903e-06
+                },
+                {
+                  "decile": 7,
+                  "observations": 26461,
+                  "mean_prediction": 1.1018708491362883e-05,
+                  "mean_actual": -2.421591129373673e-06
+                },
+                {
+                  "decile": 8,
+                  "observations": 26461,
+                  "mean_prediction": 1.8680499459310482e-05,
+                  "mean_actual": 4.462386634417743e-06
+                },
+                {
+                  "decile": 9,
+                  "observations": 26461,
+                  "mean_prediction": 3.0402165051646783e-05,
+                  "mean_actual": 6.616567902289583e-06
+                },
+                {
+                  "decile": 10,
+                  "observations": 26461,
+                  "mean_prediction": 8.500211121608223e-05,
+                  "mean_actual": 1.1395400274883387e-05
+                }
+              ]
+            },
+            "test": {
+              "overall": {
+                "observations": 263560,
+                "mae": 0.0004870407117379247,
+                "rmse": 0.0007583730661703277,
+                "r2": -0.002818600725360776,
+                "pearson": 0.0024820385704979334,
+                "spearman": 0.0032034466487015725,
+                "direction_accuracy": 0.49646759751100317
+              },
+              "macro_average": {
+                "mae": 0.0004870407117379247,
+                "rmse": 0.0007583730661703277,
+                "r2": -0.002818600725360776,
+                "pearson": 0.0024820385704979334,
+                "spearman": 0.0032034466487015725,
+                "direction_accuracy": 0.49646759751100317
+              },
+              "per_root": {
+                "NQ": {
+                  "observations": 263560,
+                  "mae": 0.0004870407117379247,
+                  "rmse": 0.0007583730661703277,
+                  "r2": -0.002818600725360776,
+                  "pearson": 0.0024820385704979334,
+                  "spearman": 0.0032034466487015725,
+                  "direction_accuracy": 0.49646759751100317
+                }
+              },
+              "prediction_deciles": [
+                {
+                  "decile": 1,
+                  "observations": 26356,
+                  "mean_prediction": -5.991335017021813e-05,
+                  "mean_actual": -5.389993420560253e-06
+                },
+                {
+                  "decile": 2,
+                  "observations": 26356,
+                  "mean_prediction": -2.75073192869667e-05,
+                  "mean_actual": -1.2651036020298244e-06
+                },
+                {
+                  "decile": 3,
+                  "observations": 26356,
+                  "mean_prediction": -1.5669425153651978e-05,
+                  "mean_actual": -8.030981608250702e-07
+                },
+                {
+                  "decile": 4,
+                  "observations": 26356,
+                  "mean_prediction": -7.007528115126941e-06,
+                  "mean_actual": -1.6382448689818645e-06
+                },
+                {
+                  "decile": 5,
+                  "observations": 26356,
+                  "mean_prediction": 5.033369898003603e-07,
+                  "mean_actual": 2.6209213917091224e-06
+                },
+                {
+                  "decile": 6,
+                  "observations": 26356,
+                  "mean_prediction": 7.820967144854785e-06,
+                  "mean_actual": 7.037788866200775e-06
+                },
+                {
+                  "decile": 7,
+                  "observations": 26356,
+                  "mean_prediction": 1.5592197874801945e-05,
+                  "mean_actual": 4.096199837809912e-06
+                },
+                {
+                  "decile": 8,
+                  "observations": 26356,
+                  "mean_prediction": 2.4926894244296252e-05,
+                  "mean_actual": 1.2652686455352912e-05
+                },
+                {
+                  "decile": 9,
+                  "observations": 26356,
+                  "mean_prediction": 3.856960340787975e-05,
+                  "mean_actual": 2.503410341608142e-06
+                },
+                {
+                  "decile": 10,
+                  "observations": 26356,
+                  "mean_prediction": 8.410246371226928e-05,
+                  "mean_actual": 1.3072525974649727e-05
+                }
+              ]
+            },
+            "artifact": "D:\\futures-ml-data\\artifacts\\models\\experiment_b\\nq_only\\ridge",
+            "encoded_feature_count": 54
+          },
+          "hist_gradient_boosting": {
+            "validation": {
+              "overall": {
+                "observations": 264612,
+                "mae": 0.00045216255939058993,
+                "rmse": 0.0008630270173888057,
+                "r2": -0.0004502088726439091,
+                "pearson": 0.020117808567248777,
+                "spearman": 0.001649359435117925,
+                "direction_accuracy": 0.5026264870829743
+              },
+              "macro_average": {
+                "mae": 0.00045216255939058993,
+                "rmse": 0.0008630270173888057,
+                "r2": -0.0004502088726439091,
+                "pearson": 0.020117808567248777,
+                "spearman": 0.001649359435117925,
+                "direction_accuracy": 0.5026264870829743
+              },
+              "per_root": {
+                "NQ": {
+                  "observations": 264612,
+                  "mae": 0.00045216255939058993,
+                  "rmse": 0.0008630270173888057,
+                  "r2": -0.0004502088726439091,
+                  "pearson": 0.020117808567248777,
+                  "spearman": 0.001649359435117925,
+                  "direction_accuracy": 0.5026264870829743
+                }
+              },
+              "prediction_deciles": [
+                {
+                  "decile": 1,
+                  "observations": 26462,
+                  "mean_prediction": -2.14499689066105e-05,
+                  "mean_actual": 1.6729870730215274e-05
+                },
+                {
+                  "decile": 2,
+                  "observations": 26462,
+                  "mean_prediction": 4.225029854394537e-06,
+                  "mean_actual": -6.315194550338908e-06
+                },
+                {
+                  "decile": 3,
+                  "observations": 26461,
+                  "mean_prediction": 4.231512089353643e-06,
+                  "mean_actual": 6.007919811832047e-06
+                },
+                {
+                  "decile": 4,
+                  "observations": 26461,
+                  "mean_prediction": 4.231512089353643e-06,
+                  "mean_actual": 4.1401504364632855e-06
+                },
+                {
+                  "decile": 5,
+                  "observations": 26461,
+                  "mean_prediction": 4.231512089353643e-06,
+                  "mean_actual": -3.2366234521010595e-06
+                },
+                {
+                  "decile": 6,
+                  "observations": 26461,
+                  "mean_prediction": 4.231512089353643e-06,
+                  "mean_actual": 5.422145361807551e-06
+                },
+                {
+                  "decile": 7,
+                  "observations": 26461,
+                  "mean_prediction": 4.231512089353643e-06,
+                  "mean_actual": -3.754406876659598e-06
+                },
+                {
+                  "decile": 8,
+                  "observations": 26461,
+                  "mean_prediction": 4.231512089353643e-06,
+                  "mean_actual": -6.518314793345388e-06
+                },
+                {
+                  "decile": 9,
+                  "observations": 26461,
+                  "mean_prediction": 5.013500472392628e-06,
+                  "mean_actual": -1.8074641717246392e-06
+                },
+                {
+                  "decile": 10,
+                  "observations": 26461,
+                  "mean_prediction": 6.133741963625948e-05,
+                  "mean_actual": 2.949899385631981e-05
+                }
+              ]
+            },
+            "test": {
+              "overall": {
+                "observations": 263560,
+                "mae": 0.00048622934210961263,
+                "rmse": 0.000757621976425892,
+                "r2": -0.0008332090663314418,
+                "pearson": 0.008109769860644368,
+                "spearman": 0.004449312985698099,
+                "direction_accuracy": 0.49769312490514495
+              },
+              "macro_average": {
+                "mae": 0.00048622934210961263,
+                "rmse": 0.000757621976425892,
+                "r2": -0.0008332090663314418,
+                "pearson": 0.008109769860644368,
+                "spearman": 0.004449312985698099,
+                "direction_accuracy": 0.49769312490514495
+              },
+              "per_root": {
+                "NQ": {
+                  "observations": 263560,
+                  "mae": 0.00048622934210961263,
+                  "rmse": 0.000757621976425892,
+                  "r2": -0.0008332090663314418,
+                  "pearson": 0.008109769860644368,
+                  "spearman": 0.004449312985698099,
+                  "direction_accuracy": 0.49769312490514495
+                }
+              },
+              "prediction_deciles": [
+                {
+                  "decile": 1,
+                  "observations": 26356,
+                  "mean_prediction": -2.6507865964019302e-05,
+                  "mean_actual": 2.6975097078321194e-06
+                },
+                {
+                  "decile": 2,
+                  "observations": 26356,
+                  "mean_prediction": 3.58864268696949e-06,
+                  "mean_actual": -9.366704878762309e-06
+                },
+                {
+                  "decile": 3,
+                  "observations": 26356,
+                  "mean_prediction": 4.231512089353643e-06,
+                  "mean_actual": -2.044729366872822e-06
+                },
+                {
+                  "decile": 4,
+                  "observations": 26356,
+                  "mean_prediction": 4.231512089353643e-06,
+                  "mean_actual": -1.21609787418572e-05
+                },
+                {
+                  "decile": 5,
+                  "observations": 26356,
+                  "mean_prediction": 4.231512089353643e-06,
+                  "mean_actual": 2.0710681550036216e-05
+                },
+                {
+                  "decile": 6,
+                  "observations": 26356,
+                  "mean_prediction": 4.231512089353643e-06,
+                  "mean_actual": 5.219625720587028e-06
+                },
+                {
+                  "decile": 7,
+                  "observations": 26356,
+                  "mean_prediction": 4.231512089353643e-06,
+                  "mean_actual": -7.917601909356506e-06
+                },
+                {
+                  "decile": 8,
+                  "observations": 26356,
+                  "mean_prediction": 4.231512089353643e-06,
+                  "mean_actual": -1.4281048028660302e-06
+                },
+                {
+                  "decile": 9,
+                  "observations": 26356,
+                  "mean_prediction": 5.365806430130533e-06,
+                  "mean_actual": 1.159119126414553e-05
+                },
+                {
+                  "decile": 10,
+                  "observations": 26356,
+                  "mean_prediction": 4.250771689887205e-05,
+                  "mean_actual": 2.5586204272047562e-05
+                }
+              ]
+            },
+            "artifact": "D:\\futures-ml-data\\artifacts\\models\\experiment_b\\nq_only\\hist_gradient_boosting",
+            "encoded_feature_count": 54
+          }
+        }
+      }
+    }
+  },
+  "real_training_row": {
+    "timestamp": "2021-09-23T03:59:00+00:00",
+    "root": "NQ",
+    "instrument_id": 2770,
+    "contract_segment_id": 1,
+    "log_return_1m": -8.232011002619334e-05,
+    "log_return_5m": -0.00014817131924281507,
+    "log_return_15m": -0.0002634005019838545,
+    "log_return_30m": -0.0006419172147243594,
+    "log_return_60m": -0.0005596431598011846,
+    "return_open_to_close": -3.292831505811848e-05,
+    "range_pct": 6.585879873551106e-05,
+    "upper_wick_pct": 3.292939936775553e-05,
+    "lower_wick_pct": 0.0,
+    "close_location_in_bar": 0.0,
+    "close_to_ema_5": -8.167529684879383e-05,
+    "close_to_ema_20": -0.00021138369077468655,
+    "close_to_ema_50": -0.0003417938088629483,
+    "ema5_vs_ema20": -0.0001297083939259819,
+    "ema20_vs_ema50": -0.0001304101180883252,
+    "rsi_14": 29.545454545454547,
+    "atr_14_normalized": 9.87881981032666e-05,
+    "realized_vol_5m": 9.697428880579155e-05,
+    "realized_vol_15m": 6.743448818184451e-05,
+    "realized_vol_60m": 0.00010562980404037837,
+    "volume": 11,
+    "rolling_volume_mean_20": 27.8,
+    "rolling_volume_mean_60": 40.43333333333333,
+    "volume_zscore_20": -1.3647407687670878,
+    "volume_zscore_60": -1.3228001170110717,
+    "relative_volume_20": 0.39568345323741005,
+    "close_minus_vwap_60m_pct": -0.0004445401046962772,
+    "close_minus_vwap_240m_pct": -0.0009449667811897264,
+    "chicago_hour": 22,
+    "chicago_minute": 59,
+    "chicago_day_of_week": 2,
+    "hour_sin": -0.26303121445797445,
+    "hour_cos": 0.964787323828813,
+    "day_of_week_sin": 0.9749279121818236,
+    "day_of_week_cos": -0.22252093395631434,
+    "NQ_return_1m": -8.232011002619334e-05,
+    "NQ_return_5m": -0.00014817131924281507,
+    "NQ_return_15m": -0.0002634005019838545,
+    "ES_return_1m": -5.689738558043402e-05,
+    "ES_return_5m": -0.00022757012102533476,
+    "ES_return_15m": -0.00017068244572489364,
+    "ZN_return_1m": null,
+    "ZN_return_5m": null,
+    "ZN_return_15m": null,
+    "CL_return_1m": 0.00013813108662073405,
+    "CL_return_5m": 0.0,
+    "CL_return_15m": 0.0006908463141779936,
+    "GC_return_1m": 5.6681309353335674e-05,
+    "GC_return_5m": -5.667809676480402e-05,
+    "GC_return_15m": -0.00011335298130483033,
+    "6E_return_1m": 4.264483251898175e-05,
+    "6E_return_5m": -0.00012792358715175324,
+    "6E_return_15m": 0.0,
+    "NQ_ES_return_spread_5m": 7.939880178251969e-05,
+    "future_return_1m": 6.585663013996897e-05,
+    "future_return_5m": 0.0003621578059897668,
+    "future_return_15m": 0.0003127803731125218,
+    "direction_5m": "UP"
+  },
+  "plot_cache_path": "D:\\futures-ml-data\\cache\\phase2_plot_predictions.joblib"
+}

@@ -1,0 +1,25 @@
+version: phase2_v1
+roots: [NQ, ES, RTY, ZF, ZN, ZB, CL, NG, GC, HG, 6E, 6J, 6B, ZC, ZS, ZW]
+anchor_roots: [NQ, ES, ZN, CL, GC, 6E]
+price_scale: 1000000000
+primary_target: future_return_5m
+feature_horizons_minutes: [1, 5, 15, 30, 60]
+label_horizons_minutes: [1, 5, 15]
+purge_minutes: 75
+split:
+  train_fraction: 0.70
+  validation_fraction: 0.15
+  test_fraction: 0.15
+modeling:
+  random_seed: 42
+  # The full feature dataset and all evaluation rows are retained. Baseline fits
+  # use a deterministic, evenly spaced cap per root so HGB remains a practical
+  # first benchmark on an ordinary workstation.
+  max_train_rows_per_root: 100000
+  ridge_alpha: 1.0
+  hist_gradient_boosting:
+    learning_rate: 0.08
+    max_iter: 150
+    max_leaf_nodes: 31
+    min_samples_leaf: 100
+    l2_regularization: 0.1
