@@ -18,7 +18,7 @@ Phase 1 establishes:
 - budget and disk-capacity gates;
 - infrastructure for later historical acquisition and baseline ML research.
 
-The repository currently implements setup and non-downloading estimation. The original plan was estimated on 2026-09-23 at USD 4,162.99 and failed both gates. The first review-only alternative that passes is three years of `ohlcv-1m` across all 26 markets, five years of metadata schemas, and no MBP-1, estimated at USD 115.92. This materially changes the approved source granularity and is not authorized until the user explicitly accepts it. Historical downloading, feature generation, and model training remain paused.
+The repository currently implements setup and non-downloading estimation. The original plan was estimated on 2026-09-23 at USD 4,162.99 and failed both gates. A later review-only comparison for 15 selected markets found that five years of `ohlcv-1m` plus Definitions, Statistics, and Status costs USD 105.24; four years costs USD 84.29. One month of standalone MBP-1 for NQ/ES/CL/GC costs USD 58.56, so no requested base-plus-MBP combination meets the USD 120 threshold. These comparisons do not change the approved configuration or authorize acquisition. Historical downloading, feature generation, and model training remain paused.
 
 ## Futures Universe
 
@@ -121,6 +121,14 @@ python scripts\estimate_alternative_plans.py
 ```
 
 Alternative reports are review-only and never authorize a changed plan automatically.
+
+Run the isolated 15-market comparison requested after the first alternatives review:
+
+```powershell
+python scripts\estimate_revised_plan.py
+```
+
+This compares four versus five years of OHLCV-1m plus metadata and independently prices one, three, and six months of MBP-1 for NQ/ES/CL/GC. It does not change `config/universe.yaml` or authorize a download.
 
 Run tests and lint checks:
 

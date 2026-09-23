@@ -16,8 +16,11 @@ Current handoff (2026-09-23):
 - Original-plan result: USD 4,162.99; 1,403.78 GB billable raw; 17.51 billion records; about 4.21 TB expected working space. Budget and storage both fail.
 - Prescribed 1-second reductions: all fail; the smallest remains USD 1,915.73 and requires about 1.95 TB free with headroom.
 - First passing candidate: **B3**, three years of `ohlcv-1m` for all 26 markets, five years of definitions/statistics/status, and no MBP-1. Estimate: USD 115.92; 20.52 GB billable raw; 61.57 GB expected working space; 76.97 GB required with headroom. Budget and storage pass.
-- Unresolved decision: B3 changes the approved universal source from five-year `ohlcv-1s` to three-year `ohlcv-1m` and postpones MBP-1. It is review-only and not authorized.
-- Exact next task: user accepts B3, rejects it, or requests another metadata-only alternative. Do not implement or run a downloader before that explicit decision.
+- Latest review-only comparison: revised 15-root universe NQ, ES, RTY, ZN, ZB, CL, NG, GC, HG, 6E, 6J, 6B, ZC, ZS, ZW. Five-year OHLCV-1m plus same-horizon Definitions/Statistics/Status is USD 105.24 and requires 51.28 GB free with headroom. Four-year is USD 84.29 and requires 42.03 GB. Both pass independently.
+- Standalone MBP comparison for NQ/ES/CL/GC: one month is USD 58.56 and requires 130.99 GB with headroom; three months is USD 196.11 and requires 438.69 GB; six months is USD 405.51 and requires 907.11 GB. Only one month passes the budget independently; six months also fails current storage.
+- Combined result: no requested base-plus-MBP combination passes USD 120. The cheapest is four-year base plus one-month MBP at USD 142.84. Current D: free space is 710.83 decimal GB (662.01 GiB).
+- Unresolved decision: no revised scenario is authorized. The project universe config remains unchanged.
+- Exact next task: user selects the five- or four-year revised base alone, rejects both, or requests a shorter/reduced MBP-only comparison. Do not implement or run a downloader before explicit approval and a fresh immediate cost check.
 
 # Core Architecture Decisions
 
