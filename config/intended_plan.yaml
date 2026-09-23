@@ -1,0 +1,19 @@
+status: review_only_no_download
+dataset: GLBX.MDP3
+end_exclusive_utc: 2026-09-22
+budget_limit_usd: 120.0
+
+base_plan:
+  name: BASE-5Y
+  years: 5
+  roots: [NQ, ES, RTY, ZN, ZB, CL, NG, GC, HG, 6E, 6J, 6B, ZC, ZS, ZW]
+  schemas: [ohlcv-1m, definition, statistics, status]
+  estimated_cost_usd: 105.24404431
+
+optional_addons:
+  years: 5
+  roots: [ZF, 6C, 6A]
+  schemas: [ohlcv-1m, definition, statistics, status]
+  selection: pending_user_decision
+
+download_authorized: false

@@ -19,8 +19,11 @@ Current handoff (2026-09-23):
 - Latest review-only comparison: revised 15-root universe NQ, ES, RTY, ZN, ZB, CL, NG, GC, HG, 6E, 6J, 6B, ZC, ZS, ZW. Five-year OHLCV-1m plus same-horizon Definitions/Statistics/Status is USD 105.24 and requires 51.28 GB free with headroom. Four-year is USD 84.29 and requires 42.03 GB. Both pass independently.
 - Standalone MBP comparison for NQ/ES/CL/GC: one month is USD 58.56 and requires 130.99 GB with headroom; three months is USD 196.11 and requires 438.69 GB; six months is USD 405.51 and requires 907.11 GB. Only one month passes the budget independently; six months also fails current storage.
 - Combined result: no requested base-plus-MBP combination passes USD 120. The cheapest is four-year base plus one-month MBP at USD 142.84. Current D: free space is 710.83 decimal GB (662.01 GiB).
-- Unresolved decision: no revised scenario is authorized. The project universe config remains unchanged.
-- Exact next task: user selects the five- or four-year revised base alone, rejects both, or requests a shorter/reduced MBP-only comparison. Do not implement or run a downloader before explicit approval and a fresh immediate cost check.
+- Intended base decision: BASE-5Y is the intended plan—five years of OHLCV-1m plus Definitions/Statistics/Status for NQ, ES, RTY, ZN, ZB, CL, NG, GC, HG, 6E, 6J, 6B, ZC, ZS, and ZW. Estimate: USD 105.24. This intent is recorded in `config/intended_plan.yaml`, but download authorization remains false.
+- Optional five-year add-ons: ZF costs USD 5.91, 6C costs USD 6.04, and 6A costs USD 6.50. Every single and pair fits the USD 120 threshold. All three together cost USD 123.70 and fail.
+- Largest fitting choices: ZF+6C at USD 117.20, ZF+6A at USD 117.66, or 6C+6A at USD 117.78. Their remaining budget margins are USD 2.80, USD 2.34, and USD 2.22 respectively; all pass storage.
+- Unresolved decision: optional add-on selection is pending. No plan is authorized for download.
+- Exact next task: user selects one pair, one root, or no add-ons. Then update `config/intended_plan.yaml`, refresh the complete selected estimate immediately, and request explicit download approval before implementing or running acquisition.
 
 # Core Architecture Decisions
 

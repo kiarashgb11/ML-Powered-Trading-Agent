@@ -1,0 +1,370 @@
+{
+  "dataset": "GLBX.MDP3",
+  "end_exclusive": "2026-09-22",
+  "base_roots": [
+    "NQ",
+    "ES",
+    "RTY",
+    "ZN",
+    "ZB",
+    "CL",
+    "NG",
+    "GC",
+    "HG",
+    "6E",
+    "6J",
+    "6B",
+    "ZC",
+    "ZS",
+    "ZW"
+  ],
+  "addon_roots": [
+    "ZF",
+    "6C",
+    "6A"
+  ],
+  "budget_limit_usd": 120.0,
+  "storage": {
+    "drive": "D:",
+    "total_bytes": 1000202039296,
+    "free_bytes": 708366544896
+  },
+  "base_summary": {
+    "plan_id": "BASE-5Y",
+    "description": "Intended five-year 15-market base",
+    "total_records": 55416886,
+    "total_billable_bytes": 13675930448,
+    "total_billable_gb": 13.67593,
+    "total_cost_usd": 105.24404431,
+    "expected_working_bytes": 41027791344,
+    "required_free_with_headroom_bytes": 51284739180,
+    "budget_pass": true,
+    "storage_pass": true,
+    "download_authorized": false
+  },
+  "addon_summaries": {
+    "ZF": {
+      "plan_id": "ADD-ZF",
+      "description": "Five-year OHLCV-1m plus metadata for ZF",
+      "total_records": 1838022,
+      "total_billable_bytes": 125143056,
+      "total_billable_gb": 0.125143,
+      "total_cost_usd": 5.91367763,
+      "expected_working_bytes": 375429168,
+      "required_free_with_headroom_bytes": 469286460,
+      "budget_pass": true,
+      "storage_pass": true,
+      "download_authorized": false
+    },
+    "6C": {
+      "plan_id": "ADD-6C",
+      "description": "Five-year OHLCV-1m plus metadata for 6C",
+      "total_records": 2206039,
+      "total_billable_bytes": 219807440,
+      "total_billable_gb": 0.219807,
+      "total_cost_usd": 6.04152354,
+      "expected_working_bytes": 659422320,
+      "required_free_with_headroom_bytes": 824277900,
+      "budget_pass": true,
+      "storage_pass": true,
+      "download_authorized": false
+    },
+    "6A": {
+      "plan_id": "ADD-6A",
+      "description": "Five-year OHLCV-1m plus metadata for 6A",
+      "total_records": 2429509,
+      "total_billable_bytes": 234792056,
+      "total_billable_gb": 0.234792,
+      "total_cost_usd": 6.49830693,
+      "expected_working_bytes": 704376168,
+      "required_free_with_headroom_bytes": 880470210,
+      "budget_pass": true,
+      "storage_pass": true,
+      "download_authorized": false
+    }
+  },
+  "combinations": [
+    {
+      "addon_roots": [
+        "ZF"
+      ],
+      "addon_cost_usd": 5.91367763,
+      "combined_cost_usd": 111.15772194,
+      "combined_records": 57254908,
+      "combined_billable_bytes": 13801073504,
+      "combined_billable_gb": 13.801074,
+      "combined_expected_working_bytes": 41403220512,
+      "combined_required_free_with_headroom_bytes": 51754025640,
+      "budget_remaining_usd": 8.84227806,
+      "budget_pass": true,
+      "storage_pass": true,
+      "download_authorized": false
+    },
+    {
+      "addon_roots": [
+        "6C"
+      ],
+      "addon_cost_usd": 6.04152354,
+      "combined_cost_usd": 111.28556785,
+      "combined_records": 57622925,
+      "combined_billable_bytes": 13895737888,
+      "combined_billable_gb": 13.895738,
+      "combined_expected_working_bytes": 41687213664,
+      "combined_required_free_with_headroom_bytes": 52109017080,
+      "budget_remaining_usd": 8.71443215,
+      "budget_pass": true,
+      "storage_pass": true,
+      "download_authorized": false
+    },
+    {
+      "addon_roots": [
+        "6A"
+      ],
+      "addon_cost_usd": 6.49830693,
+      "combined_cost_usd": 111.74235124,
+      "combined_records": 57846395,
+      "combined_billable_bytes": 13910722504,
+      "combined_billable_gb": 13.910723,
+      "combined_expected_working_bytes": 41732167512,
+      "combined_required_free_with_headroom_bytes": 52165209390,
+      "budget_remaining_usd": 8.25764876,
+      "budget_pass": true,
+      "storage_pass": true,
+      "download_authorized": false
+    },
+    {
+      "addon_roots": [
+        "ZF",
+        "6C"
+      ],
+      "addon_cost_usd": 11.95520117,
+      "combined_cost_usd": 117.19924548,
+      "combined_records": 59460947,
+      "combined_billable_bytes": 14020880944,
+      "combined_billable_gb": 14.020881,
+      "combined_expected_working_bytes": 42062642832,
+      "combined_required_free_with_headroom_bytes": 52578303540,
+      "budget_remaining_usd": 2.80075452,
+      "budget_pass": true,
+      "storage_pass": true,
+      "download_authorized": false
+    },
+    {
+      "addon_roots": [
+        "ZF",
+        "6A"
+      ],
+      "addon_cost_usd": 12.41198456,
+      "combined_cost_usd": 117.65602887,
+      "combined_records": 59684417,
+      "combined_billable_bytes": 14035865560,
+      "combined_billable_gb": 14.035866,
+      "combined_expected_working_bytes": 42107596680,
+      "combined_required_free_with_headroom_bytes": 52634495850,
+      "budget_remaining_usd": 2.34397113,
+      "budget_pass": true,
+      "storage_pass": true,
+      "download_authorized": false
+    },
+    {
+      "addon_roots": [
+        "6C",
+        "6A"
+      ],
+      "addon_cost_usd": 12.53983047,
+      "combined_cost_usd": 117.78387478,
+      "combined_records": 60052434,
+      "combined_billable_bytes": 14130529944,
+      "combined_billable_gb": 14.13053,
+      "combined_expected_working_bytes": 42391589832,
+      "combined_required_free_with_headroom_bytes": 52989487290,
+      "budget_remaining_usd": 2.21612522,
+      "budget_pass": true,
+      "storage_pass": true,
+      "download_authorized": false
+    },
+    {
+      "addon_roots": [
+        "ZF",
+        "6C",
+        "6A"
+      ],
+      "addon_cost_usd": 18.4535081,
+      "combined_cost_usd": 123.69755241,
+      "combined_records": 61890456,
+      "combined_billable_bytes": 14255673000,
+      "combined_billable_gb": 14.255673,
+      "combined_expected_working_bytes": 42767019000,
+      "combined_required_free_with_headroom_bytes": 53458773750,
+      "budget_remaining_usd": -3.69755241,
+      "budget_pass": false,
+      "storage_pass": true,
+      "download_authorized": false
+    }
+  ],
+  "addon_detail_rows": {
+    "ZF": [
+      {
+        "category": "OHLCV-1m",
+        "root": "ZF",
+        "request_symbol": "ZF.v.0",
+        "schema": "ohlcv-1m",
+        "stype_in": "continuous",
+        "start": "2021-09-22",
+        "end": "2026-09-22",
+        "estimated_records": 1606926,
+        "estimated_billable_bytes": 89987856,
+        "estimated_gb": 0.089988,
+        "estimated_cost_usd": 5.86654052
+      },
+      {
+        "category": "Definitions",
+        "root": "ZF",
+        "request_symbol": "ZF.FUT",
+        "schema": "definition",
+        "stype_in": "parent",
+        "start": "2021-09-22",
+        "end": "2026-09-22",
+        "estimated_records": 38872,
+        "estimated_billable_bytes": 20213440,
+        "estimated_gb": 0.020213,
+        "estimated_cost_usd": 0.0320029
+      },
+      {
+        "category": "Statistics",
+        "root": "ZF",
+        "request_symbol": "ZF.v.0",
+        "schema": "statistics",
+        "stype_in": "continuous",
+        "start": "2021-09-22",
+        "end": "2026-09-22",
+        "estimated_records": 181320,
+        "estimated_billable_bytes": 14505600,
+        "estimated_gb": 0.014506,
+        "estimated_cost_usd": 0.01350939
+      },
+      {
+        "category": "Status",
+        "root": "ZF",
+        "request_symbol": "ZF.v.0",
+        "schema": "status",
+        "stype_in": "continuous",
+        "start": "2021-09-22",
+        "end": "2026-09-22",
+        "estimated_records": 10904,
+        "estimated_billable_bytes": 436160,
+        "estimated_gb": 0.000436,
+        "estimated_cost_usd": 0.00162482
+      }
+    ],
+    "6C": [
+      {
+        "category": "OHLCV-1m",
+        "root": "6C",
+        "request_symbol": "6C.v.0",
+        "schema": "ohlcv-1m",
+        "stype_in": "continuous",
+        "start": "2021-09-22",
+        "end": "2026-09-22",
+        "estimated_records": 1604040,
+        "estimated_billable_bytes": 89826240,
+        "estimated_gb": 0.089826,
+        "estimated_cost_usd": 5.85600436
+      },
+      {
+        "category": "Definitions",
+        "root": "6C",
+        "request_symbol": "6C.FUT",
+        "schema": "definition",
+        "stype_in": "parent",
+        "start": "2021-09-22",
+        "end": "2026-09-22",
+        "estimated_records": 186866,
+        "estimated_billable_bytes": 97170320,
+        "estimated_gb": 0.09717,
+        "estimated_cost_usd": 0.15384475
+      },
+      {
+        "category": "Statistics",
+        "root": "6C",
+        "request_symbol": "6C.v.0",
+        "schema": "statistics",
+        "stype_in": "continuous",
+        "start": "2021-09-22",
+        "end": "2026-09-22",
+        "estimated_records": 405139,
+        "estimated_billable_bytes": 32411120,
+        "estimated_gb": 0.032411,
+        "estimated_cost_usd": 0.03018521
+      },
+      {
+        "category": "Status",
+        "root": "6C",
+        "request_symbol": "6C.v.0",
+        "schema": "status",
+        "stype_in": "continuous",
+        "start": "2021-09-22",
+        "end": "2026-09-22",
+        "estimated_records": 9994,
+        "estimated_billable_bytes": 399760,
+        "estimated_gb": 0.0004,
+        "estimated_cost_usd": 0.00148922
+      }
+    ],
+    "6A": [
+      {
+        "category": "OHLCV-1m",
+        "root": "6A",
+        "request_symbol": "6A.v.0",
+        "schema": "ohlcv-1m",
+        "stype_in": "continuous",
+        "start": "2021-09-22",
+        "end": "2026-09-22",
+        "estimated_records": 1727081,
+        "estimated_billable_bytes": 96716536,
+        "estimated_gb": 0.096717,
+        "estimated_cost_usd": 6.30520053
+      },
+      {
+        "category": "Definitions",
+        "root": "6A",
+        "request_symbol": "6A.FUT",
+        "schema": "definition",
+        "stype_in": "parent",
+        "start": "2021-09-22",
+        "end": "2026-09-22",
+        "estimated_records": 187004,
+        "estimated_billable_bytes": 97242080,
+        "estimated_gb": 0.097242,
+        "estimated_cost_usd": 0.15395837
+      },
+      {
+        "category": "Statistics",
+        "root": "6A",
+        "request_symbol": "6A.v.0",
+        "schema": "statistics",
+        "stype_in": "continuous",
+        "start": "2021-09-22",
+        "end": "2026-09-22",
+        "estimated_records": 505412,
+        "estimated_billable_bytes": 40432960,
+        "estimated_gb": 0.040433,
+        "estimated_cost_usd": 0.03765613
+      },
+      {
+        "category": "Status",
+        "root": "6A",
+        "request_symbol": "6A.v.0",
+        "schema": "status",
+        "stype_in": "continuous",
+        "start": "2021-09-22",
+        "end": "2026-09-22",
+        "estimated_records": 10012,
+        "estimated_billable_bytes": 400480,
+        "estimated_gb": 0.0004,
+        "estimated_cost_usd": 0.0014919
+      }
+    ]
+  },
+  "warning": "Metadata estimates only. No combination is authorized and no data was downloaded."
+}

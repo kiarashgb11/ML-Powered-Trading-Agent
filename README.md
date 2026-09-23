@@ -18,7 +18,7 @@ Phase 1 establishes:
 - budget and disk-capacity gates;
 - infrastructure for later historical acquisition and baseline ML research.
 
-The repository currently implements setup and non-downloading estimation. The original plan was estimated on 2026-09-23 at USD 4,162.99 and failed both gates. A later review-only comparison for 15 selected markets found that five years of `ohlcv-1m` plus Definitions, Statistics, and Status costs USD 105.24; four years costs USD 84.29. One month of standalone MBP-1 for NQ/ES/CL/GC costs USD 58.56, so no requested base-plus-MBP combination meets the USD 120 threshold. These comparisons do not change the approved configuration or authorize acquisition. Historical downloading, feature generation, and model training remain paused.
+The repository currently implements setup and non-downloading estimation. The original plan was estimated on 2026-09-23 at USD 4,162.99 and failed both gates. BASE-5Y is now the intended base: five years of `ohlcv-1m`, Definitions, Statistics, and Status for 15 selected markets, estimated at USD 105.24. Optional additions of ZF, 6C, and 6A have been priced, but the selection is pending and no acquisition is authorized. Historical downloading, feature generation, and model training remain paused.
 
 ## Futures Universe
 
@@ -129,6 +129,14 @@ python scripts\estimate_revised_plan.py
 ```
 
 This compares four versus five years of OHLCV-1m plus metadata and independently prices one, three, and six months of MBP-1 for NQ/ES/CL/GC. It does not change `config/universe.yaml` or authorize a download.
+
+Estimate optional ZF/6C/6A additions to the intended BASE-5Y plan:
+
+```powershell
+python scripts\estimate_base5y_addons.py
+```
+
+This calculates each root once and compares every non-empty combination against the USD 120 threshold. It is metadata-only and cannot authorize or start a download.
 
 Run tests and lint checks:
 
