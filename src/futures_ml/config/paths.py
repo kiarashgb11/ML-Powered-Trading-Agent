@@ -48,6 +48,7 @@ class DataPaths:
         """Return every directory that the project may create."""
         return (
             self.root,
+            self.raw_data_root / "ohlcv_1m",
             self.raw_data_root / "ohlcv_1s",
             self.raw_data_root / "mbp1",
             self.raw_data_root / "definitions",

@@ -356,7 +356,7 @@ def write_reports(report: EstimateReport, output_dir: Path) -> None:
             "",
             "- Estimates come from Databento `get_cost`, `get_record_count`, and `get_billable_size` metadata calls.",
             "- Date ranges are midnight-to-midnight UTC and the end is exclusive.",
-            "- OHLCV-1s, statistics, status, and MBP-1 use volume-ranked continuous symbols such as `ES.v.0`.",
+            "- Non-definition requests use volume-ranked continuous symbols such as `ES.v.0`.",
             "- Definitions use parent symbols such as `ES.FUT` to cover underlying contracts.",
             "- Databento notes that estimates may over-report ranges not divisible by ten minutes; definition estimates are accurate only for whole-day ranges. This plan uses whole days.",
         ]

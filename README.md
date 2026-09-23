@@ -10,43 +10,45 @@ This is **not a live trading bot**. It does not connect to a broker, place order
 
 ## Current Phase
 
-Phase 1 establishes:
+Phase 1 established:
 
 - portable and safe external storage;
 - Databento dataset/schema verification;
 - cost, record-count, and billable-size estimation;
 - budget and disk-capacity gates;
-- infrastructure for later historical acquisition and baseline ML research.
+- resumable historical acquisition and streaming validation infrastructure.
 
-The repository currently implements setup and non-downloading estimation. The original plan was estimated on 2026-09-23 at USD 4,162.99 and failed both gates. BASE-5Y is now the intended base: five years of `ohlcv-1m`, Definitions, Statistics, and Status for 15 selected markets, estimated at USD 105.24. Optional additions of ZF, 6C, and 6A have been priced, but the selection is pending and no acquisition is authorized. Historical downloading, feature generation, and model training remain paused.
+The final V1 acquisition completed and passed validation. It contains 16 markets over `2021-09-23` inclusive through `2026-09-23` exclusive: five years of `ohlcv-1m`, Definitions, Statistics, and Status from `GLBX.MDP3`. All 64 root/schema partitions passed checksum, DBN readability, schema, record-count, and data-quality checks. Feature generation and model training remain paused until the acquired data-quality report is reviewed.
 
-## Futures Universe
+## Acquired V1 Universe
 
-The fixed V1 universe contains 26 CME futures roots:
+The acquired V1 universe contains 16 CME futures roots:
 
 | Category | Markets |
 |---|---|
-| US equity indexes | NQ (Nasdaq-100), ES (S&P 500), RTY (Russell 2000), YM (Dow Jones) |
-| Interest rates | ZT (2-Year Treasury), ZF (5-Year Treasury), ZN (10-Year Treasury), ZB (30-Year Treasury) |
-| Energy | CL (Crude Oil), NG (Natural Gas), RB (RBOB Gasoline), HO (Heating Oil / ULSD) |
-| Metals | GC (Gold), SI (Silver), HG (Copper) |
-| FX | 6E (Euro), 6J (Japanese Yen), 6B (British Pound), 6A (Australian Dollar), 6C (Canadian Dollar), 6S (Swiss Franc) |
-| Agriculture | ZC (Corn), ZW (Wheat), ZS (Soybeans), ZM (Soybean Meal), ZL (Soybean Oil) |
+| US equity indexes | NQ (Nasdaq-100), ES (S&P 500), RTY (Russell 2000) |
+| Interest rates | ZF (5-Year Treasury), ZN (10-Year Treasury), ZB (30-Year Treasury) |
+| Energy | CL (Crude Oil), NG (Natural Gas) |
+| Metals | GC (Gold), HG (Copper) |
+| FX | 6E (Euro), 6J (Japanese Yen), 6B (British Pound) |
+| Agriculture | ZC (Corn), ZS (Soybeans), ZW (Wheat) |
 
-The six core MBP markets are NQ, ES, CL, GC, ZN, and 6E. Do not expand either universe without documenting and approving the change.
+MBP-1 was explicitly postponed and was not acquired. Do not expand the acquired universe without documenting and approving the change.
 
 ## Data Plan
 
-Subject to the USD 120 budget gate and storage gate:
+Completed acquisition:
 
-- All 26 markets: approximately five years of `ohlcv-1s`.
-- NQ, ES, CL, GC, ZN, and 6E: approximately three years of `mbp-1`.
-- All 26 markets: `definition`, `statistics`, and `status` where available.
-- Dataset: `GLBX.MDP3`, verified at estimator runtime.
+- NQ, ES, RTY, ZF, ZN, ZB, CL, NG, GC, HG, 6E, 6J, 6B, ZC, ZS, and ZW.
+- `ohlcv-1m`, `definition`, `statistics`, and `status` for every root.
+- `2021-09-23` inclusive through `2026-09-23` exclusive UTC.
+- Dataset: `GLBX.MDP3`.
+- 57,259,145 records in 64 validated root/schema partitions.
+- 807,206,615 bytes (0.807 GB decimal) downloaded on disk; the preflight billable raw estimate was 13.803 GB.
 
-Price-series requests use volume-ranked continuous symbols such as `ES.v.0` with `stype_in="continuous"`. Databento continuous prices are original and not back-adjusted. Every record's `instrument_id` must therefore be retained, contract transitions must become explicit roll events, and future work must drop samples whose feature or label windows cross a rollover. Definition estimates use parent symbols such as `ES.FUT` to cover underlying contracts.
+Price-series requests use volume-ranked continuous symbols such as `ES.v.0` with `stype_in="continuous"`. Databento continuous prices are original and not back-adjusted. Every record's `instrument_id` must therefore be retained, contract transitions must become explicit roll events, and future work must drop samples whose feature or label windows cross a rollover. Definition requests use parent symbols such as `ES.FUT` to cover underlying contracts.
 
-One-second bars are the universal source. Slower bars will be derived deterministically rather than separately purchased. Missing seconds are not automatically errors: Databento emits no OHLCV record when no qualifying trade occurred.
+Missing one-minute bars are not automatically errors: Databento emits no OHLCV record when no qualifying trade occurred. OHLCV-1s, MBP-1/10, MBO, and separate Trades data were not acquired.
 
 ## Storage
 
@@ -66,7 +68,7 @@ Another machine may use a different absolute path and can override the Windows d
 
 ```text
 FUTURES_ML_DATA_ROOT/
-├── raw/{ohlcv_1s,mbp1,definitions,statistics,status}/
+├── raw/{ohlcv_1m,definitions,statistics,status}/
 ├── processed/{bars_1m,bars_5m,bars_15m,bars_30m,bars_1h,bars_4h,bars_1d}/
 ├── features/
 ├── batches/
@@ -102,41 +104,25 @@ Never commit `.env`, print the key, or place a real key in documentation. The of
 
 ## Main Commands
 
-Run the current cost/storage gate from the repository root:
+Refresh the exact final-plan cost/storage gate from the repository root:
 
 ```powershell
-python scripts\estimate_data_cost.py
+python scripts\estimate_final_acquisition.py
 ```
 
-Equivalent installed command:
+Resume the manifest-driven acquisition without resubmitting completed jobs:
 
 ```powershell
-futures-ml-estimate
+python scripts\download_data.py
 ```
 
-If the original plan fails its gates, calculate the prescribed reductions and a clearly labeled one-minute V1 candidate:
+Regenerate the final data-quality report from the external manifest:
 
 ```powershell
-python scripts\estimate_alternative_plans.py
+python scripts\validate_data.py
 ```
 
-Alternative reports are review-only and never authorize a changed plan automatically.
-
-Run the isolated 15-market comparison requested after the first alternatives review:
-
-```powershell
-python scripts\estimate_revised_plan.py
-```
-
-This compares four versus five years of OHLCV-1m plus metadata and independently prices one, three, and six months of MBP-1 for NQ/ES/CL/GC. It does not change `config/universe.yaml` or authorize a download.
-
-Estimate optional ZF/6C/6A additions to the intended BASE-5Y plan:
-
-```powershell
-python scripts\estimate_base5y_addons.py
-```
-
-This calculates each root once and compares every non-empty combination against the USD 120 threshold. It is metadata-only and cannot authorize or start a download.
+The earlier alternative/revised/add-on estimators remain available for audit history. They do not alter the completed acquisition.
 
 Run tests and lint checks:
 
@@ -145,13 +131,13 @@ python -m pytest
 python -m ruff check .
 ```
 
-The estimator writes the following only after all configuration and authenticated metadata checks succeed:
+The final estimator writes:
 
 - `reports/data_cost_report.csv`
 - `reports/data_cost_report.json`
 - `reports/data_cost_report.md`
 
-The future phase commands are reserved as follows and are **not implemented yet**: `scripts/download_data.py`, `scripts/validate_data.py`, `scripts/build_features.py`, and `scripts/train_baseline.py`. They must not be added or run until the current budget/storage gate is resolved.
+The acquisition manifest is external at `D:\futures-ml-data\batches\acquisition_manifest.{json,csv}`. The validation workflow writes `reports/data_quality_report.{md,json}`. Future feature and training commands remain unimplemented and must not be run before review of that report.
 
 ## Cost and Storage Method
 
@@ -191,15 +177,15 @@ tests/                  deterministic unit tests
 
 ## ML Methodology
 
-V1 will aggregate 1-second OHLCV into 1-minute bars, construct backward-looking features, and predict `future_return_5m = log(close[t+5m] / close[t])`. The first models will be a zero-return predictor, Ridge regression, and `HistGradientBoostingRegressor`, plus an NQ-only sanity model.
+V1 will use the acquired one-minute OHLCV bars to construct backward-looking features and predict `future_return_5m = log(close[t+5m] / close[t])`. The first models will be a zero-return predictor, Ridge regression, and `HistGradientBoostingRegressor`, plus an NQ-only sanity model.
 
 All evaluation must use chronological train/validation/test splits. Preprocessing is fit on training data only, overlapping windows are purged near split boundaries, label columns never enter features, and samples crossing a contract transition are removed. The final test period remains untouched during model and hyperparameter decisions.
 
 ## Roadmap
 
-1. V1 — historical acquisition, validation, 1-minute dataset, and OHLCV baseline.
-2. V2 — pooled and NQ-only baseline ML evaluation.
-3. V3 — MBP-1 feature experiment on six core markets.
+1. V1 — complete: historical acquisition and raw-data validation.
+2. V2 — build the clean one-minute research dataset, rollover-safe features and labels, then pooled and NQ-only baseline ML evaluation.
+3. V3 — later scoped MBP-1 experiment after a new estimate and approval.
 4. V4 — heuristic and model-assisted strategy research.
 5. V5 — risk management, costs, slippage, and walk-forward research.
 6. V6 — possible provider-neutral ProjectX/TopstepX paper integration.

@@ -4,26 +4,21 @@ Build a careful, reproducible futures ML research platform. The immediate scient
 
 # Current Phase
 
-Phase 1: repository setup, external-storage safety, live Databento cost/size/count estimation, and only then historical acquisition.
+Phase 1 is complete: repository setup, external-storage safety, final Databento estimation, historical acquisition, and raw-data validation.
 
 Current handoff (2026-09-23):
 
-- Complete: initial package/config/test skeleton; portable path resolver; authenticated original-plan and alternative-plan Databento estimators; current dataset, schemas, API signatures, and availability verified. Generated CSV/JSON/Markdown reports are in `reports/`.
-- Files added/changed in this milestone: cost reports, `scripts/estimate_alternative_plans.py`, `src/futures_ml/data/alternative_estimator.py`, README workflow, and lint configuration.
-- Storage snapshot: Windows `D:` is a ready fixed NTFS volume with about 931.51 GiB total and 277.57 GiB (298.04 decimal GB) free. `D:\futures-ml-data` exists and is empty.
-- Dataset/download status: no market data downloaded, no batch job submitted, and no purchase made.
-- Latest experiment: none.
-- Original-plan result: USD 4,162.99; 1,403.78 GB billable raw; 17.51 billion records; about 4.21 TB expected working space. Budget and storage both fail.
-- Prescribed 1-second reductions: all fail; the smallest remains USD 1,915.73 and requires about 1.95 TB free with headroom.
-- First passing candidate: **B3**, three years of `ohlcv-1m` for all 26 markets, five years of definitions/statistics/status, and no MBP-1. Estimate: USD 115.92; 20.52 GB billable raw; 61.57 GB expected working space; 76.97 GB required with headroom. Budget and storage pass.
-- Latest review-only comparison: revised 15-root universe NQ, ES, RTY, ZN, ZB, CL, NG, GC, HG, 6E, 6J, 6B, ZC, ZS, ZW. Five-year OHLCV-1m plus same-horizon Definitions/Statistics/Status is USD 105.24 and requires 51.28 GB free with headroom. Four-year is USD 84.29 and requires 42.03 GB. Both pass independently.
-- Standalone MBP comparison for NQ/ES/CL/GC: one month is USD 58.56 and requires 130.99 GB with headroom; three months is USD 196.11 and requires 438.69 GB; six months is USD 405.51 and requires 907.11 GB. Only one month passes the budget independently; six months also fails current storage.
-- Combined result: no requested base-plus-MBP combination passes USD 120. The cheapest is four-year base plus one-month MBP at USD 142.84. Current D: free space is 710.83 decimal GB (662.01 GiB).
-- Intended base decision: BASE-5Y is the intended plan—five years of OHLCV-1m plus Definitions/Statistics/Status for NQ, ES, RTY, ZN, ZB, CL, NG, GC, HG, 6E, 6J, 6B, ZC, ZS, and ZW. Estimate: USD 105.24. This intent is recorded in `config/intended_plan.yaml`, but download authorization remains false.
-- Optional five-year add-ons: ZF costs USD 5.91, 6C costs USD 6.04, and 6A costs USD 6.50. Every single and pair fits the USD 120 threshold. All three together cost USD 123.70 and fail.
-- Largest fitting choices: ZF+6C at USD 117.20, ZF+6A at USD 117.66, or 6C+6A at USD 117.78. Their remaining budget margins are USD 2.80, USD 2.34, and USD 2.22 respectively; all pass storage.
-- Unresolved decision: optional add-on selection is pending. No plan is authorized for download.
-- Exact next task: user selects one pair, one root, or no add-ons. Then update `config/intended_plan.yaml`, refresh the complete selected estimate immediately, and request explicit download approval before implementing or running acquisition.
+- Final universe: NQ, ES, RTY, ZF, ZN, ZB, CL, NG, GC, HG, 6E, 6J, 6B, ZC, ZS, and ZW.
+- Historical range: `2021-09-23` inclusive through `2026-09-23` exclusive UTC.
+- Completed schemas for every root: `ohlcv-1m`, `definition`, `statistics`, and `status`; OHLCV-1s, MBP-1/10, MBO, and separate Trades were not acquired.
+- Exact data root: `D:\futures-ml-data`. The external manifest is `D:\futures-ml-data\batches\acquisition_manifest.{json,csv}`.
+- Final preflight estimate: USD 111.16002381, 57,259,145 records, and 13.803003 GB billable raw. Both the USD 120 budget gate and 51.761260 GB storage gate passed.
+- Acquisition result: 64/64 root/schema partitions validated, 57,259,145 records, and 807,206,615 bytes (0.807207 decimal GB) downloaded on disk.
+- Storage after acquisition: 707,556,085,760 bytes (707.556086 decimal GB) free on `D:`.
+- Validation result: PASS. Checksums and DBN readability passed; invalid OHLC rows, negative-volume rows, duplicate one-minute bars, suspicious gaps over four days, and failed/incomplete partitions are all zero. The continuous OHLCV series contains 440 recorded instrument transitions.
+- Known data issues: none found by the current raw-data checks. A missing one-minute bar can legitimately mean no qualifying trade, and definition snapshots can include instrument event timestamps before the requested start.
+- MBP-1 is postponed to a later incremental experiment.
+- Exact next task: build the clean one-minute research dataset, implement rollover-safe feature engineering and future-return labels, then train the first simple baseline models.
 
 # Core Architecture Decisions
 
@@ -39,15 +34,15 @@ Current handoff (2026-09-23):
 
 # Futures Universe
 
-Fixed 26 roots: NQ, ES, RTY, YM, ZT, ZF, ZN, ZB, CL, NG, RB, HO, GC, SI, HG, 6E, 6J, 6B, 6A, 6C, 6S, ZC, ZW, ZS, ZM, ZL.
+Acquired V1 roots: NQ, ES, RTY, ZF, ZN, ZB, CL, NG, GC, HG, 6E, 6J, 6B, ZC, ZS, ZW.
 
-Core MBP markets: NQ, ES, CL, GC, ZN, 6E.
+MBP-1 is postponed; no MBP data is currently present.
 
 # Data Horizons
 
-- `ohlcv-1s`: approximately five years for all 26 roots.
-- `mbp-1`: approximately three years for the six core roots.
-- Also estimate/acquire `definition`, `statistics`, and `status` as planned.
+- `ohlcv-1m`: five years for all 16 acquired roots.
+- `definition`, `statistics`, and `status`: same five-year request window for all 16 roots.
+- `mbp-1`: postponed; none acquired.
 - Do not silently change horizons or markets.
 
 # Storage Rules

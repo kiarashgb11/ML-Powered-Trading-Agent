@@ -1,19 +1,23 @@
-status: review_only_no_download
+status: acquisition_completed_validated
 dataset: GLBX.MDP3
-end_exclusive_utc: 2026-09-22
+start_utc: 2021-09-23
+end_exclusive_utc: 2026-09-23
 budget_limit_usd: 120.0
 
-base_plan:
-  name: BASE-5Y
+final_plan:
+  name: FINAL-V1-5Y
   years: 5
-  roots: [NQ, ES, RTY, ZN, ZB, CL, NG, GC, HG, 6E, 6J, 6B, ZC, ZS, ZW]
+  roots: [NQ, ES, RTY, ZF, ZN, ZB, CL, NG, GC, HG, 6E, 6J, 6B, ZC, ZS, ZW]
   schemas: [ohlcv-1m, definition, statistics, status]
-  estimated_cost_usd: 105.24404431
-
-optional_addons:
-  years: 5
-  roots: [ZF, 6C, 6A]
-  schemas: [ohlcv-1m, definition, statistics, status]
-  selection: pending_user_decision
+  batch_partition: root_schema
+  batch_split_duration: year
+  estimated_cost_usd: 111.16002381
+  estimated_records: 57259145
+  estimated_billable_bytes: 13803002560
+  required_free_with_headroom_bytes: 51761259600
+  actual_records: 57259145
+  actual_downloaded_bytes: 807206615
+  validation_status: pass
 
 download_authorized: false
+authorization_consumed: true
