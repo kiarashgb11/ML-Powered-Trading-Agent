@@ -1,0 +1,29 @@
+markets:
+  - {root: NQ, name: Nasdaq-100, category: US Equity Index Futures}
+  - {root: ES, name: S&P 500, category: US Equity Index Futures}
+  - {root: RTY, name: Russell 2000, category: US Equity Index Futures}
+  - {root: YM, name: Dow Jones, category: US Equity Index Futures}
+  - {root: ZT, name: 2-Year Treasury, category: Interest Rate Futures}
+  - {root: ZF, name: 5-Year Treasury, category: Interest Rate Futures}
+  - {root: ZN, name: 10-Year Treasury, category: Interest Rate Futures}
+  - {root: ZB, name: 30-Year Treasury, category: Interest Rate Futures}
+  - {root: CL, name: Crude Oil, category: Energy Futures}
+  - {root: NG, name: Natural Gas, category: Energy Futures}
+  - {root: RB, name: RBOB Gasoline, category: Energy Futures}
+  - {root: HO, name: Heating Oil / ULSD, category: Energy Futures}
+  - {root: GC, name: Gold, category: Metals Futures}
+  - {root: SI, name: Silver, category: Metals Futures}
+  - {root: HG, name: Copper, category: Metals Futures}
+  - {root: 6E, name: Euro, category: FX Futures}
+  - {root: 6J, name: Japanese Yen, category: FX Futures}
+  - {root: 6B, name: British Pound, category: FX Futures}
+  - {root: 6A, name: Australian Dollar, category: FX Futures}
+  - {root: 6C, name: Canadian Dollar, category: FX Futures}
+  - {root: 6S, name: Swiss Franc, category: FX Futures}
+  - {root: ZC, name: Corn, category: Agricultural Futures}
+  - {root: ZW, name: Wheat, category: Agricultural Futures}
+  - {root: ZS, name: Soybeans, category: Agricultural Futures}
+  - {root: ZM, name: Soybean Meal, category: Agricultural Futures}
+  - {root: ZL, name: Soybean Oil, category: Agricultural Futures}
+
+core_mbp_markets: [NQ, ES, CL, GC, ZN, 6E]

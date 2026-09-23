@@ -1,0 +1,27 @@
+dataset: GLBX.MDP3
+budget_limit_usd: 120.0
+
+horizons_years:
+  ohlcv-1s: 5
+  mbp-1: 3
+  definition: 5
+  statistics: 5
+  status: 5
+
+schemas:
+  universal: [ohlcv-1s, definition, statistics, status]
+  core_mbp: mbp-1
+
+symbology:
+  continuous_template: "{root}.v.0"
+  definition_template: "{root}.FUT"
+
+storage:
+  # This is a machine-specific safety gate, centralized here and overridable
+  # with FUTURES_ML_EXPECTED_DRIVE on another computer.
+  expected_drive_windows: "D:"
+  # Working estimate = billable raw bytes * this multiplier. It budgets room
+  # for immutable raw data plus processed bars, features, and intermediates.
+  working_space_multiplier: 3.0
+  # Free space must also exceed working estimate * this safety multiplier.
+  safety_headroom_multiplier: 1.25

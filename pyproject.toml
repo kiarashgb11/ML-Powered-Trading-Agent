@@ -1,0 +1,44 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "futures-ml"
+version = "0.1.0"
+description = "Reproducible machine-learning research infrastructure for futures markets"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Kiara" }]
+dependencies = [
+  "databento==0.86.0",
+  "python-dotenv>=1.1,<2",
+  "PyYAML>=6.0,<7",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.3,<9",
+  "ruff>=0.12,<1",
+]
+research = [
+  "joblib>=1.4,<2",
+  "polars>=1.30,<2",
+  "scikit-learn>=1.6,<2",
+]
+
+[project.scripts]
+futures-ml-estimate = "futures_ml.data.cost_estimator:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/futures_ml"]
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

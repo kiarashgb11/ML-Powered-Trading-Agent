@@ -1,0 +1,8 @@
+random_seed: 42
+primary_target: future_return_5m
+split:
+  train_fraction: 0.70
+  validation_fraction: 0.15
+  test_fraction: 0.15
+  chronological: true
+  purge_boundaries: true

@@ -1,0 +1,40 @@
+.env
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+pytest-cache-files-*/
+.mypy_cache/
+.ruff_cache/
+.tmp/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+
+# Local logs and generated model artifacts
+*.log
+logs/
+models/*.joblib
+models/*.pkl
+/artifacts/
+
+# Generated market data must remain outside Git.
+/data/
+/raw/
+/processed/
+/features/
+/batches/
+/cache/
+/temp/
+*.dbn
+*.dbn.zst
+*.parquet
+
+# Editor and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
