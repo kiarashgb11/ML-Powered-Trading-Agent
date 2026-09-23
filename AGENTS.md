@@ -6,15 +6,18 @@ Build a careful, reproducible futures ML research platform. The immediate scient
 
 Phase 1: repository setup, external-storage safety, live Databento cost/size/count estimation, and only then historical acquisition.
 
-Current handoff (2026-09-22):
+Current handoff (2026-09-23):
 
-- Complete: empty repository inspected; initial package/config/test skeleton added; portable path resolver and non-downloading Databento estimator implemented; current API/docs checked.
-- Files added: `README.md`, `AGENTS.md`, `pyproject.toml`, `.gitignore`, `.env.example`, `config/`, `src/`, `scripts/estimate_data_cost.py`, and initial tests.
-- Storage snapshot: Windows `D:` is a ready fixed NTFS volume with about 931.51 GiB total and 277.57 GiB free; `D:\futures-ml-data` does not yet exist.
-- Dataset/download status: no market data downloaded and no Databento request made.
+- Complete: initial package/config/test skeleton; portable path resolver; authenticated original-plan and alternative-plan Databento estimators; current dataset, schemas, API signatures, and availability verified. Generated CSV/JSON/Markdown reports are in `reports/`.
+- Files added/changed in this milestone: cost reports, `scripts/estimate_alternative_plans.py`, `src/futures_ml/data/alternative_estimator.py`, README workflow, and lint configuration.
+- Storage snapshot: Windows `D:` is a ready fixed NTFS volume with about 931.51 GiB total and 277.57 GiB (298.04 decimal GB) free. `D:\futures-ml-data` exists and is empty.
+- Dataset/download status: no market data downloaded, no batch job submitted, and no purchase made.
 - Latest experiment: none.
-- Blocking issues: `FUTURES_ML_DATA_ROOT` and `DATABENTO_API_KEY` are not configured; no authenticated cost report exists.
-- Exact next task: create a local `.env` from `.env.example`, set `FUTURES_ML_DATA_ROOT=D:\futures-ml-data`, add the Databento key without sharing or printing it, then run `python scripts\estimate_data_cost.py` and review the three reports. Do not download until both gates pass.
+- Original-plan result: USD 4,162.99; 1,403.78 GB billable raw; 17.51 billion records; about 4.21 TB expected working space. Budget and storage both fail.
+- Prescribed 1-second reductions: all fail; the smallest remains USD 1,915.73 and requires about 1.95 TB free with headroom.
+- First passing candidate: **B3**, three years of `ohlcv-1m` for all 26 markets, five years of definitions/statistics/status, and no MBP-1. Estimate: USD 115.92; 20.52 GB billable raw; 61.57 GB expected working space; 76.97 GB required with headroom. Budget and storage pass.
+- Unresolved decision: B3 changes the approved universal source from five-year `ohlcv-1s` to three-year `ohlcv-1m` and postpones MBP-1. It is review-only and not authorized.
+- Exact next task: user accepts B3, rejects it, or requests another metadata-only alternative. Do not implement or run a downloader before that explicit decision.
 
 # Core Architecture Decisions
 

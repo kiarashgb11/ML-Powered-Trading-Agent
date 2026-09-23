@@ -18,7 +18,7 @@ Phase 1 establishes:
 - budget and disk-capacity gates;
 - infrastructure for later historical acquisition and baseline ML research.
 
-The repository currently implements setup and the non-downloading estimator. Historical downloading, feature generation, and model training remain gated on a successful cost/storage report.
+The repository currently implements setup and non-downloading estimation. The original plan was estimated on 2026-09-23 at USD 4,162.99 and failed both gates. The first review-only alternative that passes is three years of `ohlcv-1m` across all 26 markets, five years of metadata schemas, and no MBP-1, estimated at USD 115.92. This materially changes the approved source granularity and is not authorized until the user explicitly accepts it. Historical downloading, feature generation, and model training remain paused.
 
 ## Futures Universe
 
@@ -113,6 +113,14 @@ Equivalent installed command:
 ```powershell
 futures-ml-estimate
 ```
+
+If the original plan fails its gates, calculate the prescribed reductions and a clearly labeled one-minute V1 candidate:
+
+```powershell
+python scripts\estimate_alternative_plans.py
+```
+
+Alternative reports are review-only and never authorize a changed plan automatically.
 
 Run tests and lint checks:
 

@@ -45,4 +45,3 @@ def verify_dataset_and_schemas(
             f"Required schema(s) are not currently available for {dataset}: {missing}"
         )
     return schemas
-

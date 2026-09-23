@@ -6,13 +6,13 @@ import argparse
 import csv
 import json
 import logging
-import os
 import time
 from collections import defaultdict
+from collections.abc import Callable
 from dataclasses import asdict, dataclass
 from datetime import date, datetime, timezone
 from pathlib import Path
-from typing import Any, Callable, TypeVar
+from typing import Any, TypeVar
 
 from dotenv import load_dotenv
 
@@ -113,10 +113,7 @@ def latest_complete_end(
             raise ValueError(f"Dataset availability did not include an end for schema {schema!r}")
         ends.append(_parse_timestamp(str(schema_range["end"])))
     current_day = today_utc or datetime.now(timezone.utc).date()
-    end = min([timestamp.date() for timestamp in ends] + [current_day])
-    if any(timestamp.date() == end and timestamp.time().isoformat() == "00:00:00" for timestamp in ends):
-        return end
-    return end
+    return min([timestamp.date() for timestamp in ends] + [current_day])
 
 
 def build_queries(
@@ -174,7 +171,9 @@ def _with_retry(operation: Callable[[], T], *, description: str, attempts: int =
             if attempt == attempts:
                 raise
             delay = 2 ** (attempt - 1)
-            LOGGER.warning("%s failed (attempt %d/%d); retrying in %ds", description, attempt, attempts, delay)
+            LOGGER.warning(
+                "%s failed (attempt %d/%d); retrying in %ds", description, attempt, attempts, delay
+            )
             time.sleep(delay)
     raise AssertionError("unreachable")
 
@@ -369,7 +368,9 @@ def _parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config-dir", type=Path, default=Path("config"))
     parser.add_argument("--output-dir", type=Path, default=Path("reports"))
-    parser.add_argument("--log-level", default="INFO", choices=("DEBUG", "INFO", "WARNING", "ERROR"))
+    parser.add_argument(
+        "--log-level", default="INFO", choices=("DEBUG", "INFO", "WARNING", "ERROR")
+    )
     return parser.parse_args()
 
 
