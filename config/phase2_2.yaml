@@ -1,0 +1,30 @@
+version: phase2_2_v1
+source_feature_version: phase2_v1
+source_experiment: experiment_b
+phase2_1_commit: d540ef1
+roots: [NQ, ES, RTY, ZF, ZN, ZB, CL, NG, GC, HG, 6E, 6J, 6B, ZC, ZS, ZW]
+experiments: [A_1m, B_1m]
+dedicated_roots: [ZN, ZC, ZB]
+primary_target: future_return_1m
+training_rows_per_root: 200000
+purge_minutes: 75
+data_start: "2021-09-23T00:00:00Z"
+data_end_exclusive: "2026-09-23T00:00:00Z"
+evaluation_boundaries:
+  - "2022-09-23T00:00:00Z"
+  - "2023-03-23T00:00:00Z"
+  - "2023-09-23T00:00:00Z"
+  - "2024-03-23T00:00:00Z"
+  - "2024-09-23T00:00:00Z"
+  - "2025-03-23T00:00:00Z"
+  - "2025-09-23T00:00:00Z"
+  - "2026-03-23T00:00:00Z"
+  - "2026-09-23T00:00:00Z"
+modeling:
+  random_seed: 42
+  hist_gradient_boosting:
+    learning_rate: 0.08
+    max_iter: 150
+    max_leaf_nodes: 31
+    min_samples_leaf: 100
+    l2_regularization: 0.1

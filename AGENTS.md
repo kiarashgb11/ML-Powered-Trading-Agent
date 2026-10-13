@@ -4,7 +4,7 @@ Build a careful, reproducible futures ML research platform. The immediate scient
 
 # Current Phase
 
-Phase 1, Phase 2, and Phase 2.1 are complete: repository/storage setup, Databento acquisition and validation, canonical processing, rollover-safe feature/label construction, chronological splitting, baseline predictive evaluation, and the one-minute cross-market ablation.
+Phase 1, Phase 2, Phase 2.1, and Phase 2.2 are complete: repository/storage setup, Databento acquisition and validation, canonical processing, rollover-safe feature/label construction, chronological splitting, baseline predictive evaluation, the one-minute cross-market ablation, and its rolling walk-forward temporal-stability study.
 
 Current handoff (2026-09-23):
 
@@ -52,6 +52,22 @@ Phase 2.1 handoff (2026-10-12):
 - Artifacts: `D:\futures-ml-data\artifacts\models\phase2_1`; complete report: `reports/phase2_1_one_minute_report.md`; compact result bundle: `reports/phase2_1_metrics.json`.
 - Known limitations: one fixed split, small aggregate effect, approximate validation permutation importance, and no transaction-cost/execution analysis. Predictive metrics are not profitability evidence.
 - Exact next recommended task: predeclare a rolling walk-forward stability study of the A-1m control and validation-chosen B-1m 200k/root HGB across multiple chronological folds, preserving rollover and purge safeguards. Do not begin strategy/backtest/live work without a new explicit phase request.
+
+Phase 2.2 handoff (2026-10-13):
+
+- Phase 2 and Phase 2.1 outputs remain intact. Phase 2.2 reuses the immutable Phase 2 feature source and changes no feature, label, universe, rollover rule, or historical row.
+- Eight expanding-window folds were declared and counted before training. Evaluation windows are non-overlapping and approximately six months, running from `2022-09-23` through the existing `2026-09-23` data end. Every boundary has a 75-minute purge on both sides.
+- Frozen models: A-1m HGB with 35 own-market inputs and B-1m HGB with those inputs plus 18 raw exact-UTC anchors. HGB settings remain learning rate `0.08`, 150 iterations, 31 leaves, minimum leaf size 100, L2 `0.1`, seed 42.
+- Training uses deterministic evenly spaced samples capped at 200,000 observations/root. Fold 1 uses all 187,416 eligible ZW observations; every other root/fold reaches the cap. Preprocessing is independently fit within each fold.
+- Pooled A results across eight folds: mean Pearson `0.075061`, SD `0.010030`; mean Spearman `0.107394`; mean R² `0.004342`. Pearson, Spearman, and R² are positive in `8/8` folds.
+- Pooled B results: mean Pearson `0.074987`, SD `0.010177`; mean Spearman `0.107207`; mean R² `0.004323`. All three metrics are positive in `8/8` folds.
+- B does not have a stable aggregate advantage: it wins only `3/8` folds on Pearson and R² and `2/8` on Spearman. Mean B-minus-A Pearson is `-0.000074`.
+- B per-root Pearson is strongest and positive in all folds for ZN (`0.27360` mean), ZC (`0.23134`), ZB (`0.21063`), and ZF (`0.16703`). NQ remains weak (`0.00939`, positive `6/8`); ES and RTY are also much weaker than the leading rates/agriculture roots.
+- The Phase 2.1 low-volatility diagnostic replicated in all eight folds. Broad prediction-decile ordering also replicated, but strict fold-level monotonicity occurred in only `3/8` A folds and `4/8` B folds.
+- Dedicated B models for ZN/ZC/ZB beat the pooled B model on their own root in `8/8` folds, with mean Pearson lifts of `0.01832`, `0.00909`, and `0.04346`, respectively. This is specialization evidence only, not a trading result.
+- Artifacts: `D:\futures-ml-data\artifacts\models\phase2_2`; declarations: `reports/phase2_2_fold_definitions.{md,json}`; compact metrics: `reports/phase2_2_walk_forward_metrics.json`; report: `reports/phase2_2_walk_forward_stability_report.md`.
+- Known limitations: all folds reuse the same historical five-year dataset, the relationship remains small, pooled results are dominated by stronger roots, and there is no fee, slippage, execution, backtest, or profitability analysis.
+- Exact next recommended task: if new authority and genuinely new forward data or a newly reserved future holdout become available, predeclare a dedicated A-vs-B replication for ZN/ZC/ZB to separate market specialization from anchor-feature value. Do not begin strategy/backtest/live work without a new explicit phase request.
 
 # Core Architecture Decisions
 

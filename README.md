@@ -26,6 +26,8 @@ The strongest pooled five-minute test result remains very small: Experiment B hi
 
 Phase 2.1 is also complete. It preserved the 35 own-market features, changed the target to the exact next-minute log return, and compared A-1m (own market), B-1m (18 raw exact-time anchor returns), and C-1m (18 target-relative returns) on identical 1.6-million-row training samples. A-1m HGB achieved test `R²=0.003713`, Pearson `0.06924`, and Spearman `0.11511`; B-1m won validation Pearson by a tiny margin but did not improve test R² or Spearman, and C-1m did not outperform B. A validation-only size study selected B-1m HGB at 200,000 rows/root, whose locked test Pearson was `0.07322`. These remain predictive-signal diagnostics, not evidence of profitability. The project still stops before strategies, backtests, fees, execution, risk, or live integration.
 
+Phase 2.2 is complete. Eight predeclared expanding-window folds evaluated frozen A-1m and B-1m HGB models over non-overlapping approximately six-month periods, with a 75-minute purge on both sides of every train/evaluation boundary. Both models had positive pooled Pearson, Spearman, and R² in all eight folds. Mean Pearson was `0.075061` for A and `0.074987` for B; B won only three of eight folds on Pearson and R², so the cross-market increment did not show a repeatable aggregate benefit. ZN, ZC, ZB, and ZF were the strongest and most stable roots, while equity-index roots remained weak. This is evidence of historical temporal stability in a small predictive relationship, not evidence of tradability or profitability.
+
 ## Acquired V1 Universe
 
 The acquired V1 universe contains 16 CME futures roots:
@@ -171,6 +173,14 @@ python scripts\run_phase2_1.py
 python scripts\generate_phase2_1_report.py
 ```
 
+Predeclare the Phase 2.2 folds, run/resume the frozen walk-forward study, and regenerate its report:
+
+```powershell
+python scripts\predeclare_phase2_2_folds.py
+python scripts\run_phase2_2_walk_forward.py
+python scripts\generate_phase2_2_report.py
+```
+
 Large outputs remain external:
 
 - canonical bars: `D:\futures-ml-data\processed\bars_1m\`;
@@ -178,8 +188,9 @@ Large outputs remain external:
 - Experiment A/B features: `D:\futures-ml-data\features\experiment_{a,b}\`;
 - fitted pipelines: `D:\futures-ml-data\artifacts\models\`.
 - Phase 2.1 fitted pipelines/results: `D:\futures-ml-data\artifacts\models\phase2_1\`.
+- Phase 2.2 fold declarations, fitted pipelines, metadata, and results: `D:\futures-ml-data\artifacts\models\phase2_2\`.
 
-The Phase 2 reports are [processed_dataset_report.md](reports/processed_dataset_report.md), [feature_report.md](reports/feature_report.md), [ml_dataset_walkthrough.md](reports/ml_dataset_walkthrough.md), and [baseline_model_report.md](reports/baseline_model_report.md). The Phase 2.1 findings are in [phase2_1_one_minute_report.md](reports/phase2_1_one_minute_report.md).
+The Phase 2 reports are [processed_dataset_report.md](reports/processed_dataset_report.md), [feature_report.md](reports/feature_report.md), [ml_dataset_walkthrough.md](reports/ml_dataset_walkthrough.md), and [baseline_model_report.md](reports/baseline_model_report.md). The Phase 2.1 findings are in [phase2_1_one_minute_report.md](reports/phase2_1_one_minute_report.md). The Phase 2.2 design and results are in [phase2_2_fold_definitions.md](reports/phase2_2_fold_definitions.md) and [phase2_2_walk_forward_stability_report.md](reports/phase2_2_walk_forward_stability_report.md).
 
 ## Cost and Storage Method
 
@@ -223,6 +234,8 @@ V1 uses the acquired one-minute OHLCV bars to construct backward-looking feature
 
 Phase 2.1 separately predicts `future_return_1m = log(close[t+1m] / close[t])`. A-1m retains the same 35 inputs, B-1m adds 18 raw anchors (the old standalone NQ/ES spread is excluded), and C-1m substitutes 18 target-relative anchor returns. Zero, persistence, reversal, Ridge, and HGB comparisons use the same eligible rows; model selection and importance use validation only.
 
+Phase 2.2 freezes A-1m and B-1m, the Phase 2.1 HGB hyperparameters, and a 200,000-row/root deterministic training cap. It uses expanding training windows and eight non-overlapping evaluation folds. Each fold independently fits preprocessing and the model using only that fold's training data. Fold boundaries and per-root counts were written before any Phase 2.2 model was fit.
+
 All evaluation must use chronological train/validation/test splits. Preprocessing is fit on training data only, overlapping windows are purged near split boundaries, label columns never enter features, and samples crossing a contract transition are removed. The final test period remains untouched during model and hyperparameter decisions.
 
 ## Roadmap
@@ -230,10 +243,11 @@ All evaluation must use chronological train/validation/test splits. Preprocessin
 1. V1 — complete: historical acquisition and raw-data validation.
 2. V2 — complete: clean one-minute research dataset, rollover-safe features/labels, and pooled/NQ-only five-minute-target baseline evaluation.
 3. V2.1 — complete: exact one-minute target, raw-vs-relative cross-market ablation, training-size/full-Ridge/market-specific diagnostics.
-4. Next recommended research — predeclared rolling walk-forward stability study of A-1m and the validation-chosen 200k/root B-1m HGB.
+4. V2.2 — complete: predeclared rolling walk-forward stability study of frozen A-1m and B-1m HGB models.
 5. V3 — later scoped MBP-1 experiment after a new estimate and approval.
-6. V4 — heuristic and model-assisted strategy research.
-7. V5 — risk management, costs, slippage, and walk-forward research.
-8. V6 — possible provider-neutral ProjectX/TopstepX paper integration.
+6. Next recommended research — a predeclared dedicated A-vs-B replication for ZN/ZC/ZB on genuinely new forward data or a newly reserved future holdout.
+7. V4 — heuristic and model-assisted strategy research, only after a new explicit phase request.
+8. V5 — risk management, costs, slippage, and later strategy walk-forward research.
+9. V6 — possible provider-neutral ProjectX/TopstepX paper integration.
 
 Official references used for the current integration are the [Databento Historical API reference](https://databento.com/docs/api-reference-historical), [schema guide](https://databento.com/docs/knowledge-base), and [continuous symbology guide](https://databento.com/docs/standards-and-conventions/symbology).
