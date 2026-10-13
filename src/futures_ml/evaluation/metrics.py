@@ -52,6 +52,7 @@ def prediction_deciles(actual: np.ndarray, predicted: np.ndarray) -> list[dict[s
                 "observations": int(len(positions)),
                 "mean_prediction": float(np.mean(predicted[positions])) if len(positions) else math.nan,
                 "mean_actual": float(np.mean(actual[positions])) if len(positions) else math.nan,
+                "median_actual": float(np.median(actual[positions])) if len(positions) else math.nan,
             }
         )
     return rows

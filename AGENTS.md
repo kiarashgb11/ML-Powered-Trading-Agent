@@ -4,7 +4,7 @@ Build a careful, reproducible futures ML research platform. The immediate scient
 
 # Current Phase
 
-Phase 1 and Phase 2 are complete: repository/storage setup, Databento acquisition and validation, canonical processing, rollover-safe feature/label construction, chronological splitting, and baseline predictive evaluation.
+Phase 1, Phase 2, and Phase 2.1 are complete: repository/storage setup, Databento acquisition and validation, canonical processing, rollover-safe feature/label construction, chronological splitting, baseline predictive evaluation, and the one-minute cross-market ablation.
 
 Current handoff (2026-09-23):
 
@@ -35,6 +35,23 @@ Phase 2 handoff (2026-09-23):
 - Model artifacts: `D:\futures-ml-data\artifacts\models\{experiment_a,experiment_b}\{pooled,nq_only}\...`; each saved pipeline has adjacent metadata containing feature order, encoding, target, splits, seed, versions, and configuration.
 - Known issues: none in raw/canonical integrity. Legitimate missing minutes and flat bars create feature nulls. Predictive metrics are extremely weak and cannot be interpreted as profitability. No 1m/15m model diagnostic was run because the primary matrix and audit work were prioritized.
 - Exact next recommended task: review the Phase 2 reports and decide whether a narrowly scoped target-horizon or market-specific sampling study is warranted. Do not begin strategy/backtest/live work without a new explicit phase request.
+
+Phase 2.1 handoff (2026-10-12):
+
+- Phase 2 outputs remain intact. Phase 2.1 reuses `D:\futures-ml-data\features\experiment_b` as an immutable common source; no data was downloaded and no Phase 2 Parquet/model/report was overwritten.
+- Target: `future_return_1m = ln(close[t+1m]/close[t])`, requiring the same root, same contract segment, and exact next real minute. The existing global boundaries and 75-minute purge are unchanged.
+- A-1m has the original 35 own-market features. B-1m adds 18 raw exact-UTC NQ/ES/ZN/CL/GC/6E returns at 1/5/15 minutes and excludes the old standalone NQ/ES spread. C-1m adds 18 target-minus-anchor returns instead of raw anchors.
+- Primary fits use identical deterministic 100,000-row/root timestamps across A/B/C: 1,600,000 pooled observations. Validation uses all 3,519,199 eligible rows and test uses all 3,551,762 eligible rows.
+- Primary pooled HGB test: A `R²=0.003713`, Pearson `0.069236`, Spearman `0.115111`; B `R²=0.003704`, Pearson `0.069417`, Spearman `0.114225`; C `R²=0.003642`, Pearson `0.069009`, Spearman `0.114085`.
+- Cross-market conclusion: B won primary validation Pearson by only `0.000297` over A, but did not improve test R² or Spearman. C did not outperform B. Raw/relative cross-market additions therefore showed no robust aggregate incremental benefit.
+- Training-size result: B HGB validation Pearson increased `0.07209 -> 0.07911 -> 0.08074` at 50k/100k/200k rows per root. Validation selected 200k/root; locked test Pearson was `0.07322` and R² `0.004082`.
+- Full-training Ridge used all 16,914,241 eligible train rows for scaling statistics and coefficients, with train-only medians learned from the common primary sample. It slightly improved validation R² but reduced Pearson/Spearman, so validation did not promote it to test.
+- Validation selected ZN, ZC, and ZB for the small market-specific HGB diagnostic. Each market-specific model improved validation and locked-test Pearson over the pooled model on its root; this is diagnostic evidence only.
+- Feature importance: `close_location_in_bar` dominated HGB validation permutation importance; root identity, volume, short EMA distance, range/wick shape, and short returns recurred. Relative features were used by C but did not improve its aggregate result.
+- Exploratory test diagnostics were strongest in low-volatility rows and varied by Chicago hour. They were not used for model selection and must be independently replicated.
+- Artifacts: `D:\futures-ml-data\artifacts\models\phase2_1`; complete report: `reports/phase2_1_one_minute_report.md`; compact result bundle: `reports/phase2_1_metrics.json`.
+- Known limitations: one fixed split, small aggregate effect, approximate validation permutation importance, and no transaction-cost/execution analysis. Predictive metrics are not profitability evidence.
+- Exact next recommended task: predeclare a rolling walk-forward stability study of the A-1m control and validation-chosen B-1m 200k/root HGB across multiple chronological folds, preserving rollover and purge safeguards. Do not begin strategy/backtest/live work without a new explicit phase request.
 
 # Core Architecture Decisions
 

@@ -1,0 +1,27 @@
+version: phase2_1_v1
+source_feature_version: phase2_v1
+source_experiment: experiment_b
+roots: [NQ, ES, RTY, ZF, ZN, ZB, CL, NG, GC, HG, 6E, 6J, 6B, ZC, ZS, ZW]
+anchor_roots: [NQ, ES, ZN, CL, GC, 6E]
+anchor_horizons_minutes: [1, 5, 15]
+primary_target: future_return_1m
+purge_minutes: 75
+split:
+  train_fraction: 0.70
+  validation_fraction: 0.15
+  test_fraction: 0.15
+modeling:
+  random_seed: 42
+  primary_train_rows_per_root: 100000
+  hgb_sensitivity_rows_per_root: [50000, 100000, 200000]
+  permutation_rows_per_root: 2000
+  permutation_repeats: 3
+  market_specific_roots: 3
+  ridge_alpha: 1.0
+  run_full_ridge: true
+  hist_gradient_boosting:
+    learning_rate: 0.08
+    max_iter: 150
+    max_leaf_nodes: 31
+    min_samples_leaf: 100
+    l2_regularization: 0.1

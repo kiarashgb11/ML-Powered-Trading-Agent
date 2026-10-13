@@ -27,6 +27,29 @@ class ZeroRegressor:
         return np.zeros(len(features), dtype=float)
 
 
+@dataclass
+class PersistenceRegressor:
+    """Sanity baseline predicting that the last one-minute return persists."""
+
+    feature: str = "log_return_1m"
+
+    def fit(self, features: Any, target: Any) -> PersistenceRegressor:
+        return self
+
+    def predict(self, features: Any) -> np.ndarray:
+        if hasattr(features, "get_column"):
+            return np.asarray(features.get_column(self.feature), dtype=float)
+        return np.asarray(features[self.feature], dtype=float)
+
+
+@dataclass
+class ReversalRegressor(PersistenceRegressor):
+    """Sanity baseline predicting the negative of the last one-minute return."""
+
+    def predict(self, features: Any) -> np.ndarray:
+        return -super().predict(features)
+
+
 def validate_feature_columns(features: list[str] | tuple[str, ...]) -> None:
     """Reject labels and diagnostic targets before constructing X."""
     forbidden = sorted(set(features) & set(FORBIDDEN_MODEL_COLUMNS))

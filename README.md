@@ -22,7 +22,9 @@ The final V1 acquisition completed and passed validation. It contains 16 markets
 
 Phase 2 is now complete. The project has a canonical rollover-safe one-minute Parquet dataset, Experiment A own-market features, Experiment B exact-time anchor features, exact future-return labels, global chronological splits, automated leakage tests, and zero/Ridge/histogram-gradient-boosting baselines. All 25,205,190 OHLCV rows were preserved, all 440 rollovers reconciled, and 23,832,724 rows are eligible under the exact 5-minute-target plus 240-bar-warm-up rule.
 
-The strongest pooled test result remains very small: Experiment B histogram gradient boosting achieved approximately `R²=0.000576` and `Pearson=0.0240`. This is a predictive-signal diagnostic, not evidence of profitability. Phase 2 intentionally stops before strategies, backtests, fees, execution, risk, or live integration.
+The strongest pooled five-minute test result remains very small: Experiment B histogram gradient boosting achieved approximately `R²=0.000576` and `Pearson=0.0240`.
+
+Phase 2.1 is also complete. It preserved the 35 own-market features, changed the target to the exact next-minute log return, and compared A-1m (own market), B-1m (18 raw exact-time anchor returns), and C-1m (18 target-relative returns) on identical 1.6-million-row training samples. A-1m HGB achieved test `R²=0.003713`, Pearson `0.06924`, and Spearman `0.11511`; B-1m won validation Pearson by a tiny margin but did not improve test R² or Spearman, and C-1m did not outperform B. A validation-only size study selected B-1m HGB at 200,000 rows/root, whose locked test Pearson was `0.07322`. These remain predictive-signal diagnostics, not evidence of profitability. The project still stops before strategies, backtests, fees, execution, risk, or live integration.
 
 ## Acquired V1 Universe
 
@@ -162,14 +164,22 @@ python scripts\train_baselines.py
 python scripts\generate_phase2_reports.py
 ```
 
+Run or resume the separate Phase 2.1 one-minute ablation, then regenerate its report:
+
+```powershell
+python scripts\run_phase2_1.py
+python scripts\generate_phase2_1_report.py
+```
+
 Large outputs remain external:
 
 - canonical bars: `D:\futures-ml-data\processed\bars_1m\`;
 - rollover tables: `D:\futures-ml-data\processed\rollovers\`;
 - Experiment A/B features: `D:\futures-ml-data\features\experiment_{a,b}\`;
 - fitted pipelines: `D:\futures-ml-data\artifacts\models\`.
+- Phase 2.1 fitted pipelines/results: `D:\futures-ml-data\artifacts\models\phase2_1\`.
 
-The Phase 2 reports are [processed_dataset_report.md](reports/processed_dataset_report.md), [feature_report.md](reports/feature_report.md), [ml_dataset_walkthrough.md](reports/ml_dataset_walkthrough.md), and [baseline_model_report.md](reports/baseline_model_report.md).
+The Phase 2 reports are [processed_dataset_report.md](reports/processed_dataset_report.md), [feature_report.md](reports/feature_report.md), [ml_dataset_walkthrough.md](reports/ml_dataset_walkthrough.md), and [baseline_model_report.md](reports/baseline_model_report.md). The Phase 2.1 findings are in [phase2_1_one_minute_report.md](reports/phase2_1_one_minute_report.md).
 
 ## Cost and Storage Method
 
@@ -211,15 +221,19 @@ tests/                  deterministic unit tests
 
 V1 uses the acquired one-minute OHLCV bars to construct backward-looking features and predict `future_return_5m = log(close[t+5m] / close[t])`. The first models are a zero-return predictor, Ridge regression, and `HistGradientBoostingRegressor`, plus NQ-only sanity models. Experiment A uses 35 own-market inputs; Experiment B adds 19 limited exact-time cross-market inputs.
 
+Phase 2.1 separately predicts `future_return_1m = log(close[t+1m] / close[t])`. A-1m retains the same 35 inputs, B-1m adds 18 raw anchors (the old standalone NQ/ES spread is excluded), and C-1m substitutes 18 target-relative anchor returns. Zero, persistence, reversal, Ridge, and HGB comparisons use the same eligible rows; model selection and importance use validation only.
+
 All evaluation must use chronological train/validation/test splits. Preprocessing is fit on training data only, overlapping windows are purged near split boundaries, label columns never enter features, and samples crossing a contract transition are removed. The final test period remains untouched during model and hyperparameter decisions.
 
 ## Roadmap
 
 1. V1 — complete: historical acquisition and raw-data validation.
-2. V2 — complete: clean one-minute research dataset, rollover-safe features/labels, and pooled/NQ-only baseline ML evaluation.
-3. V3 — later scoped MBP-1 experiment after a new estimate and approval.
-4. V4 — heuristic and model-assisted strategy research.
-5. V5 — risk management, costs, slippage, and walk-forward research.
-6. V6 — possible provider-neutral ProjectX/TopstepX paper integration.
+2. V2 — complete: clean one-minute research dataset, rollover-safe features/labels, and pooled/NQ-only five-minute-target baseline evaluation.
+3. V2.1 — complete: exact one-minute target, raw-vs-relative cross-market ablation, training-size/full-Ridge/market-specific diagnostics.
+4. Next recommended research — predeclared rolling walk-forward stability study of A-1m and the validation-chosen 200k/root B-1m HGB.
+5. V3 — later scoped MBP-1 experiment after a new estimate and approval.
+6. V4 — heuristic and model-assisted strategy research.
+7. V5 — risk management, costs, slippage, and walk-forward research.
+8. V6 — possible provider-neutral ProjectX/TopstepX paper integration.
 
 Official references used for the current integration are the [Databento Historical API reference](https://databento.com/docs/api-reference-historical), [schema guide](https://databento.com/docs/knowledge-base), and [continuous symbology guide](https://databento.com/docs/standards-and-conventions/symbology).

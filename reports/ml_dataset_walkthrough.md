@@ -150,3 +150,46 @@ Valid: current close; `ln(close[t]/close[t-5m])`; RSI using rows at or before t;
 - Universe and Phase 2 policy: `config/phase2.yaml`; external paths: `src/futures_ml/config/paths.py` and `D:\futures-ml-data`.
 
 ![Split timeline](figures/split_timeline.png)
+
+## Phase 2.1: one-minute target and cross-market ablation
+
+Phase 2 remains unchanged: its primary learning problem was
+
+```text
+x_t (own-market history, optionally raw anchors)
+    -> future_return_5m
+```
+
+Phase 2.1 creates separate model views over the already-built feature partitions and asks
+
+```text
+x_t (the original 35 own-market features + optional cross-market representation)
+    -> future_return_1m
+```
+
+The new target is
+
+```text
+future_return_1m[t] = ln(P[t+1 exact real minute] / P[t])
+```
+
+It is null if the exact next minute is absent or belongs to another contract segment. The model still uses longer *past* lookbacks such as `log_return_5m`, `log_return_15m`, and the 240-observation VWAP feature; changing the prediction horizon does not remove useful historical context.
+
+The controlled input sets are:
+
+- A-1m: the original 35 own-market features.
+- B-1m: those 35 features plus 18 raw NQ/ES/ZN/CL/GC/6E returns at 1, 5, and 15 minutes.
+- C-1m: those 35 features plus 18 target-relative returns, without the raw anchors.
+
+For a target-market row, an absolute return answers “how did this market or anchor move?” A relative return answers “how did the target move compared with that anchor?” For example,
+
+```text
+relative_to_ES_return_5m
+    = target_market_log_return_5m - ES_return_5m
+```
+
+If NQ returned +0.30% and ES returned +0.10%, the relative value is approximately +0.20 percentage points: NQ outperformed ES over the past five minutes. For an NQ row, a valid NQ self-anchor is zero. Missing exact-time anchors remain null until train-fitted imputation.
+
+Because the original own return remains in C, `own_return - anchor_return` plus `own_return` can reconstruct the raw anchor. C therefore changes the representation rather than adding information. The empirical question is whether that representation is easier for Ridge or HGB to learn.
+
+All three experiments use the same deterministic 100,000 training timestamps per root, the original global split boundaries, and the original 75-minute purge. The complete results and the real A/B/C sample are in `reports/phase2_1_one_minute_report.md`.
