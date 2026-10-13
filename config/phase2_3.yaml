@@ -1,0 +1,20 @@
+version: phase2_3_v1
+source_feature_version: phase2_v1
+source_experiment: experiment_b
+phase2_2_commit: 883c484
+roots: [ZN, ZC, ZB]
+experiments: [A_1m, B_1m]
+target: future_return_1m
+historical_cutoff: "2026-09-23T00:00:00Z"
+training_rows_per_root: 200000
+data_version: phase2_v1_post_cutoff
+checkpoints_days: [7, 30, 60, 90]
+primary_checkpoint_days: 90
+modeling:
+  random_seed: 42
+  hist_gradient_boosting:
+    learning_rate: 0.08
+    max_iter: 150
+    max_leaf_nodes: 31
+    min_samples_leaf: 100
+    l2_regularization: 0.1

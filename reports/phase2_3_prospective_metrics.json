@@ -1,0 +1,71 @@
+{
+  "version": "phase2_3_v1",
+  "status": "awaiting_prospective_data",
+  "freeze_manifest_reference": "D:\\futures-ml-data\\artifacts\\models\\phase2_3\\model_freeze_manifest.json",
+  "freeze_manifest_frozen_at_utc": "2026-10-13T05:00:31.707464+00:00",
+  "historical_cutoff": "2026-09-23T00:00:00+00:00",
+  "prospective_timestamp_rule": "strictly greater than historical_cutoff",
+  "model_ids": [
+    "ZN-A-final",
+    "ZN-B-final",
+    "ZC-A-final",
+    "ZC-B-final",
+    "ZB-A-final",
+    "ZB-B-final"
+  ],
+  "predeclared_checkpoints": [
+    {
+      "days": 7,
+      "role": "monitoring",
+      "start_exclusive": "2026-09-23T00:00:00+00:00",
+      "end_exclusive": "2026-09-30T00:00:00+00:00"
+    },
+    {
+      "days": 30,
+      "role": "monitoring",
+      "start_exclusive": "2026-09-23T00:00:00+00:00",
+      "end_exclusive": "2026-10-23T00:00:00+00:00"
+    },
+    {
+      "days": 60,
+      "role": "monitoring",
+      "start_exclusive": "2026-09-23T00:00:00+00:00",
+      "end_exclusive": "2026-11-22T00:00:00+00:00"
+    },
+    {
+      "days": 90,
+      "role": "primary",
+      "start_exclusive": "2026-09-23T00:00:00+00:00",
+      "end_exclusive": "2026-12-22T00:00:00+00:00"
+    }
+  ],
+  "current_data": {
+    "rows_by_root": {
+      "ZN": 0,
+      "ZC": 0,
+      "ZB": 0
+    },
+    "total_source_rows": 0,
+    "maximum_timestamp_by_root": {
+      "ZN": null,
+      "ZC": null,
+      "ZB": null
+    },
+    "prediction_events_appended_this_run": 0,
+    "outcome_events_appended_this_run": 0,
+    "log_path": "D:\\futures-ml-data\\artifacts\\prospective\\phase2_3\\prediction_log"
+  },
+  "evaluation_window": null,
+  "data_start": null,
+  "data_end": null,
+  "observations": {},
+  "overall_metrics": {},
+  "per_model_metrics": {},
+  "a_vs_b_deltas": {},
+  "decile_metrics": {},
+  "volatility_regime_metrics": {},
+  "drift_metrics": {},
+  "completed_windows": [],
+  "selection_status": "no_model_selected",
+  "results_note": "No historical observation is substituted for prospective evidence."
+}

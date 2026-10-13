@@ -4,7 +4,7 @@ Build a careful, reproducible futures ML research platform. The immediate scient
 
 # Current Phase
 
-Phase 1, Phase 2, Phase 2.1, and Phase 2.2 are complete: repository/storage setup, Databento acquisition and validation, canonical processing, rollover-safe feature/label construction, chronological splitting, baseline predictive evaluation, the one-minute cross-market ablation, and its rolling walk-forward temporal-stability study.
+Phase 1, Phase 2, Phase 2.1, and Phase 2.2 are complete. Phase 2.3 model freezing and evaluator preparation are complete; prospective confirmation is awaiting genuinely new data. The repository now covers acquisition/validation, canonical rollover-safe features and labels, baseline and ablation studies, temporal replication, and immutable dedicated candidates for prospective evaluation.
 
 Current handoff (2026-09-23):
 
@@ -68,6 +68,21 @@ Phase 2.2 handoff (2026-10-13):
 - Artifacts: `D:\futures-ml-data\artifacts\models\phase2_2`; declarations: `reports/phase2_2_fold_definitions.{md,json}`; compact metrics: `reports/phase2_2_walk_forward_metrics.json`; report: `reports/phase2_2_walk_forward_stability_report.md`.
 - Known limitations: all folds reuse the same historical five-year dataset, the relationship remains small, pooled results are dominated by stronger roots, and there is no fee, slippage, execution, backtest, or profitability analysis.
 - Exact next recommended task: if new authority and genuinely new forward data or a newly reserved future holdout become available, predeclare a dedicated A-vs-B replication for ZN/ZC/ZB to separate market specialization from anchor-feature value. Do not begin strategy/backtest/live work without a new explicit phase request.
+
+Phase 2.3 handoff (2026-10-13):
+
+- Purpose: compare dedicated A vs B independently for the Phase 2.2-preselected ZN, ZC, and ZB roots using only genuinely new timestamps. This is model confirmation, not strategy research.
+- Historical cutoff: `2026-09-23T00:00:00Z`. Training timestamps are strictly earlier; prospective timestamps must be strictly later. No Phase 2.2 fold may be relabeled as prospective evidence.
+- Frozen candidates: `ZN-A-final`, `ZN-B-final`, `ZC-A-final`, `ZC-B-final`, `ZB-A-final`, and `ZB-B-final`. A has the unchanged 35 own-market features; B adds the unchanged 18 raw exact-time anchors. Relative C features are absent.
+- Every candidate uses 200,000 deterministic eligible rows from its root and the frozen HGB settings: learning rate `0.08`, 150 iterations, 31 leaves, minimum leaf 100, L2 `0.1`, seed 42. Dedicated models omit root encoding.
+- Eligible historical counts before sampling are ZN `1,584,770`, ZC `909,854`, and ZB `1,396,266`. A and B use identical selected-row identities within each root.
+- The JSON/Markdown freeze manifests are `reports/phase2_3_model_freeze_manifest.{json,md}`. They record full feature order, training spans/counts, selected-row hashes, imputer medians, historical robust feature profiles, frozen volatility thresholds, pipeline hashes, artifact paths, creation time, versions, and cutoff.
+- External model artifacts are under `D:\futures-ml-data\artifacts\models\phase2_3`. Earlier Phase 2/2.1/2.2 trees were not overwritten.
+- The prospective evaluator verifies frozen hashes before use, never calls `fit`, reads prediction inputs without labels, attaches exact outcomes separately, and writes new immutable parts under `D:\futures-ml-data\artifacts\prospective\phase2_3\prediction_log`.
+- Checkpoints were frozen before the local prospective scan: 7/30/60 days are monitoring only; 90 calendar days is primary. Decisions are per root. At the primary review, clear B improvement may retain B; ties or A wins prefer simpler A.
+- Current local post-cutoff status: ZN `0`, ZC `0`, ZB `0` source rows. `reports/phase2_3_prospective_metrics.json` contains the empty result schema and `reports/phase2_3_dedicated_prospective_report.md` states `AWAITING PROSPECTIVE DATA`. No metric was invented and no paid data was purchased/downloaded.
+- No retraining, imputer/threshold update, model selection, or drift-triggered adaptation is allowed during confirmation. Direction agreement, deciles, volatility regimes, and feature drift are diagnostics only.
+- Exact next checkpoint: after explicit data-acquisition approval, build genuinely post-cutoff data through the unchanged pipeline and run the frozen evaluator. Do not begin strategy, P&L, fee, risk, or execution work automatically.
 
 # Core Architecture Decisions
 

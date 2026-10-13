@@ -28,6 +28,8 @@ Phase 2.1 is also complete. It preserved the 35 own-market features, changed the
 
 Phase 2.2 is complete. Eight predeclared expanding-window folds evaluated frozen A-1m and B-1m HGB models over non-overlapping approximately six-month periods, with a 75-minute purge on both sides of every train/evaluation boundary. Both models had positive pooled Pearson, Spearman, and R² in all eight folds. Mean Pearson was `0.075061` for A and `0.074987` for B; B won only three of eight folds on Pearson and R², so the cross-market increment did not show a repeatable aggregate benefit. ZN, ZC, ZB, and ZF were the strongest and most stable roots, while equity-index roots remained weak. This is evidence of historical temporal stability in a small predictive relationship, not evidence of tradability or profitability.
 
+Phase 2.3 has frozen six dedicated candidates for genuinely prospective confirmation: ZN-A/B, ZC-A/B, and ZB-A/B. Each model uses 200,000 deterministic eligible observations strictly before the historical cutoff `2026-09-23T00:00:00Z`, with the same HGB settings and A/B features used in Phase 2.2. Pipeline, selected-row, feature, imputer, training-distribution, and volatility-threshold metadata were hashed before checking for new data. No strictly post-cutoff observations are currently present locally, so the prospective evaluator is ready but its status is `AWAITING PROSPECTIVE DATA`; no historical results were reused and no data was purchased.
+
 ## Acquired V1 Universe
 
 The acquired V1 universe contains 16 CME futures roots:
@@ -181,6 +183,16 @@ python scripts\run_phase2_2_walk_forward.py
 python scripts\generate_phase2_2_report.py
 ```
 
+Freeze or verify the Phase 2.3 candidates, inspect existing local prospective data, and regenerate the status report:
+
+```powershell
+python scripts\freeze_phase2_3_models.py
+python scripts\run_phase2_3_prospective.py
+python scripts\generate_phase2_3_report.py
+```
+
+The freeze command is idempotent after the manifest exists: it verifies hashes and does not refit. The prospective command verifies those hashes, predicts without calling `fit`, and writes only new keyed parts to the external append-only log.
+
 Large outputs remain external:
 
 - canonical bars: `D:\futures-ml-data\processed\bars_1m\`;
@@ -189,8 +201,10 @@ Large outputs remain external:
 - fitted pipelines: `D:\futures-ml-data\artifacts\models\`.
 - Phase 2.1 fitted pipelines/results: `D:\futures-ml-data\artifacts\models\phase2_1\`.
 - Phase 2.2 fold declarations, fitted pipelines, metadata, and results: `D:\futures-ml-data\artifacts\models\phase2_2\`.
+- Phase 2.3 frozen models and manifest: `D:\futures-ml-data\artifacts\models\phase2_3\`.
+- Phase 2.3 append-only prospective log: `D:\futures-ml-data\artifacts\prospective\phase2_3\prediction_log\`.
 
-The Phase 2 reports are [processed_dataset_report.md](reports/processed_dataset_report.md), [feature_report.md](reports/feature_report.md), [ml_dataset_walkthrough.md](reports/ml_dataset_walkthrough.md), and [baseline_model_report.md](reports/baseline_model_report.md). The Phase 2.1 findings are in [phase2_1_one_minute_report.md](reports/phase2_1_one_minute_report.md). The Phase 2.2 design and results are in [phase2_2_fold_definitions.md](reports/phase2_2_fold_definitions.md) and [phase2_2_walk_forward_stability_report.md](reports/phase2_2_walk_forward_stability_report.md).
+The Phase 2 reports are [processed_dataset_report.md](reports/processed_dataset_report.md), [feature_report.md](reports/feature_report.md), [ml_dataset_walkthrough.md](reports/ml_dataset_walkthrough.md), and [baseline_model_report.md](reports/baseline_model_report.md). The Phase 2.1 findings are in [phase2_1_one_minute_report.md](reports/phase2_1_one_minute_report.md). The Phase 2.2 design and results are in [phase2_2_fold_definitions.md](reports/phase2_2_fold_definitions.md) and [phase2_2_walk_forward_stability_report.md](reports/phase2_2_walk_forward_stability_report.md). Phase 2.3 is documented by [phase2_3_model_freeze_manifest.md](reports/phase2_3_model_freeze_manifest.md) and [phase2_3_dedicated_prospective_report.md](reports/phase2_3_dedicated_prospective_report.md).
 
 ## Cost and Storage Method
 
@@ -236,6 +250,8 @@ Phase 2.1 separately predicts `future_return_1m = log(close[t+1m] / close[t])`. 
 
 Phase 2.2 freezes A-1m and B-1m, the Phase 2.1 HGB hyperparameters, and a 200,000-row/root deterministic training cap. It uses expanding training windows and eight non-overlapping evaluation folds. Each fold independently fits preprocessing and the model using only that fold's training data. Fold boundaries and per-root counts were written before any Phase 2.2 model was fit.
 
+Phase 2.3 trains one final dedicated A and B candidate for each preselected ZN/ZC/ZB root. Models, imputers, feature order, training rows, and historical volatility thresholds are immutable during confirmation. Prospective predictions use only causal feature columns; exact outcomes are attached separately through an append-only log. Monitoring windows are fixed at 7/30/60 days and cannot select a winner. The 90-day calendar window is primary, and A/B decisions remain root-specific; approximate ties favor simpler A.
+
 All evaluation must use chronological train/validation/test splits. Preprocessing is fit on training data only, overlapping windows are purged near split boundaries, label columns never enter features, and samples crossing a contract transition are removed. The final test period remains untouched during model and hyperparameter decisions.
 
 ## Roadmap
@@ -244,10 +260,11 @@ All evaluation must use chronological train/validation/test splits. Preprocessin
 2. V2 — complete: clean one-minute research dataset, rollover-safe features/labels, and pooled/NQ-only five-minute-target baseline evaluation.
 3. V2.1 — complete: exact one-minute target, raw-vs-relative cross-market ablation, training-size/full-Ridge/market-specific diagnostics.
 4. V2.2 — complete: predeclared rolling walk-forward stability study of frozen A-1m and B-1m HGB models.
-5. V3 — later scoped MBP-1 experiment after a new estimate and approval.
-6. Next recommended research — a predeclared dedicated A-vs-B replication for ZN/ZC/ZB on genuinely new forward data or a newly reserved future holdout.
-7. V4 — heuristic and model-assisted strategy research, only after a new explicit phase request.
-8. V5 — risk management, costs, slippage, and later strategy walk-forward research.
-9. V6 — possible provider-neutral ProjectX/TopstepX paper integration.
+5. V2.3 — models frozen, evaluator ready, awaiting genuinely post-cutoff ZN/ZC/ZB data for the predeclared 7/30/60/90-day checkpoints.
+6. V3 — later scoped MBP-1 experiment after a new estimate and approval.
+7. Next checkpoint — explicitly approve and acquire/build genuinely post-cutoff data, then run the frozen evaluator without retraining; the 90-day checkpoint is primary.
+8. V4 — heuristic and model-assisted strategy research, only after a new explicit phase request and prospective confirmation.
+9. V5 — risk management, costs, slippage, and later strategy walk-forward research.
+10. V6 — possible provider-neutral ProjectX/TopstepX paper integration.
 
 Official references used for the current integration are the [Databento Historical API reference](https://databento.com/docs/api-reference-historical), [schema guide](https://databento.com/docs/knowledge-base), and [continuous symbology guide](https://databento.com/docs/standards-and-conventions/symbology).
